@@ -1,1 +1,1 @@
-# basics
+- [Типы данных](./docs/types.md)
