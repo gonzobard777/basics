@@ -10,7 +10,7 @@
 | Типы                                                                                                 |                                                                        | Конвертация типов                                                               |
 |------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|---------------------------------------------------------------------------------|
 | 1. [Undefined](https://262.ecma-international.org/12.0/#sec-ecmascript-language-types-undefined-type)| Отсутствует значение, т.к. не было определено. Не примитив И не объект | [Type Conversion](https://262.ecma-international.org/12.0/#sec-type-conversion) |
-| 2. [Null](https://262.ecma-international.org/12.0/#sec-ecmascript-language-types-null-type)          | Намеренное отсутствие какого-либо значения Объекта                     | ToBoolean
+| 2. [Null](https://262.ecma-international.org/12.0/#sec-ecmascript-language-types-null-type)          | Намеренное отсутствие какого-либо значения Объекта/Примитива           | ToBoolean
 | 3. [Boolean](https://262.ecma-international.org/12.0/#sec-ecmascript-language-types-boolean-type)    |                                                                        | ToString
 | 4. [String](https://262.ecma-international.org/12.0/#sec-ecmascript-language-types-string-type)      |                                                                        | ToNumber
 | 5. [Symbol](https://262.ecma-international.org/12.0/#sec-ecmascript-language-types-symbol-type)      |                                                                        | ToPrimitive
