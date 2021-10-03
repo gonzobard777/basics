@@ -1,1 +1,2 @@
 - [Типы данных](./docs/types.md)
+- [Циклы](./docs/loops.md)
