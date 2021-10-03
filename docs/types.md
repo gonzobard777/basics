@@ -18,6 +18,18 @@
 | 7. | [BigInt](https://262.ecma-international.org/12.0/#sec-ecmascript-language-types-bigint-type)      | [BigInt](https://learn.javascript.ru/bigint)                                                                                | [ToBigInt](https://262.ecma-international.org/12.0/#sec-tobigint)
 | 8. | [Object](https://262.ecma-international.org/12.0/#sec-object-type)                                |                                                                                                                             | [ToPrimitive](https://262.ecma-international.org/12.0/#sec-toprimitive), [Преобразование объектов в примитивы](https://learn.javascript.ru/object-toprimitive), [Пользовательский «toJSON»](https://learn.javascript.ru/json#polzovatelskiy-tojson)
 
+|             | Undefined   | Null        | Boolean                         | String                        | Symbol      | Number                              | BigInt                      | Object              |
+|-------------|-------------|-------------|---------------------------------|-------------------------------|-------------|-------------------------------------|-----------------------------|---------------------|
+| Undefined   | -           | -           | `false`                         | `"undefined"`                 | -           | `NaN`                               | TypeError exception         | TypeError exception |
+| Null        | -           | -           | `false`                         | `"null"`                      | -           | `+0`                                | TypeError exception         | TypeError exception |
+| Boolean     | -           | -           | -                               | `"true"/"false"`              | -           | `1`/`+0`                            | `1n`/`0n`                   | `Boolean(значение)` |
+| String      | -           | -           | length is 0 ? `false` : `true`  | `"значение"/"NaN"/"Infinity"` | -           | ToNumber Applied to the String Type | алгоритм                    | `String(значение)`  |
+| Symbol      | -           | -           | `true`                          | `"значение"`                  | -           | TypeError exception                 | TypeError exception         | `Symbol(значение)`  |
+| Number      | -           | -           | `0` or `NaN` ? `false` : `true` | TypeError Exception           | -           | -                                   | TypeError exception         | `Number(значение)`  |
+| BigInt      | -           | -           | `0` ? `false` : `true`          | BigInt::toString              | -           | TypeError exception                 | -                           | `BigInt(значение)`  |
+| Object      | -           | -           | `true`                          | ToPrimitive                   | -           | ToPrimitive                         | -                           | -                   |
+
+
 
 ### `typeof` Operator Results
 
