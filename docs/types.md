@@ -26,17 +26,17 @@
 <br/>
 <br/>
   
-| `typeof` *value*                     | Result
-|--------------------------------------|--------
-| Undefined                            | "undefined"
-| Null                                 | ["object"](https://2ality.com/2013/10/typeof-null.html)
-| Boolean                              | "boolean"
-| Number                               | "number"
-| String                               | "string"
-| Symbol                               | "symbol"
-| BigInt                               | "bigint"
-| Object (does not implement [[Call]]) | "object"
-| Object (implements [[Call]])         | "function"
+| `typeof` *value*                     | Result                                                  |                                                                                               |
+|--------------------------------------|---------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| Undefined                            | "undefined"                                             |                                                                                               |
+| Null                                 | ["object"](https://2ality.com/2013/10/typeof-null.html) | Insted of `typeOf` to check `null` type use `typeof value === 'object' && value == undefined` |
+| Boolean                              | "boolean"                                               |
+| Number                               | "number"                                                |
+| String                               | "string"                                                |
+| Symbol                               | "symbol"                                                |
+| BigInt                               | "bigint"                                                |
+| Object (does not implement [[Call]]) | "object"                                                |
+| Object (implements [[Call]])         | "function"                                              |
 <br/>
   
 ### Сравнение на равенство
