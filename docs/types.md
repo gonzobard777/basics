@@ -26,10 +26,10 @@
 <br/>
 <br/>
   
-| `typeof` *value*                     | Result                                                  |                                                                                                |
-|--------------------------------------|---------------------------------------------------------|------------------------------------------------------------------------------------------------|
-| Undefined                            | "undefined"                                             |                                                                                                |
-| Null                                 | ["object"](https://2ality.com/2013/10/typeof-null.html) | use `value === null` or `typeof value === 'object' && value == undefined` instead of `typeOf value` to check Null type |
+| `typeof` *value*                     | Result                                                  |                                                                           |
+|--------------------------------------|---------------------------------------------------------|---------------------------------------------------------------------------|
+| Undefined                            | "undefined"                                             |                                                                           |
+| Null                                 | ["object"](https://2ality.com/2013/10/typeof-null.html) | use `value === null` or `typeof value === 'object' && value == undefined` |
 | Boolean                              | "boolean"                                               |
 | Number                               | "number"                                                |
 | String                               | "string"                                                |
