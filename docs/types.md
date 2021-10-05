@@ -39,7 +39,7 @@
 | Object (implements [[Call]])         | "function"
 <br/>
   
-### Сравнение на равенство `==`, `===`
+### Сравнение на равенство
 
 `==` [Нестрогое сравнение на равенство](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-islooselyequal)
 
