@@ -10,6 +10,19 @@
 | 7. | [Symbol](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-ecmascript-language-types-symbol-type)       | [Тип данных Symbol](https://learn.javascript.ru/symbol)                                                                     | 
 | 8. | [Object](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-object-type)                                 |                                                                                                                             | 
   
+| `typeof` *value*                     | Result                                                  |                                                                           |
+|--------------------------------------|---------------------------------------------------------|---------------------------------------------------------------------------|
+| Undefined                            | "undefined"                                             |                                                                           |
+| Null                                 | ["object"](https://2ality.com/2013/10/typeof-null.html) | use `value === null` or `typeof value === 'object' && value == undefined` |
+| Boolean                              | "boolean"                                               |
+| Number                               | "number"                                                |
+| String                               | "string"                                                |
+| Symbol                               | "symbol"                                                |
+| BigInt                               | "bigint"                                                |
+| Object (does not implement [[Call]]) | "object"                                                |
+| Object (implements [[Call]])         | "function"                                              |
+<br/>
+
 |           | [ToBoolean](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-toboolean) | [ToNumber](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-tonumber)             | [ToBigInt](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-tobigint)                        | [ToString](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-tostring)                                           | [ToObject](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-toobject)                                |
 |-----------|---------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
 | Undefined | `false`                                                                               | `NaN`                                                                                           | TypeError                                                                                                  | `"undefined"`                                                                                                                 | TypeError                                                                                                          |
@@ -23,20 +36,6 @@
 
 - [Преобразование объектов в примитивы](https://learn.javascript.ru/object-toprimitive)
 - [Пользовательский «toJSON»](https://learn.javascript.ru/json#polzovatelskiy-tojson)
-<br/>
-<br/>
-  
-| `typeof` *value*                     | Result                                                  |                                                                           |
-|--------------------------------------|---------------------------------------------------------|---------------------------------------------------------------------------|
-| Undefined                            | "undefined"                                             |                                                                           |
-| Null                                 | ["object"](https://2ality.com/2013/10/typeof-null.html) | use `value === null` or `typeof value === 'object' && value == undefined` |
-| Boolean                              | "boolean"                                               |
-| Number                               | "number"                                                |
-| String                               | "string"                                                |
-| Symbol                               | "symbol"                                                |
-| BigInt                               | "bigint"                                                |
-| Object (does not implement [[Call]]) | "object"                                                |
-| Object (implements [[Call]])         | "function"                                              |
 <br/>
   
 ### Сравнение на равенство
