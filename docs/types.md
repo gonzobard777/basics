@@ -46,6 +46,6 @@
 
 Возможно, вместо `===` стоит использовать [Object.is](https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.is)
 
-### Binary operator
+### leftValue operator rightValue 
 
 https://tc39.es/ecma262/multipage/ecmascript-language-expressions.html#sec-applystringornumericbinaryoperator
