@@ -10,11 +10,11 @@
 | 7. | [Symbol](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-ecmascript-language-types-symbol-type)       | [Тип данных Symbol](https://learn.javascript.ru/symbol)                                                                     | 
 | 8. | [Object](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-object-type)                                 |                                                                                                                             | 
   
-| `typeof` *value*                     | Result                                                  |                                                                           |
+| `typeof` *value*                     | Result                                                  | Maybe it would be better this way                                         |
 |--------------------------------------|---------------------------------------------------------|---------------------------------------------------------------------------|
-| Undefined                            | "undefined"                                             |                                                                           |
+| Undefined                            | "undefined"                                             | or `value === undefined`                                                  |
 | Null                                 | ["object"](https://2ality.com/2013/10/typeof-null.html) | use `value === null` or `typeof value === 'object' && value == undefined` |
-| Boolean                              | "boolean"                                               |
+| Boolean                              | "boolean"                                               | `value === true` or `value === false`                                     |
 | Number                               | "number"                                                |
 | String                               | "string"                                                |
 | Symbol                               | "symbol"                                                |
