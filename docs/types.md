@@ -51,12 +51,13 @@
 Unary `+`  
 `Number(value)`, Unary `-`, `~`  
 [Binary](https://tinyurl.com/b7ny87t9) `+`, `-`, `**`, `*`, `/`, `%`, `<<`, `>>`, `>>>`, `&`, `^`, `|`  
+`==`  
 
 ### ToString
 
 `String(value)`  
 `${value}`  
-`object[propertyKey]`  
+`object[propertyKey]`, Relational `in`    
 [Binary](https://tinyurl.com/b7ny87t9) `+`  
 
 ### Сравнение на равенство
