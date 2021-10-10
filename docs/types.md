@@ -37,7 +37,15 @@
 - [Преобразование объектов в примитивы](https://learn.javascript.ru/object-toprimitive)
 - [Пользовательский «toJSON»](https://learn.javascript.ru/json#polzovatelskiy-tojson)
 <br/>
-  
+
+### ToBoolean
+
+`Boolean(value)` or `!!`  
+`!`  
+`if`, циклы  
+`? :`  
+`&&`, `||`
+
 ### Сравнение на равенство
 
 `==` [Нестрогое сравнение на равенство](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-islooselyequal)
