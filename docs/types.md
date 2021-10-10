@@ -57,7 +57,7 @@ Unary `+`
 
 `String(value)`  
 `${value}`  
-`object[propertyKey]`, Relational `in`    
+`object[key]`, `in`    
 [Binary](https://tinyurl.com/b7ny87t9) `+`  
 
 ### Сравнение на равенство
