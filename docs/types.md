@@ -46,10 +46,10 @@
 `? :`  
 `&&`, `||`
   
-### ToNumber
+### ToNumber, ToNumeric
 
 Unary `+`  
-`Number(value)`, Unary `-`  
+`Number(value)`, Unary `-`, `~`  
 [Binary](https://tinyurl.com/b7ny87t9) `+`, `-`, `**`, `*`, `/`, `%`, `<<`, `>>`, `>>>`, `&`, `^`, `|`  
 
 ### ToString
