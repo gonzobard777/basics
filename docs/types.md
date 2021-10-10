@@ -1,26 +1,26 @@
 
-|    | Типы                                                                                                                              |                                                                                                                             |
-|----|-----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| 1. | [Undefined](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-ecmascript-language-types-undefined-type) | Отсутствует значение, т.к. не было определено. [Не примитив И не объект](https://2ality.com/2013/05/history-undefined.html) | 
-| 2. | [Null](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-ecmascript-language-types-null-type)           | Намеренное отсутствие какого-либо значения Объекта/Примитива                                                                | 
-| 3. | [Boolean](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-ecmascript-language-types-boolean-type)     |                                                                                                                             | 
-| 4. | [Number](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-ecmascript-language-types-number-type)       | [Числа](https://learn.javascript.ru/number)                                                                                 | 
-| 5. | [BigInt](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-ecmascript-language-types-bigint-type)       | [BigInt](https://learn.javascript.ru/bigint)                                                                                | 
-| 6. | [String](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-ecmascript-language-types-string-type)       | [Строки](https://learn.javascript.ru/string)                                                                                | 
-| 7. | [Symbol](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-ecmascript-language-types-symbol-type)       | [Тип данных Symbol](https://learn.javascript.ru/symbol)                                                                     | 
-| 8. | [Object](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-object-type)                                 |                                                                                                                             | 
+|    | Типы                                      |                                                                                                        |
+|----|-------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| 1. | [Undefined](https://tinyurl.com/3mbrhdbk) | Отсутствует значение, т.к. не было определено. [Не примитив И не объект](https://tinyurl.com/4586tj84) | 
+| 2. | [Null](https://tinyurl.com/2t5u8wv6)      | Намеренное отсутствие какого-либо значения Объекта/Примитива                                           | 
+| 3. | [Boolean](https://tinyurl.com/8c7zzanm)   |                                                                                                        | 
+| 4. | [Number](https://tinyurl.com/dsz6yry7)    | [Числа](https://learn.javascript.ru/number)                                                            | 
+| 5. | [BigInt](https://tinyurl.com/yxyf6kex)    | [BigInt](https://learn.javascript.ru/bigint)                                                           | 
+| 6. | [String](https://tinyurl.com/s69stj49)    | [Строки](https://learn.javascript.ru/string)                                                           | 
+| 7. | [Symbol](https://tinyurl.com/3dz2st73)    | [Тип данных Symbol](https://learn.javascript.ru/symbol)                                                | 
+| 8. | [Object](https://tinyurl.com/du3bf37k)    |                                                                                                        | 
   
-| `typeof` *value*                     | Result                                                  | Maybe it would be better this way                                         |
-|--------------------------------------|---------------------------------------------------------|---------------------------------------------------------------------------|
-| Undefined                            | "undefined"                                             | or `value === undefined`                                                  |
-| Null                                 | ["object"](https://2ality.com/2013/10/typeof-null.html) | use `value === null` or `typeof value === 'object' && value == undefined` |
-| Boolean                              | "boolean"                                               | `value === true` or `value === false`                                     |
-| Number                               | "number"                                                |
-| String                               | "string"                                                |
-| Symbol                               | "symbol"                                                |
-| BigInt                               | "bigint"                                                |
-| Object (does not implement [[Call]]) | "object"                                                |
-| Object (implements [[Call]])         | "function"                                              |
+| `typeof` *value*                     | Result                                   | Maybe it would be better this way                                         |
+|--------------------------------------|------------------------------------------|---------------------------------------------------------------------------|
+| Undefined                            | "undefined"                              | or `value === undefined`                                                  |
+| Null                                 | ["object"](https://tinyurl.com/ymjz3v7h) | use `value === null` or `typeof value === 'object' && value == undefined` |
+| Boolean                              | "boolean"                                | `value === true` or `value === false`                                     |
+| Number                               | "number"                                 |
+| String                               | "string"                                 |
+| Symbol                               | "symbol"                                 |
+| BigInt                               | "bigint"                                 |
+| Object (does not implement [[Call]]) | "object"                                 |
+| Object (implements [[Call]])         | "function"                               |
 <br/>
 
 |           | [ToBoolean](https://tinyurl.com/r7v9y9n9)                   | [ToNumber](https://tinyurl.com/ur5yaxkh)                                                                                                       | [ToBigInt](https://tinyurl.com/3tk59vvr)       | [ToString](https://tinyurl.com/mxe9adyw)         | [ToObject](https://tinyurl.com/35nbcfmm)             |
