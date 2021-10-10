@@ -45,6 +45,19 @@
 `if`, циклы  
 `? :`  
 `&&`, `||`
+  
+### ToNumber
+
+Unary `+`  
+`Number(value)`  
+[Binary](https://tinyurl.com/b7ny87t9) `+`, `-`, `**`, `*`, `/`, `%`, `<<`, `>>`, `>>>`, `&`, `^`, `|`  
+
+### ToString
+
+`String(value)`  
+`${value}`  
+`object[propertyKey]`  
+[Binary](https://tinyurl.com/b7ny87t9) `+`  
 
 ### Сравнение на равенство
 
@@ -53,8 +66,3 @@
 `===` [Строгое сравнение на равенство](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-isstrictlyequal)
 
 Возможно, вместо `===` стоит использовать [Object.is](https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.is)
-
-### leftValue operator rightValue 
-
-Operators: `**`, `*`, `/`, `%`, `+`, `-`, `<<`, `>>`, `>>>`, `&`, `^`, `|`.  
-[ApplyStringOrNumericBinaryOperator](https://tc39.es/ecma262/multipage/ecmascript-language-expressions.html#sec-applystringornumericbinaryoperator)
