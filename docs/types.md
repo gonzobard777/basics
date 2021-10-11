@@ -38,6 +38,14 @@
 - [Пользовательский «toJSON»](https://learn.javascript.ru/json#polzovatelskiy-tojson)
 <br/>
 
+
+| ToBoolean                                                             | ToNumber, ToNumeric              |
+|-----------------------------------------------------------------------|----------------------------------|
+| `Boolean(value)` or `!!`<br>`!`<br>`if`, циклы<br>`? :`<br>`&&`, `||` | Unary `+`<br>
+|
+|
+|
+
 ### ToBoolean
 
 `Boolean(value)` or `!!`  
