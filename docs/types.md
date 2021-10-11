@@ -36,13 +36,12 @@
 
 - [Преобразование объектов в примитивы](https://learn.javascript.ru/object-toprimitive)
 - [Пользовательский «toJSON»](https://learn.javascript.ru/json#polzovatelskiy-tojson)
-<br/>
-
-
+  
 | ToBoolean                                                                 | ToNumber, ToNumeric                                                                                                                                                | ToString                                                                                              |
 |---------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | `Boolean(value)`, `!!`,<br>`!`,<br>`if`, циклы,<br>`? :`,<br>`&&`, `\|\|` | Unary `+`,<br>`Number(value)`, Unary `-`, `~`,<br>[Binary](https://tinyurl.com/b7ny87t9) `+`, `-`, `**`, `*`, `/`, `%`, `<<`, `>>`, `>>>`, `&`, `^`, `\|`,<br>`==` | `String(value)`,<br>`${value}`,<br>`object[key]`, `in`,<br>[Binary](https://tinyurl.com/b7ny87t9) `+` |
-
+<br/>
+  
 ### Сравнение на равенство
 
 `==` [Нестрогое сравнение на равенство](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-islooselyequal)
