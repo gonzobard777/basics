@@ -3,7 +3,7 @@
 |    | Типы                                      |                                                                                                        |
 |----|-------------------------------------------|--------------------------------------------------------------------------------------------------------|
 | 1. | [Undefined](https://tinyurl.com/3mbrhdbk) | Отсутствует значение, т.к. не было определено. [Не примитив И не объект](https://tinyurl.com/4586tj84) | 
-| 2. | [Null](https://tinyurl.com/2t5u8wv6)      | Намеренное отсутствие какого-либо значения Объекта/Примитива                                           | 
+| 2. | [Null](https://tinyurl.com/2t5u8wv6)      | Намеренное отсутствие значения Объекта                                                                 | 
 | 3. | [Boolean](https://tinyurl.com/8c7zzanm)   |                                                                                                        | 
 | 4. | [Number](https://tinyurl.com/dsz6yry7)    | [Числа](https://learn.javascript.ru/number)                                                            | 
 | 5. | [BigInt](https://tinyurl.com/yxyf6kex)    | [BigInt](https://learn.javascript.ru/bigint)                                                           | 
