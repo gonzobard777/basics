@@ -15,7 +15,7 @@
 |--------------------------------------|------------------------------------------|---------------------------------------------------------------------------|
 | Undefined                            | "undefined"                              | or `value === undefined`                                                  |
 | Null                                 | ["object"](https://tinyurl.com/ymjz3v7h) | use `value === null` or `typeof value === 'object' && value == undefined` |
-| Boolean                              | "boolean"                                | `value === true` or `value === false`                                     |
+| Boolean                              | "boolean"                                |
 | Number                               | "number"                                 |
 | String                               | "string"                                 |
 | Symbol                               | "symbol"                                 |
