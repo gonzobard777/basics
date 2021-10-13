@@ -52,3 +52,15 @@
 `===` [Строгое сравнение на равенство](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-isstrictlyequal)
 
 Возможно, вместо `===` стоит использовать [Object.is](https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.is)
+
+### Checks
+
+`'1' + 3`
+`3 + '1' + 5`
+`'7' - 3`
+`6 - '3' - 1`
+`6 + '3' - 1`
+`'7' * '3'`
+`'9' / 3`
+`null + 2`
+`undefined + 3`
