@@ -72,6 +72,7 @@
 `null + 2`  
 `undefined + 3`  
 `!"0"`  
+`!!"false"`  
 `"a" == "b"`  
 `123 != "456"`  
 `"true" == true`  
