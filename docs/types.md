@@ -78,3 +78,7 @@
 `false == "false"`  
 `null == ""`  
 `!!"false" == !!"true"`  
+`Object.is(0, -0)`  
+`0 === -0`  
+`NaN === NaN`  
+`Object.is(NaN, NaN)`  
