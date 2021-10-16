@@ -114,3 +114,10 @@ var a;
 console.log(typeof a);
 console.log(typeof z);
 ```  
+```js
+var a;
+var z = 42;
+z = a;
+console.log(typeof a);
+console.log(typeof z);
+```  
