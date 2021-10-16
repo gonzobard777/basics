@@ -83,3 +83,6 @@
 `0 === -0`  
 `NaN === NaN`  
 `Object.is(NaN, NaN)`  
+`typeof null === "object"`  
+`typeof {} === "object"`  
+`typeof(()=>{}) === "object"`  
