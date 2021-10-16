@@ -5,7 +5,7 @@
 
 |    | Типы значений                             |                                                                                                        |
 |----|-------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| 1. | [Undefined](https://tinyurl.com/3mbrhdbk) | Значение `undefined` присваивается непроинициализированным переменным.<br>Значение `undefined` возвращает функция, для котрой не определено return значение.<br>Значение `undefined` возвращается при обращении к отсутствующему полю объекта.<br>[Не примитив И не объект](https://tinyurl.com/4586tj84) | 
+| 1. | [Undefined](https://tinyurl.com/3mbrhdbk) | Значение `undefined` присваивается непроинициализированным переменным.<br>Значение `undefined` возвращает функция, для которой не определено return значение.<br>Значение `undefined` возвращается при обращении к отсутствующему полю объекта.<br>[Не примитив И не объект](https://tinyurl.com/4586tj84) | 
 | 2. | [Null](https://tinyurl.com/2t5u8wv6)      | Намеренное отсутствие значения Объекта                                                                 | 
 | 3. | [Boolean](https://tinyurl.com/8c7zzanm)   |                                                                                                        | 
 | 4. | [Number](https://tinyurl.com/dsz6yry7)    | [Числа](https://learn.javascript.ru/number)                                                            | 
@@ -84,7 +84,7 @@
 `false == "false"`  
 `null == ""`  
 `undefined == null`  
-```
+```js
 var a;
 if (a != null) {
   console.log('hello');
@@ -104,3 +104,13 @@ if (a != null) {
 `typeof(typeof 0) === "number"`  
 `(function helloWorld(){})() === undefined`  
 `({})() === undefined`  
+```js
+var a;
+console.log(a);
+console.log(z);
+```  
+```js
+var a;
+console.log(typeof a);
+console.log(typeof z);
+```  
