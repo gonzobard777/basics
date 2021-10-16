@@ -84,6 +84,14 @@
 `false == "false"`  
 `null == ""`  
 `undefined == null`  
+```
+var a;
+if (a != null) {
+  console.log('hello');
+} else {
+  console.log('world');
+}
+```  
 `!!"false" == !!"true"`  
 `Object.is(0, -0)`  
 `0 === -0`  
@@ -92,4 +100,7 @@
 `typeof null === "object"`  
 `typeof {} === "object"`  
 `typeof(()=>{}) === "object"`  
-`typeof [3, 5, 2] === "array"`
+`typeof [3, 5, 2] === "array"`  
+`typeof(typeof 0) === "number"`  
+`(function helloWorld(){})() === undefined`  
+`({})() === undefined`  
