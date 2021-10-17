@@ -30,9 +30,9 @@
 
 # Конвертации
 
-| [ToBoolean](https://tinyurl.com/r7v9y9n9)                                           | [ToNumber](https://tinyurl.com/ur5yaxkh), [ToNumeric](https://tinyurl.com/hp6snzfb)                                                                                                                                                                                                                                                  | [ToBigInt](https://tinyurl.com/3tk59vvr)                          | [ToString](https://tinyurl.com/mxe9adyw)                                                                                  |
-|-------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| `Boolean(value)`,<br>Unary `!`,<br>`if`, циклы,<br>`? :`,<br>`&&`, `\|\|`<br>&nbsp; | Unary `+`, `-`, `~`,<br>`Number(value)`,<br>[Binary](https://tinyurl.com/b7ny87t9) `+`, `-`, `**`, `*`, `/`, `%`, `<<`, `>>`, `>>>`, `&`, `^`, `\|`,<br>[Relational](https://tinyurl.com/yj6zydm6) `<`, `>`, `<=`, `>=`<br>[Update](https://tinyurl.com/vffpnsw2) `++`, `--`,<br>[Equality](https://tinyurl.com/vbhc8cw2) `==`, `!=` | `BigInt(value)`<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; | `${value}`,<br>`String(value)`,<br>`object[key]`, `in`,<br>[Binary](https://tinyurl.com/b7ny87t9) `+`<br>&nbsp;<br>&nbsp; |
+| [ToBoolean](https://tinyurl.com/r7v9y9n9)                                                     | [ToNumber](https://tinyurl.com/ur5yaxkh), [ToNumeric](https://tinyurl.com/hp6snzfb)                                                                                                                                                                                                                                                                                                                                      | [ToBigInt](https://tinyurl.com/3tk59vvr)                                    | [ToString](https://tinyurl.com/mxe9adyw)                                                                                            |
+|-----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| `Boolean(value)`,<br>Unary `!`,<br>`if`, циклы,<br>`? :`,<br>`&&`, `\|\|`<br>&nbsp;<br>&nbsp; | Unary `+`, `-`, `~`,<br>`Number(value)`,<br>[Binary](https://tinyurl.com/b7ny87t9) `+`, `-`, `**`, `*`, `/`, `%`, `<<`, `>>`, `>>>`, `&`, `^`, `\|`,<br>[Relational](https://tinyurl.com/yj6zydm6) `<`, `>`, `<=`, `>=`<br>[Update](https://tinyurl.com/vffpnsw2) `++`, `--`,<br>[Equality](https://tinyurl.com/vbhc8cw2) `==`, `!=`,<br>[isNaN](https://tinyurl.com/3sype8zz), [isFinite](https://tinyurl.com/54zxtza6) | `BigInt(value)`<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; | `${value}`,<br>`String(value)`,<br>`object[key]`, `in`,<br>[Binary](https://tinyurl.com/b7ny87t9) `+`<br>&nbsp;<br>&nbsp;<br>&nbsp; |
   
 |           | [ToBoolean](https://tinyurl.com/r7v9y9n9)                   | [ToNumber](https://tinyurl.com/ur5yaxkh)       | [ToBigInt](https://tinyurl.com/3tk59vvr)       | [ToString](https://tinyurl.com/mxe9adyw)         | [ToObject](https://tinyurl.com/35nbcfmm)             |
 |-----------|-------------------------------------------------------------|------------------------------------------------|------------------------------------------------|--------------------------------------------------|------------------------------------------------------|
@@ -71,7 +71,15 @@
 `null + 2`  
 `undefined + 3`  
 `"7" * "3"`  
+`1 * "123d"`  
 `"9" / 3`  
+`"5" / 0`  
+`5 / "hello" === NaN`  
+`NaN == NaN`  
+`NaN !== NaN`  
+`isNaN("hello")`  
+`Number.isNaN("hello")`  
+`Object.is(NaN, NaN)`  
 `1 || 0 || 7`  
 `"false" && 0 && 7`  
 `0 || "0" && 1`  
@@ -95,8 +103,6 @@ if (a != null) {
 `!!"false" == !!"true"`  
 `Object.is(0, -0)`  
 `0 === -0`  
-`NaN === NaN`  
-`Object.is(NaN, NaN)`  
 `typeof null === "object"`  
 `typeof {} === "object"`  
 `typeof(()=>{}) === "object"`  
