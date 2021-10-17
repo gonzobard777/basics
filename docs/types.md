@@ -3,16 +3,16 @@
 В языке JavaScript у переменных нет типов – типы есть у _значений_.  
 Переменная может хранить любое значение в любой момент времени. Иначе говоря, движек не требует, чтобы в _переменной_ всегда хранились значения _исходного типа_, с которым она начала свое существование.  
 
-|    | Типы значений                             |                                                                                                        |
-|----|-------------------------------------------|--------------------------------------------------------------------------------------------------------|
+|    | Типы значений                             |                                                         |
+|----|-------------------------------------------|---------------------------------------------------------|
 | 1. | [Undefined](https://tinyurl.com/3mbrhdbk) | Значение `undefined` присваивается непроинициализированным переменным.<br>Значение `undefined` возвращает функция, для которой не определено return значение.<br>Значение `undefined` возвращается при обращении к отсутствующему полю объекта.<br>[Не примитив И не объект](https://tinyurl.com/4586tj84) | 
-| 2. | [Null](https://tinyurl.com/2t5u8wv6)      | Намеренное отсутствие значения Объекта                                                                 | 
-| 3. | [Boolean](https://tinyurl.com/8c7zzanm)   |                                                                                                        | 
-| 4. | [Number](https://tinyurl.com/dsz6yry7)    | [Числа](https://learn.javascript.ru/number)                                                            | 
-| 5. | [BigInt](https://tinyurl.com/yxyf6kex)    | [BigInt](https://learn.javascript.ru/bigint)                                                           | 
-| 6. | [String](https://tinyurl.com/s69stj49)    | [Строки](https://learn.javascript.ru/string)                                                           | 
-| 7. | [Symbol](https://tinyurl.com/3dz2st73)    | [Тип данных Symbol](https://learn.javascript.ru/symbol)                                                | 
-| 8. | [Object](https://tinyurl.com/du3bf37k)    |                                                                                                        | 
+| 2. | [Null](https://tinyurl.com/2t5u8wv6)      | Намеренное отсутствие значения.                         | 
+| 3. | [Boolean](https://tinyurl.com/8c7zzanm)   |                                                         | 
+| 4. | [Number](https://tinyurl.com/dsz6yry7)    | [Числа](https://learn.javascript.ru/number)             | 
+| 5. | [BigInt](https://tinyurl.com/yxyf6kex)    | [BigInt](https://learn.javascript.ru/bigint)            | 
+| 6. | [String](https://tinyurl.com/s69stj49)    | [Строки](https://learn.javascript.ru/string)            | 
+| 7. | [Symbol](https://tinyurl.com/3dz2st73)    | [Тип данных Symbol](https://learn.javascript.ru/symbol) | 
+| 8. | [Object](https://tinyurl.com/du3bf37k)    |                                                         | 
 
 ## К какому типу относится это значение или значение в этой переменной?
   
@@ -22,9 +22,9 @@
 | Null                                 | ["object"](https://tinyurl.com/ymjz3v7h) | use `value === null` or `typeof value === 'object' && value == undefined` |
 | Boolean                              | "boolean"                                |
 | Number                               | "number"                                 |
+| BigInt                               | "bigint"                                 |
 | String                               | "string"                                 |
 | Symbol                               | "symbol"                                 |
-| BigInt                               | "bigint"                                 |
 | Object (does not implement [[Call]]) | "object"                                 |
 | Object (implements [[Call]])         | "function"                               |
 
