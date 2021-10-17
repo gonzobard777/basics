@@ -66,6 +66,9 @@
 `"4px" - 3`  
 `6 - "3" - 1`  
 `6 + "3" - 1`  
+`+[]`  
+`+[3]`  
+`+[1, 2]`  
 `true + false`  
 `"five" + + "two"`  
 `null + 2`  
@@ -73,13 +76,22 @@
 `"7" * "3"`  
 `1 * "123d"`  
 `"9" / 3`  
-`"5" / 0`  
 `5 / "hello" === NaN`  
 `NaN == NaN`  
 `NaN !== NaN`  
+`Object.is(NaN, NaN)`  
 `isNaN("hello")`  
 `Number.isNaN("hello")`  
-`Object.is(NaN, NaN)`  
+`4 + Infinity`  
+`Infinity - Infinity`  
+`Infinity * Infinity`  
+`Infinity / Infinity`  
+`"5" / 0`  
+`-1 / -0`  
+`1 / -0`  
+`1 / Infinity`  
+`0 / -3`  
+`0 - 0`  
 `1 || 0 || 7`  
 `"false" && 0 && 7`  
 `0 || "0" && 1`  
@@ -100,16 +112,32 @@ if (a != null) {
   console.log('world');
 }
 ```  
+```js
+var a = new Boolean(false);
+if (!a) {
+  console.log('hello123');
+} else {
+  console.log('world');
+}
+```  
+`false == new Boolean(false)`  
+`false === new Boolean(false)`  
+`true == new Boolean([])`  
 `!!"false" == !!"true"`  
 `Object.is(0, -0)`  
 `0 === -0`  
+`0 == -0`  
 `typeof null === "object"`  
+`typeof NaN === "number"`  
+`typeof -Infinity === "undefined"`  
 `typeof {} === "object"`  
 `typeof(()=>{}) === "object"`  
 `typeof [3, 5, 2] === "array"`  
 `typeof(typeof 0) === "number"`  
 `(function helloWorld(){})() === undefined`  
 `({})() === undefined`  
+`void "hello"`  
+`void false`  
 ```js
 var a;
 console.log(a);
@@ -126,4 +154,44 @@ var z = 42;
 z = a;
 console.log(typeof a);
 console.log(typeof z);
+```  
+```js
+var a = 2;
+var b = a;
+b++;
+console.log(a, b);
+```  
+```js
+function foo(x){
+  x.push(4);
+  
+  x = [4, 5, 6];
+  x.push(7);
+  console.log('x', x);
+}
+
+var a = [1, 2, 3];
+foo(a);
+console.log('a', a);
+```  
+```js
+function foo(x){
+  x.push(4);
+  
+  x.length = 0;
+  x.push(4, 5, 6);
+  console.log('x', x);
+}
+
+var a = [1, 2, 3];
+foo(a);
+console.log('a', a);
+```  
+```js
+function foo(x) {
+  x++;
+}
+var a = new Number(1);
+foo(a);
+console.log(+a);
 ```  
