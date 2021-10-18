@@ -1,0 +1,2 @@
+- [garbage.collect() by Андрей Роенко](https://habr.com/ru/company/oleg-bunin/blog/433318/)
+- [Trash talk: the Orinoco garbage collector](https://v8.dev/blog/trash-talk)

@@ -1,2 +1,3 @@
 - [Типы значений](./docs/types.md)
 - [Циклы](./docs/loops.md)
+- [Перформанс](./docs/performance/index.md)
