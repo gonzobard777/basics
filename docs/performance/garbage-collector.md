@@ -1,5 +1,5 @@
-- [garbage.collect() by Андрей Роенко](https://habr.com/ru/company/oleg-bunin/blog/433318/)
-- [Trash talk: the Orinoco garbage collector](https://v8.dev/blog/trash-talk)
-- [Description of Tools for developers trying to understand memory usage](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/memory/tools.md#real-world-leak-detector)
-  - [MemoryInfra - where memory is being used in your system](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/memory-infra)
-- [Chrome DevTools - Memory](https://developer.chrome.com/docs/devtools/#memory)
+- <a href="https://habr.com/ru/company/oleg-bunin/blog/433318/" target="_blank">garbage.collect() by Андрей Роенко</a>
+- <a href="https://v8.dev/blog/trash-talk" target="_blank">Trash talk: the Orinoco garbage collector</a>
+- <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/memory/tools.md#real-world-leak-detector" target="_blank">Description of Tools for developers trying to understand memory usage</a>
+  - <a href="" target="_blank"></a>[MemoryInfra - where memory is being used in your system](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/memory-infra)
+- <a href="https://developer.chrome.com/docs/devtools/#memory" target="_blank">Chrome DevTools - Memory</a>
