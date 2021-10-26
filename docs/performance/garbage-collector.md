@@ -19,7 +19,7 @@
 
 При создании  `new ReplaySubject()` в `bufferSize` [назначится](https://github.com/ReactiveX/rxjs/blob/master/src/internal/ReplaySubject.ts) `Infinity`.  
 Если использовать такой ReplaySubject в долгоживущих обектах, то это гарантированно приведет к росту JS Heap.  
-Аналогичная ситуация при таком использовании оператора `shareReplay()` без указания `bufferSize`.
+[Аналогичная ситуация](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/shareReplay.ts) при таком использовании оператора `shareReplay()` без указания `bufferSize`.
 
 ## Memory footprint
 
