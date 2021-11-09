@@ -9,7 +9,7 @@
 **Shared memory** - совместная память процесса - объем используемой процессом физической памяти, которая может использоваться совместно с другими процессами.  
 **Private memory** - собственная память процесса - объем используемой процессом физической памяти, которая не может использоваться другими процессами.  
 **JavaScript memory** - он же JS Heap - объем физической памяти, занимаемой js вообще и живыми объектами в частности.  
-**Memory footprint** - предположительно включает в себя Private memory и JavaScript memory. Но это не точно.
+**Memory footprint** - предположительно включает в себя Private memory и JS Heap. Но это не точно.
 
 # Известные кейсы
 
@@ -17,9 +17,13 @@
 
 ### new ReplaySubject(), shareReplay()
 
-При создании  `new ReplaySubject()` в `bufferSize` [назначится](https://github.com/ReactiveX/rxjs/blob/master/src/internal/ReplaySubject.ts) `Infinity`.  
-Если использовать такой ReplaySubject в долгоживущих обектах, то это гарантированно приведет к росту JS Heap.  
-[Аналогичная ситуация](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/shareReplay.ts) при таком использовании оператора `shareReplay()` без указания `bufferSize`.
+При таком создании: `new ReplaySubject()` – в `bufferSize` [назначится](https://github.com/ReactiveX/rxjs/blob/master/src/internal/ReplaySubject.ts) `Infinity`.  B долгоживущих обектах это гарантированно приведет к росту JS Heap.  
+[Аналогичная ситуация](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/shareReplay.ts) при таком использовании оператора: `shareReplay()` – без указания `bufferSize`.
+
+### Отсутствует Distance
+
+Если в Summary снапшота в колонке Distance вы видите значение отличное от числового, то вероятно вы наткнулись на объект(ы), который стал недоступным для js кода, но при этом GC не может его убрать, например:  
+![Отсутствует Distance](./pic/distance-.png)
 
 ## Memory footprint
 
