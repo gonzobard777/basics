@@ -22,7 +22,7 @@
 
 ### Отсутствует Distance
 
-Если в Summary снапшота значение в колонке [Distance](https://developer.chrome.com/docs/devtools/memory-problems/memory-101/#retained_size) отлично от числового, то вероятно этот объект стал недоступен для js кода, но при этом GC не может его убрать, например:
+Если в Summary снапшота значение в колонке [Distance](https://developer.chrome.com/docs/devtools/memory-problems/memory-101/#retained_size) отлично от числового, тогда объект стал недоступен для js кода, но при этом GC не может его убрать, например:
 
 ![Отсутствует Distance](./data/distance-.png)
 
