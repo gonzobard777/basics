@@ -18,7 +18,7 @@
   
 | `typeof` *value*                     | Result                                   | Maybe it would be better this way                                     |
 |--------------------------------------|------------------------------------------|-----------------------------------------------------------------------|
-| Undefined                            | "undefined"                              | `value === undefined`                                                 |
+| Undefined                            | "undefined"                              | `value === undefined`, but remember about `var undefined = "abc"`     |
 | Null                                 | ["object"](https://tinyurl.com/ymjz3v7h) | `value === null` or `typeof value === 'object' && value == undefined` |
 | Boolean                              | "boolean"                                |
 | Number                               | "number"                                 |
