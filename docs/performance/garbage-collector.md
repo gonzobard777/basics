@@ -1,8 +1,8 @@
 - [garbage.collect() by Андрей Роенко](https://habr.com/ru/company/oleg-bunin/blog/433318/)
 - [Trash talk: the Orinoco garbage collector](https://v8.dev/blog/trash-talk)
+- [Chrome DevTools - Memory](https://developer.chrome.com/docs/devtools/#memory)
 - [Description of Tools for developers trying to understand memory usage](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/memory/tools.md)
     - [MemoryInfra - where memory is being used in your system](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/memory-infra)
-- [Chrome DevTools - Memory](https://developer.chrome.com/docs/devtools/#memory)
 
 ## Терминология
 
