@@ -20,7 +20,7 @@
 При таком создании: `new ReplaySubject()` – в `bufferSize` [назначится](https://github.com/ReactiveX/rxjs/blob/master/src/internal/ReplaySubject.ts) `Infinity`.  B долгоживущих обектах это гарантированно приведет к росту JS Heap.  
 [Аналогичная ситуация](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/shareReplay.ts) при таком использовании оператора: `shareReplay()` – без указания `bufferSize`.
 
-### Объект не привязан к корню
+### Объект без корня
 
 Если в Summary снапшота значение в колонке [Distance](https://developer.chrome.com/docs/devtools/memory-problems/memory-101/#retained_size) отлично от числового, то объект повис в каком-то контексте и GC не сможет его убрать, например:
 
