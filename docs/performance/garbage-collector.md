@@ -40,8 +40,8 @@
 Для некоторых встроенных объектов разработчики предусмотрели способы по их уничтожению, например:
 
 - `ImageBitmap.close()`;
-- `createObjectURL()`, `revokeObjectURL()`;
-- WebGL: `create`/`delete` `Program/Shader/Buffer/Texture/etc`;
-- `indexDb.close()`.
+- `createObjectURL()`, `revokeObjectURL()` – [...As long as the mapping exist the Blob can’t be garbage collected](https://w3c.github.io/FileAPI/#url-intro);
+- WebGL: `create`/`delete` `Program/Shader/Buffer/Texture/etc` – [...Mark for deletion the texture object contained in the passed WebGLTexture](https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.8);
+- `indexDb.close()`[...Set connection’s close pending flag to true](https://w3c.github.io/IndexedDB/#close-a-database-connection).
 
 Когда объект больше не нужен, то его крайне желательно явно уничтожить.  
