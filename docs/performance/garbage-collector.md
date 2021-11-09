@@ -11,7 +11,7 @@
 **JavaScript memory** - он же JS Heap - объем физической памяти, занимаемой js вообще и живыми объектами в частности.  
 **Memory footprint** - предположительно включает в себя Private memory и JS Heap. Но это не точно.
 
-# Известные кейсы
+# Известные кейсы / подходы
 
 ## JS Heap
 
@@ -22,17 +22,18 @@
 
 ### Отсутствует Distance
 
-Если в Summary снапшота в колонке [Distance](https://developer.chrome.com/docs/devtools/memory-problems/memory-101/#retained_size) вы видите значение отличное от числового, то вероятно вы наткнулись на объект(ы), который стал недоступным для js кода, но при этом GC не может его убрать, например:  
-![Отсутствует Distance](./pic/distance-.png)
+Если в Summary снапшота значение в колонке [Distance](https://developer.chrome.com/docs/devtools/memory-problems/memory-101/#retained_size) отлично от числового, то вероятно этот объект стал недоступен для js кода, но при этом GC не может его убрать, например:
+
+![Отсутствует Distance](./data/distance-.png)
 
 ## Memory footprint
 
-Замер на рост Memory footprint надо производить с закрытым DevTools!
+Замер на рост Memory footprint желательно производить с закрытым DevTools.
 
 ### Transferable
 
-При обмене между контекстами в `.postMessage` вторым аргументом можно передать массив объектов, на которые передаются права собственности контексту-получателю.  
-Одной из причин значительного роста Memory footprint по отношению к росту JS Hep(а возможно даже и при полном отсутствии его роста) является то, что контекст-отправитель при вызове `.postMessage` не на все [Transferable](https://developer.mozilla.org/en-US/docs/Glossary/Transferable_objects#supported_objects) объекты исходящего сообщения передал права.
+При обмене между контекстами (например, обмен Воркер `<->` Main-thread) в `.postMessage` вторым аргументом можно передать массив объектов, на которые передаются права собственности контексту-получателю.  
+Одной из причин значительного роста Memory footprint по отношению к росту JS Heap(а, возможно, даже и при отсутствии его роста) является то, что контекст-отправитель при вызове `.postMessage` не на все [Transferable](https://developer.mozilla.org/en-US/docs/Glossary/Transferable_objects#supported_objects) объекты исходящего сообщения передал права.
 
 ### Уничтожаемые объекты
 
