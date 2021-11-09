@@ -16,10 +16,10 @@
 
 ## К какому типу относится это значение или значение в этой переменной?
   
-| `typeof` *value*                     | Result                                   | Maybe it would be better this way                                         |
-|--------------------------------------|------------------------------------------|---------------------------------------------------------------------------|
-| Undefined                            | "undefined"                              | or `value === undefined`                                                  |
-| Null                                 | ["object"](https://tinyurl.com/ymjz3v7h) | use `value === null` or `typeof value === 'object' && value == undefined` |
+| `typeof` *value*                     | Result                                   | Maybe it would be better this way                                     |
+|--------------------------------------|------------------------------------------|-----------------------------------------------------------------------|
+| Undefined                            | "undefined"                              | `value === undefined`                                                 |
+| Null                                 | ["object"](https://tinyurl.com/ymjz3v7h) | `value === null` or `typeof value === 'object' && value == undefined` |
 | Boolean                              | "boolean"                                |
 | Number                               | "number"                                 |
 | BigInt                               | "bigint"                                 |
