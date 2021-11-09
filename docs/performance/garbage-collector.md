@@ -28,7 +28,7 @@
 ### Transferable
 
 При обмене между контекстами в `.postMessage` вторым аргументом можно передать массив объектов, на которые передаются права собственности контексту-получателю.  
-Одной из причин значительного роста Memory footprint по отношению к росту JS Hep(а возможно даже и при полном отсутсвии его роста) является то, что контекст-отправитель при вызове `.postMessage` не на все [Transferable](https://developer.mozilla.org/en-US/docs/Glossary/Transferable_objects#supported_objects) объекты исходящего сообщения передал права.
+Одной из причин значительного роста Memory footprint по отношению к росту JS Hep(а возможно даже и при полном отсутствии его роста) является то, что контекст-отправитель при вызове `.postMessage` не на все [Transferable](https://developer.mozilla.org/en-US/docs/Glossary/Transferable_objects#supported_objects) объекты исходящего сообщения передал права.
 
 ### Уничтожаемые объекты
 
