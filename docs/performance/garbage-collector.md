@@ -1,5 +1,5 @@
-- [garbage.collect() by Андрей Роенко](https://habr.com/ru/company/oleg-bunin/blog/433318/)
-- [Trash talk: the Orinoco garbage collector](https://v8.dev/blog/trash-talk)
+- ["garbage.collect()" by Андрей Роенко](https://habr.com/ru/company/oleg-bunin/blog/433318/)
+- ["Trash talk: the Orinoco garbage collector" by Peter Marshall](https://v8.dev/blog/trash-talk)
 - [Chrome DevTools - Memory](https://developer.chrome.com/docs/devtools/#memory)
 - [Description of Tools for developers trying to understand memory usage](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/memory/tools.md)
     - [MemoryInfra - where memory is being used in your system](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/memory-infra)
@@ -37,7 +37,10 @@ B долгоживущих объектах это гарантированно 
 
 ### Таймер удерживает большой ресурс
 
+Проблема таймеров не в том, что для них можно забыть вызвать `clearInterval`, а в том, что повисший таймер может замкнуть контекст, удерживающий большой кусок памяти.  
+Вот пример, когда из 10 повисших таймеров проблему по памяти создает только один:
 
+![Таймер удерживает большой ресурс](./data/dom-timer-big.png)
 
 ## Memory footprint
 
