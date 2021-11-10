@@ -16,7 +16,7 @@
 ## Освобождение занимаемых ресурсов
 
 - `setInterval / clearInterval(intervalID)`; `setTimeout / clearTimeout(timeoutID)`;
-- `Subscription.unsubscribe()`;
+- `Subscription.unsubscribe()`, `takeUntil`, `takeWhile`, `take`, `first`;
 - `createObjectURL(obj) / revokeObjectURL(url)` – [...As long as the mapping exist the Blob can’t be garbage collected](https://w3c.github.io/FileAPI/#url-intro);
 - `ImageBitmap.close()`;
 - `indexDb.close()`[...Set connection’s close pending flag to true](https://w3c.github.io/IndexedDB/#close-a-database-connection);
