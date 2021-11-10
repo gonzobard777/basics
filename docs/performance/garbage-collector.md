@@ -28,7 +28,7 @@
 
 ## Memory footprint
 
-Замер на рост Memory footprint желательно производить с закрытым DevTools.
+Замер на рост Memory footprint производить с закрытым DevTools, потому что сам DevTools активно создает объекты, которые могут занимать немало места в Memory footprint.
 
 ### Transferable
 
@@ -44,4 +44,4 @@
 - WebGL: `create`/`delete` `Program/Shader/Buffer/Texture/etc` – [...Mark for deletion the texture object contained in the passed WebGLTexture](https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.8);
 - `indexDb.close()`[...Set connection’s close pending flag to true](https://w3c.github.io/IndexedDB/#close-a-database-connection).
 
-Когда объект больше не нужен, то его крайне желательно явно уничтожить.  
+Когда объект больше не нужен, то его явное уничтожение поможет избежать неожиданного роста занимаемой памяти.  
