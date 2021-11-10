@@ -9,25 +9,22 @@
 **Shared memory** - совместная память процесса - объем используемой процессом физической памяти, которая может использоваться совместно с другими процессами.  
 **Private memory** - собственная память процесса - объем используемой процессом физической памяти, которая не может использоваться другими процессами.  
 **JavaScript memory** - он же JS Heap - объем физической памяти, занимаемой js вообще и живыми объектами в частности.  
-**Memory footprint** - предположительно включает в себя Private memory и JS Heap. Но это не точно.
+**Memory footprint** - предположительно включает в себя Private memory и JS Heap. Но это неточно.
 
 # Известные кейсы / подходы
 
-## Уничтожаемые объекты
+## Освобождение занимаемых ресурсов
 
-Для некоторых встроенных объектов разработчики предусмотрели способы по их уничтожению, например:
-
+- `setInterval / clearInterval(intervalID)`; `setTimeout / clearTimeout(timeoutID)`;
+- `Subscription.unsubscribe()`;
+- `createObjectURL(obj) / revokeObjectURL(url)` – [...As long as the mapping exist the Blob can’t be garbage collected](https://w3c.github.io/FileAPI/#url-intro);
 - `ImageBitmap.close()`;
-- `createObjectURL()`, `revokeObjectURL()` – [...As long as the mapping exist the Blob can’t be garbage collected](https://w3c.github.io/FileAPI/#url-intro);
-- WebGL: `create`/`delete` `Program/Shader/Buffer/Texture/etc` – [...Mark for deletion the texture object contained in the passed WebGLTexture](https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.8);
-- `indexDb.close()`[...Set connection’s close pending flag to true](https://w3c.github.io/IndexedDB/#close-a-database-connection).
-
-Когда объект больше не нужен, то его явное уничтожение поможет избежать неожиданного роста занимаемой памяти.
-
+- `indexDb.close()`[...Set connection’s close pending flag to true](https://w3c.github.io/IndexedDB/#close-a-database-connection);
+- WebGL: `create`/`delete` `Program/Shader/Buffer/Texture/etc` – [...Mark for deletion the texture object contained in the passed WebGLTexture](https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.8).
 
 ## JS Heap
 
-### new ReplaySubject(), shareReplay()
+### `new ReplaySubject()`, `shareReplay()`
 
 При таком создании: `new ReplaySubject()` – в `bufferSize` [назначится](https://github.com/ReactiveX/rxjs/blob/master/src/internal/ReplaySubject.ts) `Infinity`.  B долгоживущих обектах это гарантированно приведет к росту JS Heap.  
 [Аналогичная ситуация](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/shareReplay.ts) при таком использовании оператора: `shareReplay()` – без указания `bufferSize`.
