@@ -16,8 +16,9 @@
 ## Освобождение занимаемых ресурсов
 
 - `setInterval / clearInterval(intervalID)`; `setTimeout / clearTimeout(timeoutID)`;
-- `Subscription.unsubscribe()`, `takeUntil`, `takeWhile`, `take`, `first`;
 - `createObjectURL(obj) / revokeObjectURL(url)` – [...As long as the mapping exist the Blob can’t be garbage collected](https://w3c.github.io/FileAPI/#url-intro);
+- `addEventListener / removeEventListener`;
+- `Subscription.unsubscribe()`, `takeUntil`, `takeWhile`, `take`, `first`;
 - `ImageBitmap.close()`;
 - `indexDb.close()`[...Set connection’s close pending flag to true](https://w3c.github.io/IndexedDB/#close-a-database-connection);
 - WebGL: `create`/`delete` `Program/Shader/Buffer/Texture/etc` – [...Mark for deletion the texture object contained in the passed WebGLTexture](https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.8).
@@ -31,16 +32,19 @@ B долгоживущих объектах это гарантированно 
 
 ### Объект без корня
 
-Если в Summary снапшота значение в колонке [Distance](https://developer.chrome.com/docs/devtools/memory-problems/memory-101/#retained_size) отлично от числового, то объект повис в каком-то контексте и GC не сможет его убрать, например:
+Если значение в колонке [Distance](https://developer.chrome.com/docs/devtools/memory-problems/memory-101/#retained_size) отлично от числового, то объект повис в каком-то контексте и GC не сможет его убрать:
 
 ![Отсутствует Distance](./data/distance-.png)
 
 ### Таймер удерживает большой ресурс
 
-Проблема таймеров не в том, что для них можно забыть вызвать `clearInterval`, а в том, что повисший таймер может замкнуть контекст, удерживающий большой кусок памяти.  
-Вот пример, когда из 10 повисших таймеров проблему по памяти создает только один:
+Таймеры `setInterval`, `setTimeout` всегда повисают в root-контексте (`Window`, `DedicatedWorkerGlobalScope` и т.д.), поэтому для них не важен Distance.  
+Если в списке активных таймеров присутствует таймер, удерживающий большой кусок памяти, то вероятно произошла утечка – надо в коде найти этот таймер и в нужный момент вызвать для него `clearTimeout`:
 
 ![Таймер удерживает большой ресурс](./data/dom-timer-big.png)
+
+Таймер может быть скрыт внутри используемой в проекте библиотеки.  
+Например, [time based operators](https://www.learnrxjs.io/learn-rxjs/concepts/time-based-operators-comparison) в rxjs используют таймеры. И, чтобы освободить повисший в time based operator'е ресурс, надо явно отписаться от подписки.
 
 ## Memory footprint
 
