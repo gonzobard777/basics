@@ -13,6 +13,18 @@
 
 # Известные кейсы / подходы
 
+## Уничтожаемые объекты
+
+Для некоторых встроенных объектов разработчики предусмотрели способы по их уничтожению, например:
+
+- `ImageBitmap.close()`;
+- `createObjectURL()`, `revokeObjectURL()` – [...As long as the mapping exist the Blob can’t be garbage collected](https://w3c.github.io/FileAPI/#url-intro);
+- WebGL: `create`/`delete` `Program/Shader/Buffer/Texture/etc` – [...Mark for deletion the texture object contained in the passed WebGLTexture](https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.8);
+- `indexDb.close()`[...Set connection’s close pending flag to true](https://w3c.github.io/IndexedDB/#close-a-database-connection).
+
+Когда объект больше не нужен, то его явное уничтожение поможет избежать неожиданного роста занимаемой памяти.
+
+
 ## JS Heap
 
 ### new ReplaySubject(), shareReplay()
@@ -28,18 +40,7 @@
 
 ## Memory footprint
 
-Замер на рост Memory footprint производить с закрытым DevTools, потому что сам DevTools активно создает объекты, которые могут занимать немало места в Memory footprint.
-
-### Уничтожаемые объекты
-
-Для некоторых встроенных объектов разработчики предусмотрели способы по их уничтожению, например:
-
-- `ImageBitmap.close()`;
-- `createObjectURL()`, `revokeObjectURL()` – [...As long as the mapping exist the Blob can’t be garbage collected](https://w3c.github.io/FileAPI/#url-intro);
-- WebGL: `create`/`delete` `Program/Shader/Buffer/Texture/etc` – [...Mark for deletion the texture object contained in the passed WebGLTexture](https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.8);
-- `indexDb.close()`[...Set connection’s close pending flag to true](https://w3c.github.io/IndexedDB/#close-a-database-connection).
-
-Когда объект больше не нужен, то его явное уничтожение поможет избежать неожиданного роста занимаемой памяти.  
+DevTools активно создает объекты, которые могут занимать немало места, поэтому иногда есть смысл производить замер при закрытом DevTools.
 
 ### Transferable
 
