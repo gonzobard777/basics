@@ -12,7 +12,9 @@
 | 5. | [BigInt](https://tinyurl.com/yxyf6kex)    | [BigInt](https://learn.javascript.ru/bigint)                                                                                                                | 
 | 6. | [String](https://tinyurl.com/s69stj49)    | [Строки](https://learn.javascript.ru/string)                                                                                                                | 
 | 7. | [Symbol](https://tinyurl.com/3dz2st73)    | [Тип данных Symbol](https://learn.javascript.ru/symbol)                                                                                                     | 
-| 8. | [Object](https://tinyurl.com/du3bf37k)    |                                                                                                                                                             | 
+| 8. | [Object](https://tinyurl.com/du3bf37k)    |                                                                                                                                                             |
+
+**Примитивный тип** – все что не `Object`.
 
 ## К какому типу относится это значение или значение в этой переменной?
   
