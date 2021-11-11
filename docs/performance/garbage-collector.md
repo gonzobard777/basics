@@ -25,11 +25,6 @@
 
 ## JS Heap
 
-### `new ReplaySubject()`, `shareReplay()`
-
-При таком использовании: `new ReplaySubject()`, `shareReplay()` – в `bufferSize` назначится `Infinity`.  
-B долгоживущих объектах это гарантированно приведет к росту JS Heap.
-
 ### Объект без корня
 
 Если значение в колонке [Distance](https://developer.chrome.com/docs/devtools/memory-problems/memory-101/#retained_size) отлично от числового, то объект "повис" и GC не сможет его убрать:
@@ -53,6 +48,11 @@ B долгоживущих объектах это гарантированно 
 
 Таймер может быть скрыт внутри используемой в проекте библиотеки.  
 Например, [time based operators](https://www.learnrxjs.io/learn-rxjs/concepts/time-based-operators-comparison) в rxjs используют таймеры. И, чтобы освободить повисший в time based operator'е ресурс, надо явно отписаться от подписки.
+
+### `new ReplaySubject()`, `shareReplay()`
+
+При таком использовании: `new ReplaySubject()`, `shareReplay()` – в `bufferSize` назначится `Infinity`.  
+B долгоживущих объектах это гарантированно приведет к росту JS Heap.
 
 ## Memory footprint
 
