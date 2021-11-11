@@ -13,6 +13,8 @@
 
 # Известные кейсы / подходы
 
+Кейсы от команды Chrome Developers: [Fix memory problems](https://developer.chrome.com/docs/devtools/memory-problems/).
+
 ## Освобождение удерживаемых ресурсов
 
 - `setInterval / clearInterval(intervalID)`; `setTimeout / clearTimeout(timeoutID)`;
