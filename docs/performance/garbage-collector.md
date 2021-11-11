@@ -13,7 +13,7 @@
 
 # Известные кейсы / подходы
 
-## Освобождение занимаемых ресурсов
+## Освобождение удерживаемых ресурсов
 
 - `setInterval / clearInterval(intervalID)`; `setTimeout / clearTimeout(timeoutID)`;
 - `createObjectURL(obj) / revokeObjectURL(url)` – [...As long as the mapping exist the Blob can’t be garbage collected](https://w3c.github.io/FileAPI/#url-intro);
