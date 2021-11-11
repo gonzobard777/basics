@@ -14,7 +14,7 @@
 | 7. | [Symbol](https://tinyurl.com/3dz2st73)    | [Тип данных Symbol](https://learn.javascript.ru/symbol)                                                                                                     | 
 | 8. | [Object](https://tinyurl.com/du3bf37k)    |                                                                                                                                                             |
 
-**Примитивный тип** – это все что не `Object`.
+**Примитивный тип** – это все, что не `Object`.
 
 ### К какому типу относится это значение или значение в этой переменной?
   
