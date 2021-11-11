@@ -14,7 +14,7 @@
 | 7. | [Symbol](https://tinyurl.com/3dz2st73)    | [Тип данных Symbol](https://learn.javascript.ru/symbol)                                                                                                     | 
 | 8. | [Object](https://tinyurl.com/du3bf37k)    |                                                                                                                                                             |
 
-**Примитивный тип** – все что не `Object`.
+**Примитивный тип** – это все что не `Object`.
 
 ### К какому типу относится это значение или значение в этой переменной?
   
@@ -42,12 +42,12 @@
 |-----------|-------------------------------------------------------------|------------------------------------------------|------------------------------------------------|--------------------------------------------------|------------------------------------------------------|
 | Undefined | `false`                                                     | `NaN`                                          | TypeError                                      | `"undefined"`                                    | TypeError                                            |
 | Null      | `false`                                                     | `0`                                            | TypeError                                      | `"null"`                                         | TypeError                                            |
-| Boolean   | -                                                           | `1`/`0`                                        | `1n`/`0n`                                      | `"true"/"false"`                                 | [`new Boolean(value)`](https://tinyurl.com/4ferbkt5) |
-| Number    | `-0` &#124;&#124; `0` &#124;&#124; `NaN` ? `false` : `true` | -                                              | TypeError                                      | [Number::toString](https://tinyurl.com/wrvtv3yy) | [`new Number(value)`](https://tinyurl.com/5ut8m98v)  |
-| BigInt    | `0n` ? `false` : `true`                                     | TypeError                                      | -                                              | [BigInt::toString](https://tinyurl.com/m6zhrvre) | [`new BigInt(value)`](https://tinyurl.com/2zr4dpsa)  |
-| String    | length === 0 ? `false` : `true`                             | [StringToNumber](https://tinyurl.com/v237tfs7) | [StringToBigInt](https://tinyurl.com/27hu7bfu) | -                                                | [`new String(value)`](https://tinyurl.com/x92yace8)  |
+| Boolean   | –                                                           | `1`/`0`                                        | `1n`/`0n`                                      | `"true"/"false"`                                 | [`new Boolean(value)`](https://tinyurl.com/4ferbkt5) |
+| Number    | `-0` &#124;&#124; `0` &#124;&#124; `NaN` ? `false` : `true` | –                                              | TypeError                                      | [Number::toString](https://tinyurl.com/wrvtv3yy) | [`new Number(value)`](https://tinyurl.com/5ut8m98v)  |
+| BigInt    | `0n` ? `false` : `true`                                     | TypeError                                      | –                                              | [BigInt::toString](https://tinyurl.com/m6zhrvre) | [`new BigInt(value)`](https://tinyurl.com/2zr4dpsa)  |
+| String    | length === 0 ? `false` : `true`                             | [StringToNumber](https://tinyurl.com/v237tfs7) | [StringToBigInt](https://tinyurl.com/27hu7bfu) | –                                                | [`new String(value)`](https://tinyurl.com/x92yace8)  |
 | Symbol    | `true`                                                      | TypeError                                      | TypeError                                      | TypeError                                        | [`new Symbol(descr)`](https://tinyurl.com/ysen32ad)  |
-| Object    | `true`                                                      | [ToPrimitive](https://tinyurl.com/j4dxw9ps)    | -                                              | [ToPrimitive](https://tinyurl.com/j4dxw9ps)      | -                                                    |
+| Object    | `true`                                                      | [ToPrimitive](https://tinyurl.com/j4dxw9ps)    | –                                              | [ToPrimitive](https://tinyurl.com/j4dxw9ps)      | –                                                    |
 
 - [Преобразование объектов в примитивы](https://learn.javascript.ru/object-toprimitive)
 - [Пользовательский «toJSON»](https://learn.javascript.ru/json#polzovatelskiy-tojson) 
