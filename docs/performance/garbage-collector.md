@@ -20,7 +20,7 @@
 - `setInterval / clearInterval(intervalID)`; `setTimeout / clearTimeout(timeoutID)`;
 - `createObjectURL(obj) / revokeObjectURL(url)` – [...As long as the mapping exist the Blob can’t be garbage collected](https://w3c.github.io/FileAPI/#url-intro);
 - `addEventListener / removeEventListener`;
-- `Subscription.unsubscribe()`, `takeUntil`, `takeWhile`, `take`, `first`;
+- `Subscription.unsubscribe()`, `takeUntil`, `takeWhile`, `take`, `first`, `shareReplay({bufferSize, refCount: true})`;
 - `ImageBitmap.close()`;
 - `indexDb.close()`[...Set connection’s close pending flag to true](https://w3c.github.io/IndexedDB/#close-a-database-connection);
 - WebGL: `create`/`delete` `Program/Shader/Buffer/Texture/etc` – [...Mark for deletion the texture object contained in the passed WebGLTexture](https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.8).
@@ -55,6 +55,10 @@
 
 При таком использовании: `new ReplaySubject()`, `shareReplay()` – в `bufferSize` назначится `Infinity`.  
 B долгоживущих объектах это гарантированно приведет к росту JS Heap.
+
+### `shareReplay` без явного `refCount: true`
+
+По умолчанию `refCount = false` – это значит, что отписка от Источника не произойдет никогда. И, если в цепочке от Источника и выше есть удерживание ресурсов, то потенциально может возникнуть утечка памяти.
 
 ## Memory footprint
 
