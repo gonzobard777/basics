@@ -1,0 +1,4 @@
+- [Cold vs Hot Observables](https://blog.thoughtram.io/angular/2016/06/16/cold-vs-hot-observables.html)
+- [rxjs4: Cold vs. Hot Observables](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/gettingstarted/creating.md#cold-vs-hot-observables)
+- [rxjs doc: Hot](https://rxjs.dev/guide/glossary-and-semantics#hot)
+- [rxjs doc: Cold](https://rxjs.dev/guide/glossary-and-semantics#cold)

@@ -1,3 +1,4 @@
 - [Типы значений](./docs/types.md)
 - [Циклы](./docs/loops.md)
+- [RxJs](./docs/rxjs/index.md)
 - [Перформанс](./docs/performance/index.md)
