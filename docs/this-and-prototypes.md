@@ -54,7 +54,7 @@ const bar = foo.call(obj1);
 bar.call(obj2); // 2, не 3!
 ```
 
-### Checks
+## Checks
 
 ```js
 const obj = {
