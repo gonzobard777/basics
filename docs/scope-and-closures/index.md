@@ -194,3 +194,24 @@ function foo() {
 
 foo();
 ```
+
+```js
+var value = "global";
+
+function dynamicScope() {
+  const value = "lexical";
+  return function () {
+    console.log(value);
+  }
+}
+
+function lexicalScope() {
+  var value = "dynamic";
+  return function () {
+    console.log(value);
+  }
+}
+
+dynamicScope()();
+lexicalScope()();
+```
