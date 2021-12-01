@@ -215,3 +215,23 @@ function lexicalScope() {
 dynamicScope()();
 lexicalScope()();
 ```
+
+```js
+function makeCounter() {
+  var count = 1;
+  return () => console.log(count++);
+}
+
+function makeCounter(count) {
+  return function () {
+    return console.log(count++);
+  }
+}
+
+const first = makeCounter(4);
+const second = makeCounter(8);
+
+first();
+first();
+second();
+```
