@@ -14,7 +14,7 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 - ScriptOrModule: **null** – движек выполняет код, запущенный не из скрипта и не из модуля;
 - **Function** – движек выполняет код функции `function fnId(..){..}`.
 
-Для каждого execution context спецификация определяет состав полей, вот некоторые из них:
+Для каждого execution context спецификация определяет обязательный набор полей, вот некоторые из них:
 
 - **Realm** – объект типа [Realm Record](https://tinyurl.com/2p9ynr9p);
 - **LexicalEnvironment** – объект типа [Environment Record](https://tinyurl.com/ycncua2r), используется для разрешения ссылок на идентификаторы, созданные кодом внутри execution context;
