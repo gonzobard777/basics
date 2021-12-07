@@ -7,13 +7,13 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 Новый execution context создается всякий раз, когда из исполняемого кода, ассоциированного с [**running execution context**](https://tinyurl.com/4fb79dy8), передается управление в исполняемый код с другим execution context.  
 Только что созданный execution context кладется на вершину [**execution context stack**](https://tinyurl.com/2p8hxsdn) и становится running execution context.
 
-А в какой момент движек решит передать управление в исполняемый код с другим execution context (и, соответственно, создать новый execution context)?  
+В какой же момент движек решает передать управление в исполняемый код с другим execution context (и, соответственно, создать новый execution context)?  
 Новый execution context создается всякий раз, когда (см. [таблицу 29](https://tinyurl.com/2p96vb7a)):
 
-- ScriptOrModule: **Script Record** – движек выполняет код скрипта `<script>..</script>`;
-- ScriptOrModule: **Module Record** – движек выполняет код модуля `<script type="module">..</script>`;
-- ScriptOrModule: **null** – движек выполняет код не скрипта и не модуля;
-- **Function** – движек выполняет код функции `function fnId(..){..}`.
+- ScriptOrModule: **Script Record** – движек начинает выполнять код скрипта `<script>..</script>`;
+- ScriptOrModule: **Module Record** – движек начинает выполнять код модуля `<script type="module">..</script>`;
+- ScriptOrModule: **null** – движек начинает выполнять код не скрипта и не модуля;
+- **Function** – движек начинает выполнять код функции `function fnId(..){..}`.
 
 Для каждого execution context спецификация определяет обязательный набор полей, вот некоторые из них:
 
