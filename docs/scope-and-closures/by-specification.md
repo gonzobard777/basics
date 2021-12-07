@@ -1,6 +1,4 @@
-# Контекст выполнения JS кода
-
-## Execution context
+## Execution context – Контекст выполнения JS кода
 
 JavaScript код выполняет [**агент**](https://tinyurl.com/2p8ptahb), используя данные специальной сущности – [**execution context**](https://tinyurl.com/se74cyxu). В спецификации execution context называется "a specification device", но я его представляю в виде простого объекта.
 
@@ -22,4 +20,4 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 - **VariableEnvironment** – объект типа [Environment Record](https://tinyurl.com/ycncua2r), содержит созданные внутри execution context идентификаторы `var` переменных(и их значения).
 - **Realm** – объект типа [Realm Record](https://tinyurl.com/2p9ynr9p);
 
-## Environment Record
+## Environment Record – Область видимости
