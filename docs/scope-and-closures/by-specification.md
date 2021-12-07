@@ -18,6 +18,6 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 - **Realm** – объект типа [Realm Record](https://tinyurl.com/2p9ynr9p);
 - **LexicalEnvironment** – объект типа [Environment Record](https://tinyurl.com/ycncua2r), используется для разрешения ссылок на идентификаторы, созданные кодом внутри execution context;
-- **VariableEnvironment** – объект типа [Environment Record](https://tinyurl.com/ycncua2r), содержит идентификаторы переменных(и их значения), созданные при помощи `var` внутри execution context;
+- **VariableEnvironment** – объект типа [Environment Record](https://tinyurl.com/ycncua2r), содержит идентификаторы переменных(и их значения), созданные при помощи `var` внутри execution context.
 
 ## Environment Record
