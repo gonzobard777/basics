@@ -11,7 +11,7 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 - ScriptOrModule: **Script Record** – движек выполняет код скрипта `<script>..</script>`;
 - ScriptOrModule: **Module Record** – движек выполняет код модуля `<script type="module">..</script>`;
-- ScriptOrModule: **null** – движек выполняет код, запущенный не из скрипта и не из модуля;
+- ScriptOrModule: **null** – движек выполняет код не скрипта и не модуля;
 - **Function** – движек выполняет код функции `function fnId(..){..}`.
 
 Для каждого execution context спецификация определяет обязательный набор полей, вот некоторые из них:
