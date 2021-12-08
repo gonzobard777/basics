@@ -76,7 +76,7 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 Модуль `<script type="module">..</script>`:
 
-1. [ParseModule(sourceText, realm, hostDefined)](https://tinyurl.com/mrys2s9u) `->` [**ModuleRecord**](https://tinyurl.com/y6wud8sj)
+1. [ParseModule(sourceText, realm, hostDefined)](https://tinyurl.com/mrys2s9u) `->` [ModuleRecord](https://tinyurl.com/y6wud8sj)
 2. [InitializeEnvironment()](https://tinyurl.com/mr2rnb3y)
 3. [ExecuteModule([capability])](https://tinyurl.com/ctsespxy)
 
