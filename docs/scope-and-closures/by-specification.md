@@ -32,11 +32,11 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 Существует несколько видов EnvironmentRecord:
 
-- [**GlobalEnv Records**](https://tinyurl.com/2p8cmejn)
-- [**ModuleEnv Records**](https://tinyurl.com/2p9banf3)
-- [**FunctionEnv Records**](https://tinyurl.com/yckt9zuj)
-- [**DeclarativeEnv Records**](https://tinyurl.com/5fduhfzd)
-- [**ObjectEnv Records**](https://tinyurl.com/2p964csh)
+- [**GlobalEnv Records**](https://tinyurl.com/2p8cmejn), создается операцией [NewGlobalEnvironment(obj, thisValue)](https://tinyurl.com/2p8jr9dp);
+- [**ModuleEnv Records**](https://tinyurl.com/2p9banf3), создается операцией [NewModuleEnvironment(outerEnv)](https://tinyurl.com/2p968uux);
+- [**FunctionEnv Records**](https://tinyurl.com/yckt9zuj), создается операцией [NewFunctionEnvironment(functionObj, newTarget)](https://tinyurl.com/3um4x7my);
+- [**DeclarativeEnv Records**](https://tinyurl.com/5fduhfzd), создается операцией [NewDeclarativeEnvironment(outerEnv)](https://tinyurl.com/3fbb74wa);
+- [**ObjectEnv Records**](https://tinyurl.com/2p964csh), создается операцией [NewObjectEnvironment(obj, IsWithEnvironment, outerEnv)](https://tinyurl.com/bdpxwttj).
 
 # Алгоритмы
 
@@ -46,7 +46,7 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 1. Создается [Realm](https://tinyurl.com/ycytpr73).
     1. Поле `realm.[[Intrinsics]]` заполняется [встроенными значениями](https://tinyurl.com/3z34we6x).
-2. Создается новый(первый) ExecutionContext, кладется на вершину [execution context stack](https://tinyurl.com/2p8hxsdn) и становится [running execution context](https://tinyurl.com/4fb79dy8).
+2. Создается ExecutionContext, кладется на вершину [execution context stack](https://tinyurl.com/2p8hxsdn) и становится [running execution context](https://tinyurl.com/4fb79dy8).
 3. Определяется, что есть globalObj и thisValue.
 4. Операция [SetRealmGlobalObject(realm, globalObj, thisValue)](https://tinyurl.com/2kjrjwhz):
     1. если `globalObj === undefined`, то `globalObj = OrdinaryObjectCreate(intrinsics.[[%Object.prototype%]])`;
