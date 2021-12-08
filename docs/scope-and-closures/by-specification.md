@@ -59,12 +59,12 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 5. Операция [SetDefaultGlobalBindings(realm)](https://tinyurl.com/5e97fvwx):
     1. объект в поле `realm.[[GlobalObject]]` заполняется всеми значениями, предусмотренными в главе [19](https://tinyurl.com/jc992yvr).
 
-Самое главное, что на выходе должны быть определены:
+Самое главное, что на выходе должны быть определены сущности, обязательные для js-кода:
 
 - [**GlobalEnv**](https://tinyurl.com/2p8cmejn) – **эта область видимости шарится между всеми `<script>` элементами конкретного realm'а и является корнем всех последующих областей видимости, создающихся в ходе выполнения кода скрипта**, хранится по пути `realm.[[GlobalEnv]]`;
 - [**globalThis**](https://tinyurl.com/2fsuj7hj), хранится по пути `realm.[[GlobalEnv]].[[GlobalThisValue]]`;
 - [**GlobalObject**](https://tinyurl.com/jc992yvr), хранится по пути `realm.[[GlobalObject]]`, обычно на него указывает globalThis;
-    - GlobalObject знает о встроенных объектах;
+    - GlobalObject знает о встроенных значениях;
 
 ## 2. Далее запускаются на выполнения все Скрипты и Модули
 
