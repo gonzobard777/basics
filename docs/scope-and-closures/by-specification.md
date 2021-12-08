@@ -104,7 +104,8 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 ## Особый случай – `eval`
 
-[PerformEval](https://tinyurl.com/36ccnz5c)
+В процессе выполнения скрипта/модуля может попасться `eval`.  
+[PerformEval(string, callerRealm, strictCaller, direct)](https://tinyurl.com/36ccnz5c)
 
 ----
 
