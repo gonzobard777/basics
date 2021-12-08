@@ -42,21 +42,23 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 ## 1. Инициализация
 
-Перед тем, как выполнять какой-нибудь скрипт или модуль, действием [InitializeHostDefinedRealm](https://tinyurl.com/bddv3smu) производится инициализация:
+Перед тем, как выполнять какой-нибудь скрипт или модуль, действием [InitializeHostDefinedRealm()](https://tinyurl.com/bddv3smu) производится инициализация:
 
 1. Создается [Realm](https://tinyurl.com/ycytpr73).
-    1. Поле `realm.[[Intrinsics]]` заполняется [встроенными объектами](https://tinyurl.com/3z34we6x).
+    1. Поле `realm.[[Intrinsics]]` заполняется [встроенными значениями](https://tinyurl.com/3z34we6x).
 2. Создается новый(первый) ExecutionContext, кладется на вершину [execution context stack](https://tinyurl.com/2p8hxsdn) и становится [running execution context](https://tinyurl.com/4fb79dy8).
-3. Определяется каким должен быть globalObj и thisValue.
-4. Операция [SetRealmGlobalObject(realmRec, globalObj, thisValue)](https://tinyurl.com/2kjrjwhz):
-    1. чета там мутят с globalObj, чтобы он знал и о встроенных объектах?
-    2. если `thisValue === undefined`, то он принудительно назначается `thisValue = globalObj`.
+3. Определяется что есть globalObj и thisValue.
+4. Операция [SetRealmGlobalObject(realm, globalObj, thisValue)](https://tinyurl.com/2kjrjwhz):
+    1. если `globalObj === undefined`, то `globalObj = OrdinaryObjectCreate(intrinsics.[[%Object.prototype%]])`;
+    2. если `thisValue === undefined`, то `thisValue = globalObj`.
     3. поле `realm.[[GlobalObject]]` заполняется globalObj.
-    3. поле `realm.[[GlobalEnv]]` заполняется значением [NewGlobalEnvironment(globalObj, thisValue)](https://tinyurl.com/2p8jr9dp).
+    4. поле `realm.[[GlobalEnv]]` заполняется значением [NewGlobalEnvironment(globalObj, thisValue)](https://tinyurl.com/2p8jr9dp).
+5. Операция [SetDefaultGlobalBindings(realm)](https://tinyurl.com/5e97fvwx):
+    1. объект в поле `realm.[[GlobalObject]]` заполняется всеми значениями, предусмотренными в главе [19](https://tinyurl.com/jc992yvr).
 
 Самое главное, что на выходе должны быть определены:
 
-- [**GlobalEnv**](https://tinyurl.com/2p8cmejn) – **эта область видимости шарится между всеми `<script>` элементами и является корнем всех последующих областей видимости**, хранится по пути `realm.[[GlobalEnv]]`;
+- [**GlobalEnv**](https://tinyurl.com/2p8cmejn) – **эта область видимости шарится между всеми `<script>` элементами конкретного realm'а и является корнем всех последующих областей видимости**, хранится по пути `realm.[[GlobalEnv]]`;
 - [**globalThis**](https://tinyurl.com/2fsuj7hj), хранится по пути `realm.[[GlobalEnv]].[[GlobalThisValue]]`;
 - [**GlobalObject**](https://tinyurl.com/jc992yvr), хранится он по пути `realm.[[GlobalObject]]`, обычно на него указывает globalThis;
     - GlobalObject знает о встроенных объектах;
