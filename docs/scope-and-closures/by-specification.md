@@ -1,3 +1,6 @@
+Читал спецификацию ECMA-262 и конспектировал.  
+Целевые темы: ExecutionContext и EnvironmentRecord.
+
 # Термины и определения
 
 ## ExecutionContext – Контекст выполнения JS кода
