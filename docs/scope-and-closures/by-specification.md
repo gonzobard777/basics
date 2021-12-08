@@ -16,7 +16,7 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 - движек проводит инициализацию – ScriptOrModule: **null**;
 - движек собирается выполнять код скрипта `<script>..</script>` – ScriptOrModule: [**ScriptRecord**](https://tinyurl.com/fcc6mw94);
 - движек собирается выполнять код модуля `<script type="module">..</script>` – ScriptOrModule: [**ModuleRecord**](https://tinyurl.com/y6wud8sj);
-- движек собирается выполнять код функции `function fnId(..){..}` – **Function**.
+- движек собирается выполнять код функции `function BindingIdentifier ( FormalParameters ) { FunctionBody }` – заполнено поле **Function**.
 
 Для каждого ExecutionContext спецификация определяет обязательный набор полей (см. таблицы [29](https://tinyurl.com/2p96vb7a), [30](https://tinyurl.com/594urp28), [31](https://tinyurl.com/2p8tbzbk)).  
 Вот некоторые из них:
