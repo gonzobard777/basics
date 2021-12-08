@@ -12,7 +12,7 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 - ScriptOrModule: **Script Record** – движек начинает выполнять код скрипта `<script>..</script>`;
 - ScriptOrModule: **Module Record** – движек начинает выполнять код модуля `<script type="module">..</script>`;
-- ScriptOrModule: **null** – движек начинает выполнять код не скрипта и не модуля;
+- ScriptOrModule: **null** – движек начинает выполнять код не скрипта и не модуля (инициализация);
 - **Function** – движек начинает выполнять код функции `function fnId(..){..}`.
 
 Для каждого ExecutionContext спецификация определяет обязательный набор полей (см. таблицы [29](https://tinyurl.com/2p96vb7a), [30](https://tinyurl.com/594urp28), [31](https://tinyurl.com/2p8tbzbk)).  
@@ -40,13 +40,26 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 # Алгоритмы
 
-Чтобы лучше понять (либо окончательно запутаться), надо смотреть соответствующие алгоритмы, описанные в спецификации.
+## 1. Инициализация
 
-## 1. Скрипт
+Перед тем, как выполнять какой-нибудь скрипт или модуль, действием [InitializeHostDefinedRealm](https://tinyurl.com/bddv3smu) производится инициализация:
 
+1. Создается [Realm](https://tinyurl.com/ycytpr73).
+    1. Поле `realm.[[Intrinsics]]` заполняется [встроенными объектами](https://tinyurl.com/3z34we6x).
+2. Создается новый(первый) ExecutionContext, кладется на вершину [execution context stack](https://tinyurl.com/2p8hxsdn) и становится [running execution context](https://tinyurl.com/4fb79dy8).
+3. Определяется каким должен быть [GlobalObject](https://tinyurl.com/jc992yvr) и [globalThis](https://tinyurl.com/2fsuj7hj).
+4. Операция [SetRealmGlobalObject](https://tinyurl.com/2kjrjwhz):
+    1. чета там мутят с GlobalObject, чтобы он знал и о встроенных объектах?
+    2. если globalThis === undefined, то он принудительно назначается globalThis: GlobalObject.
+    3. поле `realm.[[GlobalObject]]` заполняется GlobalObject.
+    3. поле `realm.[[GlobalEnv]]` заполняется значением [NewGlobalEnvironment](https://tinyurl.com/2p8jr9dp).
+
+## 2. Скрипт или Модуль
+
+Скрипт:
 [ScriptEvaluation](https://tinyurl.com/3mkhsjt8)
 
-## 2. Модуль
+Модуль:
 
 1. [InitializeEnvironment](https://tinyurl.com/mr2rnb3y)
 2. [ExecuteModule](https://tinyurl.com/ctsespxy)
