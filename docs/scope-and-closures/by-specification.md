@@ -82,6 +82,8 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 ## 3. Функция
 
+В процессе выполнения скрипта/модуля может попасться функция:
+
 1. [PrepareForOrdinaryCall](https://tinyurl.com/442udm6b)
 2. [FunctionDeclarationInstantiation](https://tinyurl.com/2p98cp79)
 3. [InstantiateOrdinaryFunctionExpression](https://tinyurl.com/35ahwb7u)
@@ -90,6 +92,8 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 6. [ClassDefinitionEvaluation](https://tinyurl.com/bd2cjyx7)
 
 ## 4. Блок кода
+
+В процессе выполнения скрипта/модуля может попасться блок кода:
 
 1. [Блок кода](https://tinyurl.com/mw4acsde)
     1. [ForLoopEvaluation](https://tinyurl.com/2p8j6en9)
