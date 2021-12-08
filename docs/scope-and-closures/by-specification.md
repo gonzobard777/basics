@@ -63,7 +63,7 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 ## Особый случай – `eval`
 
-1. [PerformEval](https://tinyurl.com/36ccnz5c)
+[PerformEval](https://tinyurl.com/36ccnz5c)
 
 ----
 
