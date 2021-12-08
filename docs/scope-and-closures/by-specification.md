@@ -11,8 +11,8 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 Новый ExecutionContext создается всякий раз, когда (см. таблицу [29](https://tinyurl.com/2p96vb7a)):
 
 - ScriptOrModule: **null** – движек проводит инициализацию;
-- ScriptOrModule: **Script Record** – движек начинает выполнять код скрипта `<script>..</script>`;
-- ScriptOrModule: **Module Record** – движек начинает выполнять код модуля `<script type="module">..</script>`;
+- ScriptOrModule: [**ScriptRecord**](https://tinyurl.com/fcc6mw94) – движек начинает выполнять код скрипта `<script>..</script>`;
+- ScriptOrModule: [**ModuleRecord**](https://tinyurl.com/y6wud8sj) – движек начинает выполнять код скрипта-модуля `<script type="module">..</script>`;
 - **Function** – движек начинает выполнять код функции `function fnId(..){..}`.
 
 Для каждого ExecutionContext спецификация определяет обязательный набор полей (см. таблицы [29](https://tinyurl.com/2p96vb7a), [30](https://tinyurl.com/594urp28), [31](https://tinyurl.com/2p8tbzbk)).  
@@ -20,7 +20,7 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 - **LexicalEnvironment** – объект типа [EnvironmentRecord](https://tinyurl.com/ycncua2r), содержит созданные внутри ExecutionContext идентификаторы `let` и `const` переменных(и их значения), а также идентификаторы функций(и ссылку на их код);
 - **VariableEnvironment** – объект типа [EnvironmentRecord](https://tinyurl.com/ycncua2r), содержит созданные внутри ExecutionContext идентификаторы `var` переменных(и их значения).
-- **Realm** – объект типа [Realm Record](https://tinyurl.com/2p9ynr9p);
+- **Realm** – объект типа [RealmRecord](https://tinyurl.com/2p9ynr9p);
 
 ## EnvironmentRecord – Область видимости
 
@@ -30,7 +30,7 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 Каждый EnvironmentRecord содержит поле `[[OuterEnv]]`, значение которого либо равно `null`, либо указывает на внешний EnvironmentRecord.
 
-Существует несколько типов EnvironmentRecord:
+Существует несколько видов EnvironmentRecord:
 
 - [**GlobalEnv Records**](https://tinyurl.com/2p8cmejn)
 - [**ModuleEnv Records**](https://tinyurl.com/2p9banf3)
@@ -65,8 +65,10 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 ## 2. Далее запускаются на выполнения все Скрипты и Модули
 
-Скрипт `<script>..</script>`:  
-[ScriptEvaluation(scriptRecord)](https://tinyurl.com/3mkhsjt8)
+Скрипт `<script>..</script>`:
+
+1. [ParseScript(sourceText, realm, hostDefined)](https://tinyurl.com/2p8j3927)
+2. [ScriptEvaluation(scriptRecord)](https://tinyurl.com/3mkhsjt8)
 
 Модуль `<script type="module">..</script>`:
 
