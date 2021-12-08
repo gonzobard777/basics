@@ -71,12 +71,12 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 Скрипт `<script>..</script>`:
 
-1. [ParseScript(sourceText, realm, hostDefined)](https://tinyurl.com/2p8j3927)
+1. [ParseScript(sourceText, realm, hostDefined)](https://tinyurl.com/2p8j3927) `->` [ScriptRecord](https://tinyurl.com/fcc6mw94)
 2. [ScriptEvaluation(scriptRecord)](https://tinyurl.com/3mkhsjt8)
 
 Модуль `<script type="module">..</script>`:
 
-1. [ParseModule(sourceText, realm, hostDefined)](https://tinyurl.com/mrys2s9u)
+1. [ParseModule(sourceText, realm, hostDefined)](https://tinyurl.com/mrys2s9u) `->` [**ModuleRecord**](https://tinyurl.com/y6wud8sj)
 2. [InitializeEnvironment()](https://tinyurl.com/mr2rnb3y)
 3. [ExecuteModule([capability])](https://tinyurl.com/ctsespxy)
 
@@ -84,12 +84,9 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 В процессе выполнения скрипта/модуля может попасться функция:
 
-1. [PrepareForOrdinaryCall](https://tinyurl.com/442udm6b)
-2. [FunctionDeclarationInstantiation](https://tinyurl.com/2p98cp79)
-3. [InstantiateOrdinaryFunctionExpression](https://tinyurl.com/35ahwb7u)
-4. [InstantiateArrowFunctionExpression](https://tinyurl.com/5n7884p2)
-5. [InstantiateGeneratorFunctionExpression](https://tinyurl.com/mr3tw5wn)
-6. [ClassDefinitionEvaluation](https://tinyurl.com/bd2cjyx7)
+1. [[[Call]](thisArgument, argumentsList)](https://tinyurl.com/5yjn9p8s)
+2. [[[Construct]](argumentsList, newTarget)](https://tinyurl.com/ycknwp3b)
+3. [NamedEvaluation](https://tinyurl.com/mr25m4hc)
 
 ## 4. Блок кода
 
