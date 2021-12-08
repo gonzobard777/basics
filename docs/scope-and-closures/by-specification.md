@@ -34,16 +34,16 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 Чтобы лучше понять (либо окончательно запутаться), надо смотреть соответствующие алгоритмы, описанные в спецификации.
 
-## Скрипт
+## 1. Скрипт
 
 [ScriptEvaluation](https://tinyurl.com/3mkhsjt8)
 
-## Модуль
+## 2. Модуль
 
 1. [InitializeEnvironment](https://tinyurl.com/mr2rnb3y)
 2. [ExecuteModule](https://tinyurl.com/ctsespxy)
 
-## Функция
+## 3. Функция
 
 1. [PrepareForOrdinaryCall](https://tinyurl.com/442udm6b)
 2. [FunctionDeclarationInstantiation](https://tinyurl.com/2p98cp79)
@@ -52,7 +52,7 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 5. [InstantiateGeneratorFunctionExpression](https://tinyurl.com/mr3tw5wn)
 6. [ClassDefinitionEvaluation](https://tinyurl.com/bd2cjyx7)
 
-## Блок кода
+## 4. Блок кода
 
 1. [Блок кода](https://tinyurl.com/mw4acsde)
     1. [ForLoopEvaluation](https://tinyurl.com/2p8j6en9)
