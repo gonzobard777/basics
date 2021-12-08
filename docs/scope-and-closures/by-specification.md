@@ -62,10 +62,10 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 ## 2. Далее запускаются на выполнения все Скрипты и Модули
 
-Скрипт:  
+Скрипт `<script>..</script>`:  
 [ScriptEvaluation](https://tinyurl.com/3mkhsjt8)
 
-Модуль:
+Модуль `<script type="module">..</script>`:
 
 1. [InitializeEnvironment](https://tinyurl.com/mr2rnb3y)
 2. [ExecuteModule](https://tinyurl.com/ctsespxy)
