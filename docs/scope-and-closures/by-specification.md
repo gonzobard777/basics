@@ -1,6 +1,6 @@
 # Термины и определения
 
-## Execution context – Контекст выполнения JS кода
+## ExecutionContext – Контекст выполнения JS кода
 
 JavaScript код выполняет [**агент**](https://tinyurl.com/2p8ptahb), используя данные специальной структуры – [**ExecutionContext**](https://tinyurl.com/se74cyxu). В спецификации ExecutionContext называется "a specification device", но я его представляю в виде простого объекта.
 
@@ -18,13 +18,13 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 Для каждого ExecutionContext спецификация определяет обязательный набор полей (см. таблицы [29](https://tinyurl.com/2p96vb7a), [30](https://tinyurl.com/594urp28), [31](https://tinyurl.com/2p8tbzbk)).  
 Вот некоторые из них:
 
-- **LexicalEnvironment** – объект типа [Environment Record](https://tinyurl.com/ycncua2r), содержит созданные внутри ExecutionContext идентификаторы `let` и `const` переменных(и их значения), а также идентификаторы функций(и ссылку на их код);
-- **VariableEnvironment** – объект типа [Environment Record](https://tinyurl.com/ycncua2r), содержит созданные внутри ExecutionContext идентификаторы `var` переменных(и их значения).
+- **LexicalEnvironment** – объект типа [EnvironmentRecord](https://tinyurl.com/ycncua2r), содержит созданные внутри ExecutionContext идентификаторы `let` и `const` переменных(и их значения), а также идентификаторы функций(и ссылку на их код);
+- **VariableEnvironment** – объект типа [EnvironmentRecord](https://tinyurl.com/ycncua2r), содержит созданные внутри ExecutionContext идентификаторы `var` переменных(и их значения).
 - **Realm** – объект типа [Realm Record](https://tinyurl.com/2p9ynr9p);
 
-## Environment Record – Область видимости
+## EnvironmentRecord – Область видимости
 
-**[Environment Record](https://tinyurl.com/ycncua2r)** – это тип спецификации, используемый для определения связи идентификаторов с конкретными переменными и функциями на основе _лексической_ структуры js кода. Поэтому то, какие идентификаторы попадут в конкретный EnvironmentRecord определяется тем, где вы разместили переменные, функции и блоки кода во время написания программы.
+**[EnvironmentRecord](https://tinyurl.com/ycncua2r)** – это тип спецификации, используемый для определения связи идентификаторов с конкретными переменными и функциями на основе _лексической_ структуры js кода. Поэтому то, какие идентификаторы попадут в конкретный EnvironmentRecord определяется тем, где вы разместили переменные, функции и блоки кода во время написания программы.
 
 Обычно EnvironmentRecord связан с определенными синтаксическими структурами js кода: [FunctionDeclaration](https://tinyurl.com/y7kvzjem), [BlockStatement](https://tinyurl.com/2cz4c58s) или Catch в [TryStatement](https://tinyurl.com/5x8ncsvk). Всякий раз, когда движку надо обработать одну из этих структур, создается новый объект EnvironmentRecord для хранения привязок идентификаторов, созданных этим кодом.
 
@@ -32,11 +32,11 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 Существует несколько типов EnvironmentRecord:
 
-- [**Global Environment Records**](https://tinyurl.com/2p8cmejn)
-- [**Module Environment Records**](https://tinyurl.com/2p9banf3)
-- [**Function Environment Records**](https://tinyurl.com/yckt9zuj)
-- [**Declarative Environment Records**](https://tinyurl.com/5fduhfzd)
-- [**Object Environment Records**](https://tinyurl.com/2p964csh)
+- [**GlobalEnv Records**](https://tinyurl.com/2p8cmejn)
+- [**ModuleEnv Records**](https://tinyurl.com/2p9banf3)
+- [**FunctionEnv Records**](https://tinyurl.com/yckt9zuj)
+- [**DeclarativeEnv Records**](https://tinyurl.com/5fduhfzd)
+- [**ObjectEnv Records**](https://tinyurl.com/2p964csh)
 
 # Алгоритмы
 
@@ -47,16 +47,22 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 1. Создается [Realm](https://tinyurl.com/ycytpr73).
     1. Поле `realm.[[Intrinsics]]` заполняется [встроенными объектами](https://tinyurl.com/3z34we6x).
 2. Создается новый(первый) ExecutionContext, кладется на вершину [execution context stack](https://tinyurl.com/2p8hxsdn) и становится [running execution context](https://tinyurl.com/4fb79dy8).
-3. Определяется каким должен быть [GlobalObject](https://tinyurl.com/jc992yvr) и [globalThis](https://tinyurl.com/2fsuj7hj).
-4. Операция [SetRealmGlobalObject](https://tinyurl.com/2kjrjwhz):
-    1. чета там мутят с GlobalObject, чтобы он знал и о встроенных объектах?
-    2. если globalThis === undefined, то он принудительно назначается globalThis: GlobalObject.
-    3. поле `realm.[[GlobalObject]]` заполняется GlobalObject.
-    3. поле `realm.[[GlobalEnv]]` заполняется значением [NewGlobalEnvironment](https://tinyurl.com/2p8jr9dp).
+3. Определяется каким должен быть globalObj и thisValue.
+4. Операция [SetRealmGlobalObject(realmRec, globalObj, thisValue)](https://tinyurl.com/2kjrjwhz):
+    1. чета там мутят с globalObj, чтобы он знал и о встроенных объектах?
+    2. если `thisValue === undefined`, то он принудительно назначается `thisValue = globalObj`.
+    3. поле `realm.[[GlobalObject]]` заполняется globalObj.
+    3. поле `realm.[[GlobalEnv]]` заполняется значением [NewGlobalEnvironment(globalObj, thisValue)](https://tinyurl.com/2p8jr9dp).
 
-## 2. Скрипт или Модуль
+Самое главное, что на выходе должны быть определены:
 
-Скрипт:
+- [**GlobalEnv**](https://tinyurl.com/2p8cmejn) – **эта область видимости шарится между всеми `<script>` элементами**, храниться по пути `realm.[[GlobalEnv]]`;
+- [**globalThis**](https://tinyurl.com/2fsuj7hj), храниться по пути `realm.[[GlobalEnv]].[[GlobalThisValue]]`;
+- [**GlobalObject**](https://tinyurl.com/jc992yvr), хранится он по пути `realm.[[GlobalObject]]`, обычно на него указывает globalThis;
+
+## 2. Далее запускаются на выполнения все Скрипты и Модули
+
+Скрипт:  
 [ScriptEvaluation](https://tinyurl.com/3mkhsjt8)
 
 Модуль:
