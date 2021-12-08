@@ -10,9 +10,9 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 В какой же момент движек решает передать управление в исполняемый код с другим ExecutionContext (и, соответственно, создать новый ExecutionContext)?  
 Новый ExecutionContext создается всякий раз, когда (см. таблицу [29](https://tinyurl.com/2p96vb7a)):
 
+- ScriptOrModule: **null** – движек проводит инициализацию;
 - ScriptOrModule: **Script Record** – движек начинает выполнять код скрипта `<script>..</script>`;
 - ScriptOrModule: **Module Record** – движек начинает выполнять код модуля `<script type="module">..</script>`;
-- ScriptOrModule: **null** – движек начинает выполнять код не скрипта и не модуля (инициализация);
 - **Function** – движек начинает выполнять код функции `function fnId(..){..}`.
 
 Для каждого ExecutionContext спецификация определяет обязательный набор полей (см. таблицы [29](https://tinyurl.com/2p96vb7a), [30](https://tinyurl.com/594urp28), [31](https://tinyurl.com/2p8tbzbk)).  
