@@ -47,12 +47,12 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 1. Создается [Realm](https://tinyurl.com/ycytpr73).
     1. Поле `realm.[[Intrinsics]]` заполняется [встроенными значениями](https://tinyurl.com/3z34we6x).
 2. Создается новый(первый) ExecutionContext, кладется на вершину [execution context stack](https://tinyurl.com/2p8hxsdn) и становится [running execution context](https://tinyurl.com/4fb79dy8).
-3. Определяется что есть globalObj и thisValue.
+3. Определяется, что есть globalObj и thisValue.
 4. Операция [SetRealmGlobalObject(realm, globalObj, thisValue)](https://tinyurl.com/2kjrjwhz):
     1. если `globalObj === undefined`, то `globalObj = OrdinaryObjectCreate(intrinsics.[[%Object.prototype%]])`;
     2. если `thisValue === undefined`, то `thisValue = globalObj`.
-    3. поле `realm.[[GlobalObject]]` заполняется globalObj.
-    4. поле `realm.[[GlobalEnv]]` заполняется значением [NewGlobalEnvironment(globalObj, thisValue)](https://tinyurl.com/2p8jr9dp).
+    3. в поле `realm.[[GlobalObject]]` назначется globalObj.
+    4. в поле `realm.[[GlobalEnv]]` назначается результат [NewGlobalEnvironment(globalObj, thisValue)](https://tinyurl.com/2p8jr9dp).
 5. Операция [SetDefaultGlobalBindings(realm)](https://tinyurl.com/5e97fvwx):
     1. объект в поле `realm.[[GlobalObject]]` заполняется всеми значениями, предусмотренными в главе [19](https://tinyurl.com/jc992yvr).
 
