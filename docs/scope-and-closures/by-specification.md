@@ -1,6 +1,6 @@
 # Термины и определения
 
-### Execution context – Контекст выполнения JS кода
+## Execution context – Контекст выполнения JS кода
 
 JavaScript код выполняет [**агент**](https://tinyurl.com/2p8ptahb), используя данные специальной структуры – [**ExecutionContext**](https://tinyurl.com/se74cyxu). В спецификации ExecutionContext называется "a specification device", но я его представляю в виде простого объекта.
 
@@ -22,13 +22,21 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 - **VariableEnvironment** – объект типа [Environment Record](https://tinyurl.com/ycncua2r), содержит созданные внутри ExecutionContext идентификаторы `var` переменных(и их значения).
 - **Realm** – объект типа [Realm Record](https://tinyurl.com/2p9ynr9p);
 
-### Environment Record – Область видимости
+## Environment Record – Область видимости
 
 **[Environment Record](https://tinyurl.com/ycncua2r)** – это тип спецификации, используемый для определения связи идентификаторов с конкретными переменными и функциями на основе _лексической_ структуры js кода. Поэтому то, какие идентификаторы попадут в конкретный EnvironmentRecord определяется тем, где вы разместили переменные, функции и блоки кода во время написания программы.
 
 Обычно EnvironmentRecord связан с определенными синтаксическими структурами js кода: [FunctionDeclaration](https://tinyurl.com/y7kvzjem), [BlockStatement](https://tinyurl.com/2cz4c58s) или Catch в [TryStatement](https://tinyurl.com/5x8ncsvk). Всякий раз, когда движку надо обработать одну из этих структур, создается новый объект EnvironmentRecord для хранения привязок идентификаторов, созданных этим кодом.
 
 Каждый EnvironmentRecord содержит поле `[[OuterEnv]]`, значение которого либо равно `null`, либо указывает на внешний EnvironmentRecord.
+
+Существует несколько типов EnvironmentRecord:
+
+- [**Global Environment Records**](https://tinyurl.com/2p8cmejn)
+- [**Module Environment Records**](https://tinyurl.com/2p9banf3)
+- [**Function Environment Records**](https://tinyurl.com/yckt9zuj)
+- [**Declarative Environment Records**](https://tinyurl.com/5fduhfzd)
+- [**Object Environment Records**](https://tinyurl.com/2p964csh)
 
 # Алгоритмы
 
