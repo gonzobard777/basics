@@ -5,3 +5,8 @@
 - [RxJs](./docs/rxjs/index.md)
 - [TypeScript](./docs/typescript/index.md)
 - [Перформанс](./docs/performance/index.md)
+
+### TODO
+Надо переработать ссылки:
+- http://perfectionkills.com/javascript-quiz-es6
+- http://perfectionkills.com/javascript-quiz
