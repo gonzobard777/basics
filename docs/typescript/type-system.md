@@ -2,6 +2,17 @@
 
 ## Думать о типах как о множестве значений (наборе значений)
 
+| TypeScript term       | Set term               |
+|-----------------------|------------------------|
+| `never`               | ∅ (empty set)          |
+| Literal type          | Single element set     |
+| Value assignable to T | Value ∈ T (member of)  |
+| T1 assignable to T2   | T1 ⊆ T2 (subset of)    |
+| T1 extends T2         | T1 ⊆ T2 (subset of)    |
+| T1 &#124;&#124; T2    | T1 ∪ T2 (union)        |
+| T1 & T2               | T1 ∩ T2 (intersection) |
+| `unknown`             | Universal set          |
+
 Самое маленькое множество – это пустое множество, в котором нет значений. В TypeScript он соответствует типу `never`.
 
 ```typescript
@@ -41,14 +52,3 @@ const back: AB = twelve;
 // Type 'AB12' is not assignable to type 'AB'
 // Type '12' is not assignable to type 'AB'
 ```
-
-| TypeScript term       | Set term               |
-|-----------------------|------------------------|
-| `never`               | ∅ (empty set)          |
-| Literal type          | Single element set     |
-| Value assignable to T | Value ∈ T (member of)  |
-| T1 assignable to T2   | T1 ⊆ T2 (subset of)    |
-| T1 extends T2         | T1 ⊆ T2 (subset of)    |
-| T1 &#124;&#124; T2    | T1 ∪ T2 (union)        |
-| T1 & T2               | T1 ∩ T2 (intersection) |
-| `unknown`             | Universal set          |
