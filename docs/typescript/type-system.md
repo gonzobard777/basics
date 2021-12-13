@@ -9,7 +9,7 @@
 | Value assignable to T | Value ∈ T (member of)  |
 | T1 assignable to T2   | T1 ⊆ T2 (subset of)    |
 | T1 extends T2         | T1 ⊆ T2 (subset of)    |
-| T1 &#124;&#124; T2    | T1 ∪ T2 (union)        |
+| T1 &#124; T2          | T1 ∪ T2 (union)        |
 | T1 & T2               | T1 ∩ T2 (intersection) |
 | `unknown`             | Universal set          |
 
