@@ -1,6 +1,6 @@
 # Система типов TypeScript
 
-## Думать о типах как о множестве(наборе) значений
+## Думать о типах как о множестве значений (наборе значений)
 
 Самое маленькое множество – это пустое множество, в котором нет значений. В TypeScript он соответствует типу `never`.
 
@@ -27,14 +27,14 @@ type ABnumber = 'A' | 'B' | number;
 
 В сообщениях об ошибках в TypeScript часто фигурирует слово "assignable" (может быть назначен). В контексте множеств значений это означает:
 
-- value **member of** set – для отношений между значением;
-- type **subset of** set – для отношений между двумя типами.
+- value is a **member of** set – для отношений между значением и типом;
+- setB is a **subset of** setA – для отношений между двумя типами.
 
 Почти все, что делает средство проверки типов, – это проверяет, является ли одно множество подмножеством другого:
 
 ```typescript
-// OK, "A" | "B" is a subset of "A" | "B":
-const ab: AB = Math.random() < 0.5 ? 'A' : 'B';
+const a: AB = 'A'; // OK, "A" is a member of "A" | "B"
+const ab: AB = Math.random() < 0.5 ? 'A' : 'B'; // OK, "A" | "B" is a subset of "A" | "B"
 const ab12: AB12 = ab; // OK, "A" | "B" is a subset of "A" | "B" | 12
 declare let twelve: AB12;
 const back: AB = twelve;
