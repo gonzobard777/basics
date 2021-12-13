@@ -3,4 +3,5 @@
 - [Области видимости и замыкания](./docs/scope-and-closures/index.md)
 - [`this` и прототипы объектов](./docs/this-and-prototypes.md)
 - [RxJs](./docs/rxjs/index.md)
+- [TypeScript](./docs/typescript/index.md)
 - [Перформанс](./docs/performance/index.md)
