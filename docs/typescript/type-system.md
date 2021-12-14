@@ -74,7 +74,7 @@ class Person implements Identified {
     }
 }
 
-const person = new Person('John', 18, '35');
+const person = new Person('35', 'John', 18);
 const book = {
     author: 'Stephen King',
     title: 'Dreamcatcher',
