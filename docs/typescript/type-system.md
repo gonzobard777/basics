@@ -60,23 +60,25 @@ const back: AB = twelve; // set {"A" | "B" | 12} is not a subset of {"A" | "B"} 
 ### Структурная типизация
 
 Тип объекта в TypeScript не видит разницы между простыми объектами (вроде созданных с помощью `{}`) и более сложными (созданными с помощью `new`). Так и было задумано – TypeScript **структурно типизирован**. При структурной типизации интересуют только конкретные свойства объекта и их тип, а не имя объекта (номинальная типизация) или способ его создания.   
-Например, код ниже успешно пройдет проверку по типам и выведет в консоль id переданных объектов, т.к. объекты book и person могут быть назначены типу Identified (assignable to type):
+Например, код ниже успешно пройдет проверку по типам и выведет в консоль id переданных объектов, т.к. объекты person и book могут быть назначены типу Identified (assignable to type):
 
 ```typescript
 interface Identified {
     id: string;
 }
 
-const book = {
-    id: 'B00005AVXB',
-    author: 'Stephen King',
-    title: 'Dreamcatcher',
+class Person implements Identified {
+    constructor(public id: string,
+                public name: string,
+                public age: number) {
+    }
 }
 
-let person = {
-    name: 'John',
-    age: 18,
-    id: '35',
+let person = new Person('John', 18, '35');
+const book = {
+    author: 'Stephen King',
+    title: 'Dreamcatcher',
+    id: 'B00005AVXB',
 }
 
 function print(obj: Identified) {
