@@ -55,6 +55,10 @@ const back: AB = twelve; // set {"A" | "B" | 12} is not a subset of {"A" | "B"} 
 // Type '12' is not assignable to type 'AB'
 ```
 
+## Объекты
+
+### Структурная типизация
+
 Тип `object` в TypeScript не видит разницы между простыми объектами (вроде созданных с помощью `{}`) и более сложными (созданными с помощью `new`). Так и было задумано – TypeScript **структурно типизирован**. При структурной типизации интересуют только конкретные свойства объекта и их тип, а не его имя (номинальная типизация) или способ создания. Например, код ниже успешно пройдет проверку по типам и выведет в консоль id переданных объектов:
 
 ```typescript
@@ -80,4 +84,77 @@ function print(obj: Identified) {
 
 print(book); // "B00005AVXB"
 print(person); // "35"
+```
+
+### Пересечение и объединение
+
+Рассмотрим пример:
+
+```typescript
+interface Person {
+    id: string;
+}
+
+interface Lifespan {
+    birth: Date;
+    death?: Date;
+}
+
+type Intersection = Person & Lifespan;
+type Union = Person | Lifespan;
+```
+
+#### Пересечение
+
+Для пересечения TypeScript будет ожидать следующий тип:
+
+```typescript
+type Intersection = { // = Person & Lifespan;
+    id: string;
+    birth: Date;
+    death?: Date;
+}
+```
+
+То есть под тип `Intersection` подпадет любой объект, имеющий все обязательные свойства `Person` _и_ `Lifespan` _одновременно_. Поэтому деструктуризация всех полей не вызовет ошибок при проверке типов:
+
+```typescript
+const obj = {
+    id: '123',
+    birth: new Date,
+};
+let personLifespan: Intersection = obj;
+const {id, birth, death} = personLifespan;
+```
+
+![keyof (Person & Lifespan)](./data/types-intersection-keyof.png)
+
+#### Объединение
+
+Для объединения TypeScript будет ожидать объект, имеющий все обязательные свойства `Person` _либо_ `Lifespan`, но никак не одновременно оба. Например:
+
+```typescript
+const obj = {
+    id: '123',
+    birth: new Date,
+};
+let personLifespan: Union = obj; //  (1) ОК, т.к. состав полей подходит и `Person` и `Lifespan` одновременно
+const {id, birth, death} = personLifespan; // (2) Type error
+// Property 'id' does not exist on type 'Union'.
+// Property 'birth' does not exist on type 'Union'.
+// Property 'death' does not exist on type 'Union'.
+```
+
+TypeScript выдает ошибку при деструктуризации, т.к. не может понять к какому типу отнести объект:
+
+![keyof (Person | Lifespan)](./data/types-union-keyof.png)
+
+Вот такой код уже не будет выдавать ошибок:
+
+```typescript
+const obj = {
+    birth: new Date,
+};
+let personLifespan: Union = obj;
+const {birth, death} = personLifespan; // TypeScript понимает, что obj подходит для интерфейса Lifespan
 ```
