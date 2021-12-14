@@ -119,7 +119,7 @@ type Intersection = { // = Person & Lifespan;
 }
 ```
 
-То есть под тип `Intersection` подпадет любой объект, имеющий все обязательные свойства `Person` _и_ `Lifespan` _одновременно_. Поэтому деструктуризация всех полей не вызовет ошибок при проверке типов:
+То есть любой объект, имеющий все обязательные свойства `Person` _и_ `Lifespan` _одновременно_ может быть назначен типу `Intersection`. Поэтому деструктуризация всех полей не вызовет ошибок при проверке типов:
 
 ```typescript
 const obj = {
@@ -127,7 +127,7 @@ const obj = {
     birth: new Date,
 };
 let personLifespan: Intersection = obj;
-const {id, birth, death} = personLifespan;
+const {id, birth, death} = personLifespan; // OK, because type Intersection = Person & Lifespan; 
 ```
 
 ![keyof (Person & Lifespan)](./data/types-intersection-keyof.png)
