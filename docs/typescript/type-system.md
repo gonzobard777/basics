@@ -139,14 +139,12 @@ const obj = {
     id: '123',
     birth: new Date,
 };
-let personLifespan: Union = obj; //  (1) ОК, т.к. состав полей подходит и `Person` и `Lifespan` одновременно
-const {id, birth, death} = personLifespan; // (2) Type error
+let personLifespan: Union = obj; // (1) ОК, т.к. состав полей подходит и `Person` и `Lifespan` одновременно
+const {id, birth, death} = personLifespan; // (2) Type error, т.к. TypeScript не может понять к какому типу отнести объект
 // Property 'id' does not exist on type 'Union'.
 // Property 'birth' does not exist on type 'Union'.
 // Property 'death' does not exist on type 'Union'.
 ```
-
-TypeScript выдает ошибку при деструктуризации, т.к. не может понять к какому типу отнести объект:
 
 ![keyof (Person | Lifespan)](./data/types-union-keyof.png)
 
@@ -157,5 +155,5 @@ const obj = {
     birth: new Date,
 };
 let personLifespan: Union = obj;
-const {birth, death} = personLifespan; // TypeScript понимает, что obj подходит для интерфейса Lifespan
+const {birth, death} = personLifespan; // TypeScript понимает, что obj assignable to type 'Lifespan'
 ```
