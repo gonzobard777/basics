@@ -4,7 +4,7 @@
 - [`this` и прототипы объектов](./docs/this-and-prototypes.md)
 - [RxJs](./docs/rxjs/index.md)
 - [TypeScript](./docs/typescript/index.md)
-- [Перформанс](./docs/performance/index.md)
+- [Перформанс](./docs/performance/README.md)
 
 ### TODO
 Надо переработать ссылки:
