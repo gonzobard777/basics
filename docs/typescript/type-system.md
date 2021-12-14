@@ -44,11 +44,40 @@ type ABnumber = 'A' | 'B' | number;
 Почти все, что делает средство проверки типов, – это проверяет, является ли одно множество подмножеством другого:
 
 ```typescript
-const a: AB = 'A'; // OK, "A" is a member of "A" | "B"
-const ab: AB = Math.random() < 0.5 ? 'A' : 'B'; // OK, "A" | "B" is a subset of "A" | "B"
-const ab12: AB12 = ab; // OK, "A" | "B" is a subset of "A" | "B" | 12
+const a: AB = 'A'; // OK, value "A" is a member of {"A" | "B"} set
+const ab: AB = Math.random() < 0.5 ? 'A' : 'B'; // OK, set {"A" | "B"} is a subset of {"A" | "B"} set
+const ab12: AB12 = ab; // OK, set {"A" | "B"} is a subset of {"A" | "B" | 12} set
+const c: ABnumber = 'C'; // value "C" is not a member of {"A" | "B" | number} set
+// Type '"C"' is not assignable to type 'ABnumber'
 declare let twelve: AB12;
-const back: AB = twelve;
+const back: AB = twelve; // set {"A" | "B" | 12} is not a subset of {"A" | "B"} set
 // Type 'AB12' is not assignable to type 'AB'
 // Type '12' is not assignable to type 'AB'
+```
+
+Тип `object` в TypeScript не видит разницы между простыми объектами (вроде созданных с помощью `{}`) и более сложными (созданными с помощью `new`). Так и было задумано – TypeScript структурно типизирован. При структурной типизации интересуют только конкретные свойства объекта, а не его имя (номинальная типизация) или способ создания. Например, код ниже выведет в консоль id переданных объектов, не выдав никаких ошибок с типами:
+
+```typescript
+interface Identified {
+    id: string;
+}
+
+const book = {
+    id: 'B00005AVXB',
+    author: 'Stephen King',
+    title: 'Dreamcatcher',
+}
+
+let person = {
+    name: 'John',
+    age: 18,
+    id: '35',
+}
+
+function print(obj: Identified) {
+    console.log(obj.id);
+}
+
+print(book); // "B00005AVXB"
+print(person); // "35"
 ```
