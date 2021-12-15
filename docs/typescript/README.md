@@ -6,3 +6,4 @@
 
 links:
 - [Раскладываем tsconfig по полочкам. Часть 1](https://habr.com/ru/post/542234/)
+- [When to use `never` and `unknown` in TypeScript](https://blog.logrocket.com/when-to-use-never-and-unknown-in-typescript-5e4d6c5799ad/)
