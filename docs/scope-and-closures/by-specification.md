@@ -65,7 +65,7 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 - [**GlobalEnv**](https://tinyurl.com/2p8cmejn) – **эта область видимости шарится между всеми `<script>` элементами конкретного realm'а и является корнем всех последующих областей видимости, создающихся в ходе выполнения кода скрипта**, хранится по пути `realm.[[GlobalEnv]]`;
 - [**globalThis**](https://tinyurl.com/2fsuj7hj) – хранится по пути `realm.[[GlobalEnv]].[[GlobalThisValue]]`;
 - [**GlobalObject**](https://tinyurl.com/jc992yvr) – хранится по пути `realm.[[GlobalObject]]`, обычно на него указывает globalThis;
-    - GlobalObject знает о встроенных значениях;
+    - GlobalObject знает обо всем, что предусмотрено [здесь](https://tinyurl.com/jc992yvr).;
 
 ## 2. Далее запускаются на выполнения все Скрипты и Модули
 
