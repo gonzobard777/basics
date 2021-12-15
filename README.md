@@ -6,9 +6,5 @@
 - [TypeScript](./docs/typescript/README.md)
 - [Перформанс](./docs/performance/README.md)
 
+- [todo](./docs/todo.md)
 - [вопросы](./docs/questions/README.md)
-
-### TODO
-Надо переработать ссылки:
-- http://perfectionkills.com/javascript-quiz-es6
-- http://perfectionkills.com/javascript-quiz
