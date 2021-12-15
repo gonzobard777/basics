@@ -46,7 +46,7 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 ## 1. Инициализация
 
 Перед тем, как выполнить скрипт/модуль, движек должен убедиться, что существует нужный realm.  
-Если realm не найден, то он создается и инициализируется действием [InitializeHostDefinedRealm()](https://tinyurl.com/bddv3smu):
+Если realm не найден, то действием [InitializeHostDefinedRealm()](https://tinyurl.com/bddv3smu) новый realm создается и инициализируется:
 
 1. Создается [Realm](https://tinyurl.com/ycytpr73).
     1. Поле `realm.[[Intrinsics]]` заполняется [встроенными значениями](https://tinyurl.com/3z34we6x).
