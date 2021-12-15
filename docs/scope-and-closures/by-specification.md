@@ -35,11 +35,11 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 Существует несколько видов EnvironmentRecord:
 
-- [**GlobalEnv Records**](https://tinyurl.com/2p8cmejn), создается операцией [NewGlobalEnvironment(obj, thisValue)](https://tinyurl.com/2p8jr9dp);
-- [**ModuleEnv Records**](https://tinyurl.com/2p9banf3), создается операцией [NewModuleEnvironment(outerEnv)](https://tinyurl.com/2p968uux);
-- [**FunctionEnv Records**](https://tinyurl.com/yckt9zuj), создается операцией [NewFunctionEnvironment(functionObj, newTarget)](https://tinyurl.com/3um4x7my);
-- [**DeclarativeEnv Records**](https://tinyurl.com/5fduhfzd), создается операцией [NewDeclarativeEnvironment(outerEnv)](https://tinyurl.com/3fbb74wa);
-- [**ObjectEnv Records**](https://tinyurl.com/2p964csh), создается операцией [NewObjectEnvironment(obj, IsWithEnvironment, outerEnv)](https://tinyurl.com/bdpxwttj).
+- [**GlobalEnv**](https://tinyurl.com/2p8cmejn), создается операцией [NewGlobalEnvironment(obj, thisValue)](https://tinyurl.com/2p8jr9dp);
+- [**ModuleEnv**](https://tinyurl.com/2p9banf3), создается операцией [NewModuleEnvironment(outerEnv)](https://tinyurl.com/2p968uux);
+- [**FunctionEnv**](https://tinyurl.com/yckt9zuj), создается операцией [NewFunctionEnvironment(functionObj, newTarget)](https://tinyurl.com/3um4x7my);
+- [**DeclarativeEnv**](https://tinyurl.com/5fduhfzd), создается операцией [NewDeclarativeEnvironment(outerEnv)](https://tinyurl.com/3fbb74wa);
+- [**ObjectEnv**](https://tinyurl.com/2p964csh), создается операцией [NewObjectEnvironment(obj, IsWithEnvironment, outerEnv)](https://tinyurl.com/bdpxwttj).
 
 # Алгоритмы
 
