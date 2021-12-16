@@ -30,7 +30,7 @@
 | object does not implement [[Call]]   | "object"                                 |                                                                       |
 | object implements [[Call]]           | "function"                               |                                                                       |
 
-# Конвертации
+# Конвертация
 
 ### Когда и как движёк будет выполять конвертацию?
 | Как?   | [ToBoolean](https://tinyurl.com/r7v9y9n9)                                                               | [ToNumber](https://tinyurl.com/ur5yaxkh), [ToNumeric](https://tinyurl.com/hp6snzfb)                                                                                                                                                                                                                                                                                                                                      | [ToBigInt](https://tinyurl.com/3tk59vvr)                                              | [ToString](https://tinyurl.com/mxe9adyw)                                                                                            | [ToObject](https://tinyurl.com/35nbcfmm)                                                |
