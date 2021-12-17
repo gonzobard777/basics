@@ -6,6 +6,17 @@
 ## Checks
 
 ```js
+"use strict";
+console.log(someVariable123);
+```
+
+```js
+"use strict";
+const obj = {hello: "world"};
+console.log(obj.abc);
+```
+
+```js
 a = 2;
 var a;
 console.log(a);
