@@ -69,6 +69,11 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 ## 2. Далее запускаются на выполнения все Скрипты и Модули
 
+Порядок обработки скриптов и модулей может зависеть от режима: [defer](https://tinyurl.com/2p9ha6ez), [async](https://tinyurl.com/2p9f3u39).
+
+Модули начинают выполняться после полной загрузки страницы, т.к. всегда выполняются в отложенном defer режиме.  
+Обычные же скрипты запускаются сразу.
+
 Скрипт `<script>..</script>`:
 
 1. [ParseScript(sourceText, realm, hostDefined)](https://tinyurl.com/2p8j3927) `->` [ScriptRecord](https://tinyurl.com/fcc6mw94)
