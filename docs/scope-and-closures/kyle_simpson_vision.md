@@ -1,4 +1,6 @@
-Читал книгу [You Don't Know JS: Scope & Closures](https://www.amazon.com/gp/product/1449335586/ref=dbs_a_def_rwt_bibl_vppi_i8) и конспектировал.  
+Читал книгу [You Don't Know JS: Scope & Closures](https://www.amazon.com/gp/product/1449335586/ref=dbs_a_def_rwt_bibl_vppi_i8) и конспектировал.
+
+Выполнение js-программы делится на две фазы:
 
 1. Фаза **Компиляция**:
     1. **Лексический анализ** – разбиение последовательности символов на осмысленные (с точки зрения языка) фрагменты, называемые _токенами_.
