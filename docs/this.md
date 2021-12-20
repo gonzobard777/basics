@@ -31,14 +31,14 @@ obj.fn(); // this = obj
 
 См. описание [внутренней реализации](https://learn.javascript.ru/object-methods#vnutrennyaya-realizatsiya-ssylochnyy-tip).
 
-**4.** В остальных случаях используется `this` по умолчанию:
-
-- если действует strict режим, назначается `undefined` (в модулях всегда strict режим);
-- иначе назначается [глобальный контекст](https://developer.mozilla.org/en-US/docs/Glossary/Global_object)
+**4.** В остальных случаях:
 
 ```js
 fn();
-``` 
+```
+
+- если действует strict режим, в `this` назначается `undefined` (в модулях всегда strict режим);
+- иначе в `this` назначается объект [глобального контекста](https://developer.mozilla.org/en-US/docs/Glossary/Global_object)
 
 ## Исключение – стрелочные функции
 
