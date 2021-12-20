@@ -41,7 +41,7 @@ fn();
 ```
 
 - если действует strict режим, в `this` назначается `undefined` (в модулях всегда strict режим);
-- иначе в `this` назначается объект [глобального контекста](https://developer.mozilla.org/en-US/docs/Glossary/Global_object)
+- иначе в `this` назначается объект [глобального контекста](https://developer.mozilla.org/en-US/docs/Glossary/Global_object).
 
 ## Исключение – стрелочные функции
 
