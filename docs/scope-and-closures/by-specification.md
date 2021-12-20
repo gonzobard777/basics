@@ -1,6 +1,10 @@
 Читал спецификацию ECMA-262 и конспектировал.  
 Целевые темы: ExecutionContext и EnvironmentRecord.
 
+# Как движек находит идентификатор?
+
+[ResolveBinding](https://tinyurl.com/2p9bx6h8)
+
 # Термины и определения
 
 ## ExecutionContext – Контекст выполнения JS кода
@@ -108,13 +112,3 @@ JavaScript код выполняет [**агент**](https://tinyurl.com/2p8pta
 
 В процессе выполнения скрипта/модуля может попасться `eval`.  
 [PerformEval(string, callerRealm, strictCaller, direct)](https://tinyurl.com/36ccnz5c)
-
-----
-
-## Как движек находит идентификатор?
-
-[ResolveBinding](https://tinyurl.com/2p9bx6h8)
-
-## Как движек находит `this`?
-
-[ResolveThisBinding](https://tinyurl.com/4saxf737)

@@ -55,6 +55,10 @@ const bar = foo.call(obj1);
 bar.call(obj2); // 2, не 3!
 ```
 
+## Как движек находит `this`?
+
+[ResolveThisBinding](https://tinyurl.com/4saxf737)
+
 ## Checks
 
 ```js
