@@ -1,7 +1,7 @@
 # Типы значений
 
 В языке JavaScript у переменных нет типов – типы есть у _значений_.  
-Переменная может хранить любое значение в любой момент времени. Иначе говоря, движёк не требует, чтобы в _переменной_ всегда хранились значения _исходного типа_, с которым она начала свое существование.  
+Переменная может хранить любое значение в любой момент времени. Иначе говоря, движёк не требует, чтобы в _переменной_ всегда хранились значения _исходного типа_, с которым она начала свое существование.
 
 |    | Типы значений                             |                                                                                                                                                                                                                                                                                                                                                                                                                    |
 |----|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -17,7 +17,7 @@
 **Примитивный тип** – это все, что не `Object`.
 
 ### К какому типу относится это значение или значение в этой переменной?
-  
+
 | `typeof` *value*                  | Result                                   | Maybe it would be better this way                                     |
 |---------------------------------- |------------------------------------------|-----------------------------------------------------------------------|
 | undefined                         | "undefined"                              | `value === undefined`, but remember about `var undefined = "abc"`     |
@@ -33,11 +33,13 @@
 # Конвертация
 
 ### Когда и как движёк будет выполять конвертацию?
+
 | Как?   | [ToBoolean](https://tinyurl.com/r7v9y9n9)                                                               | [ToNumber](https://tinyurl.com/ur5yaxkh), [ToNumeric](https://tinyurl.com/hp6snzfb)                                                                                                                                                                                                                                                                                                                                      | [ToBigInt](https://tinyurl.com/3tk59vvr)                                              | [ToString](https://tinyurl.com/mxe9adyw)                                                                                                 | [ToObject](https://tinyurl.com/35nbcfmm)                                                                         |
 |--------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | Когда? | `Boolean(value)`,<br>Unary `!`,<br>`if`, циклы,<br>`? :`,<br>`&&`, `\|\|`<br>&nbsp;<br>&nbsp;<br>&nbsp; | Unary `+`, `-`, `~`,<br>`Number(value)`,<br>[Binary](https://tinyurl.com/b7ny87t9) `+`, `-`, `**`, `*`, `/`, `%`, `<<`, `>>`, `>>>`, `&`, `^`, `\|`,<br>[Relational](https://tinyurl.com/yj6zydm6) `<`, `>`, `<=`, `>=`<br>[Update](https://tinyurl.com/vffpnsw2) `++`, `--`,<br>[Equality](https://tinyurl.com/vbhc8cw2) `==`, `!=`,<br>[isNaN](https://tinyurl.com/3sype8zz), [isFinite](https://tinyurl.com/54zxtza6) | `BigInt(value)`<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; | `${value}`,<br>`String(value)`,<br>`object[variable]`, `in`,<br>[Binary](https://tinyurl.com/b7ny87t9) `+`<br>&nbsp;<br>&nbsp;<br>&nbsp; | `.` or `[]` [notation](https://tinyurl.com/5f25v57x)<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
 
 ### В какое значение сконвертируется?
+
 |           | [ToBoolean](https://tinyurl.com/r7v9y9n9)                   | [ToNumber](https://tinyurl.com/ur5yaxkh)       | [ToBigInt](https://tinyurl.com/3tk59vvr)       | [ToString](https://tinyurl.com/mxe9adyw)         | [ToObject](https://tinyurl.com/35nbcfmm)             |
 |-----------|-------------------------------------------------------------|------------------------------------------------|------------------------------------------------|--------------------------------------------------|------------------------------------------------------|
 | undefined | `false`                                                     | `NaN`                                          | TypeError                                      | `"undefined"`                                    | TypeError                                            |
@@ -50,8 +52,8 @@
 | object    | `true`                                                      | [ToPrimitive](https://tinyurl.com/j4dxw9ps)    | –                                              | [ToPrimitive](https://tinyurl.com/j4dxw9ps)      | –                                                    |
 
 - [Преобразование объектов в примитивы](https://learn.javascript.ru/object-toprimitive)
-- [Пользовательский «toJSON»](https://learn.javascript.ru/json#polzovatelskiy-tojson) 
-  
+- [Пользовательский «toJSON»](https://learn.javascript.ru/json#polzovatelskiy-tojson)
+
 # Другое
 
 ### Сравнение на равенство
@@ -107,7 +109,8 @@
 `"true" == true`  
 `false == "false"`  
 `null == ""`  
-`undefined == null`  
+`undefined == null`
+
 ```js
 var a;
 if (a != null) {
@@ -116,6 +119,7 @@ if (a != null) {
   console.log('world');
 }
 ```  
+
 ```js
 var a = new Boolean(false);
 if (!a) {
@@ -124,11 +128,13 @@ if (!a) {
   console.log('world');
 }
 ```  
+
 ```js
 var str = "hello";
 str.lang = 'eng';
 console.log(str.lang);
 ```
+
 `false == new Boolean(false)`  
 `false === new Boolean(false)`  
 `true == new Boolean([])`  
@@ -146,17 +152,20 @@ console.log(str.lang);
 `(function helloWorld(){})() === undefined`  
 `({})() === undefined`  
 `void "hello"`  
-`void false`  
+`void false`
+
 ```js
 var a;
 console.log(a);
 console.log(z);
 ```  
+
 ```js
 var a;
 console.log(typeof a);
 console.log(typeof z);
 ```  
+
 ```js
 var a;
 var z = 42;
@@ -164,16 +173,18 @@ z = a;
 console.log(typeof a);
 console.log(typeof z);
 ```  
+
 ```js
 var a = 2;
 var b = a;
 b++;
 console.log(a, b);
 ```  
+
 ```js
-function foo(x){
+function foo(x) {
   x.push(4);
-  
+
   x = [4, 5, 6];
   x.push(7);
   console.log('x', x);
@@ -183,10 +194,11 @@ var a = [1, 2, 3];
 foo(a);
 console.log('a', a);
 ```  
+
 ```js
-function foo(x){
+function foo(x) {
   x.push(4);
-  
+
   x.length = 0;
   x.push(4, 5, 6);
   console.log('x', x);
@@ -196,10 +208,12 @@ var a = [1, 2, 3];
 foo(a);
 console.log('a', a);
 ```  
+
 ```js
 function foo(x) {
   x++;
 }
+
 var a = new Number(1);
 foo(a);
 console.log(+a);
