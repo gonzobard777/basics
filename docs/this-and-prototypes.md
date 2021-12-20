@@ -31,8 +31,8 @@ obj.fn(); // this = obj
 
 **4.** В остальных случаях используется `this` по умолчанию:
 
-- если действует strict режим, выбирается `undefined` (в модулях всегда strict режим);
-- иначе выбирается [глобальный контекст](https://developer.mozilla.org/en-US/docs/Glossary/Global_object)
+- если действует strict режим, назначается `undefined` (в модулях всегда strict режим);
+- иначе назначается [глобальный контекст](https://developer.mozilla.org/en-US/docs/Glossary/Global_object)
 
 ```js
 fn();
