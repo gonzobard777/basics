@@ -1,3 +1,7 @@
+# Как движек находит `this`?
+
+[ResolveThisBinding](https://tinyurl.com/4saxf737)
+
 # `this`
 
 Значение `this` каждый раз при вызове функции **вычисляется** заново.  
@@ -54,10 +58,6 @@ const obj2 = {
 const bar = foo.call(obj1);
 bar.call(obj2); // 2, не 3!
 ```
-
-## Как движек находит `this`?
-
-[ResolveThisBinding](https://tinyurl.com/4saxf737)
 
 ## Checks
 
