@@ -1,6 +1,6 @@
 # package.json
 
-## Поля, которые использует Node.js (другие поля игнорирует)
+### Поля, которые использует Node.js (другие поля игнорирует)
 
 https://nodejs.org/api/packages.html#nodejs-packagejson-field-definitions
 
@@ -14,7 +14,7 @@ https://nodejs.org/api/packages.html#nodejs-packagejson-field-definitions
   - [пример exports в RxJs](https://github.com/ReactiveX/rxjs/blob/master/package.json)
 - [`imports`](https://tinyurl.com/42975ypr)
 
-## Поля, которые использует npm
+### Поля, которые использует npm
 
 https://docs.npmjs.com/cli/v8/configuring-npm/package-json
 
