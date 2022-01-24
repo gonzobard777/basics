@@ -3,6 +3,7 @@
 - [Области видимости и замыкания](./docs/scope-and-closures/README.md)
 - [`this`](./docs/this.md)
 - [Модули](./docs/modules.md)
+- [`package.json`](./docs/package-json.md)
 - [webpack](./docs/webpack.md)
 - [RxJs](./docs/rxjs/README.md)
 - [TypeScript](./docs/typescript/README.md)
