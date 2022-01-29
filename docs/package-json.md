@@ -1,6 +1,6 @@
 # package.json
 
-### Поля, которые использует Node.js (другие поля игнорирует)
+## Поля, которые использует Node.js (другие поля игнорирует)
 
 https://nodejs.org/api/packages.html#nodejs-packagejson-field-definitions
 
@@ -14,7 +14,7 @@ https://nodejs.org/api/packages.html#nodejs-packagejson-field-definitions
   - [пример exports в RxJs](https://github.com/ReactiveX/rxjs/blob/master/package.json)
 - [`imports`](https://tinyurl.com/42975ypr)
 
-### Поля, которые использует npm
+## Поля, которые использует npm
 
 https://docs.npmjs.com/cli/v8/configuring-npm/package-json
 
@@ -22,7 +22,7 @@ https://docs.npmjs.com/cli/v8/configuring-npm/package-json
 - [`bin`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#bin)
   - [A guide to creating a NodeJS command-line package](https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e)
 
-### Specify update types your package can accept
+## Specify update types your package can accept
 
 [About semantic versioning](https://docs.npmjs.com/about-semantic-versioning)
 
