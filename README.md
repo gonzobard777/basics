@@ -8,7 +8,9 @@
 - [RxJs](./docs/rxjs/README.md)
 - [TypeScript](./docs/typescript/README.md)
 - [Перформанс](./docs/performance/README.md)
+- [cross-origin](./docs/cross-origin.md)
 
 ____
+
 - [todo](./docs/todo.md)
 - [вопросы](./docs/questions/README.md)
