@@ -7,6 +7,7 @@
 - [webpack](./docs/webpack.md)
 - [RxJs](./docs/rxjs/README.md)
 - [TypeScript](./docs/typescript/README.md)
+- [React](./docs/react.md)
 - [Перформанс](./docs/performance/README.md)
 - [cross-origin](./docs/cross-origin.md)
 
