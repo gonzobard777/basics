@@ -1,5 +1,8 @@
 # Проверка кастомного оператора на утечку
 
+1. Проверка на самостоятельный `complete`. Например, `myTake` после 3х элементов должен завершить поток и, как следствие, `interval` должен сделать `clearInterval`.
+2. Проверка на `complete`, если нижестоящий подписчик отпишется. Например, после отписки по таймауту `subscription.unsubscribe()`, `interval` должен сделать `clearInterval`.
+
 ```typescript
 import {finalize, interval} from 'rxjs';
 
