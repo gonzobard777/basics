@@ -6,6 +6,7 @@
 
 - [`map`](./my-operators/map.md)
 - [`take`](./my-operators/take.md)
+- [Проверка кастомного оператора на утечку](./my-operators/check-custom-operator.md)
 
 ## Links
 
