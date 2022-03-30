@@ -4,6 +4,7 @@
 - [Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
 - [Any, unknown, object, void, undefined, null, and never assignability](https://www.typescriptlang.org/docs/handbook/type-compatibility.html#any-unknown-object-void-undefined-null-and-never-assignability)
 - [О компиляции в ES модули](./es-module-system-compilation.md)
+- [Декораторы](./decorator.md)
 
 links:
 - [All essential TypeScript types in one place](https://github.com/ts-essentials/ts-essentials#whats-inside)
