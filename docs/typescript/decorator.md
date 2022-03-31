@@ -13,3 +13,7 @@
 ## Несколько декораторов для одного объявления
 
 - [Decorator Composition](https://www.typescriptlang.org/docs/handbook/decorators.html#decorator-composition)
+
+
+### Links
+- [Могучие Typescript Декораторы — как работают, во что компилируются и для каких прикладных задач применимы](https://habr.com/ru/post/494668/)
