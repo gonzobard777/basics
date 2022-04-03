@@ -1,6 +1,6 @@
 # Декораторы
 
-- [Class](https://www.typescriptlang.org/docs/handbook/decorators.html#class-decorators)
+- [Class](./class.md)
 - [Data property класса](https://www.typescriptlang.org/docs/handbook/decorators.html#property-decorators)
 - [Accessor property класса](https://www.typescriptlang.org/docs/handbook/decorators.html#accessor-decorators)
 - [Method класса](https://www.typescriptlang.org/docs/handbook/decorators.html#method-decorators)
