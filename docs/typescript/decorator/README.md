@@ -4,7 +4,7 @@
 - [Data property класса](./data-prop/README.md)
 - [Accessor property класса](https://www.typescriptlang.org/docs/handbook/decorators.html#accessor-decorators)
 - [Method класса](./method/README.md)
-- [Parameter метода класса](https://www.typescriptlang.org/docs/handbook/decorators.html#parameter-decorators)
+- [Parameter метода класса](./parameter/README.md)
 
 Могут быть использованы функции из пакета "reflect-metadata":
 
