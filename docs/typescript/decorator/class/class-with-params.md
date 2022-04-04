@@ -1,6 +1,4 @@
-# Декоратор Class'а
-
-[Class Decorators](https://www.typescriptlang.org/docs/handbook/decorators.html#class-decorators)
+# Декоратор Class'а с параметрами
 
 ```typescript
 function forClass() {
@@ -11,17 +9,20 @@ function forClass() {
 
 @forClass()
 class Some {
+
+  constructor(private name: string) {
+  }
 }
 ```
 
 преобразуется в:
 
 ```javascript
-'use strict';
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
   var c = arguments.length;
   var r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-  if (typeof Reflect === 'object' && typeof Reflect.decorate === 'function')
+  if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
     r = Reflect.decorate(decorators, target, key, desc);
   else {
     for (var i = decorators.length - 1; i >= 0; i--) {
@@ -31,6 +32,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
   }
   return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+  if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+    return Reflect.metadata(k, v);
+};
 
 function forClass() {
   return (target) => {
@@ -39,8 +44,12 @@ function forClass() {
 }
 
 let Some = class Some {
-}
+  constructor(name) {
+    this.name = name;
+  }
+};
 Some = __decorate([
-  forClass()
+  forClass(),
+  __metadata("design:paramtypes", [String])
 ], Some);
 ```

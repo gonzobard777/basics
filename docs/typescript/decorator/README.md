@@ -1,6 +1,6 @@
 # Декораторы
 
-- [Class](./class.md)
+- [Class](./class/README.md)
 - [Data property класса](https://www.typescriptlang.org/docs/handbook/decorators.html#property-decorators)
 - [Accessor property класса](https://www.typescriptlang.org/docs/handbook/decorators.html#accessor-decorators)
 - [Method класса](https://www.typescriptlang.org/docs/handbook/decorators.html#method-decorators)
@@ -14,6 +14,6 @@
 
 - [Decorator Composition](https://www.typescriptlang.org/docs/handbook/decorators.html#decorator-composition)
 
-
 ### Links
+
 - [Могучие Typescript Декораторы — как работают, во что компилируются и для каких прикладных задач применимы](https://habr.com/ru/post/494668/)
