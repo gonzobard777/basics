@@ -9,7 +9,6 @@ function forClass() {
 
 @forClass()
 class Some {
-
   constructor(private name: string) {
   }
 }
