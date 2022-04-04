@@ -10,6 +10,7 @@
 
 - [`Reflect.decorate`](https://github.com/rbuckton/reflect-metadata/blob/3aeb98af4030be664a66f49bfd164936e0ba1825/Reflect.js#L112)
   - [`DecorateConstructor`](https://github.com/rbuckton/reflect-metadata/blob/3aeb98af4030be664a66f49bfd164936e0ba1825/Reflect.js#L538)
+  - [`DecorateProperty`](https://github.com/rbuckton/reflect-metadata/blob/3aeb98af4030be664a66f49bfd164936e0ba1825/Reflect.js#L550)
 - [`Reflect.metadata`](https://github.com/rbuckton/reflect-metadata/blob/3aeb98af4030be664a66f49bfd164936e0ba1825/Reflect.js#L176)
   - [`OrdinaryDefineOwnMetadata`](https://github.com/rbuckton/reflect-metadata/blob/3aeb98af4030be664a66f49bfd164936e0ba1825/Reflect.js#L619)
 
