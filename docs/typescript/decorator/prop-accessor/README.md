@@ -1,23 +1,25 @@
-# Декоратор Method'а класса
+# Декоратор Accessor property класса
 
 ```typescript
-declare type MethodDecorator = <T>(target: Object, propertyKey: string | symbol, descriptor: TypedPropertyDescriptor<T>) => TypedPropertyDescriptor<T> | void;
+declare type AccessorDecorator = <T>(target: Object, propertyKey: string | symbol, descriptor: TypedPropertyDescriptor<T>) => TypedPropertyDescriptor<T> | void;
 ```
 
-[**Method Decorator**](https://www.typescriptlang.org/docs/handbook/decorators.html#method-decorators)
+[**Accessor Decorator**](https://www.typescriptlang.org/docs/handbook/decorators.html#accessor-decorators)
 
 ```typescript
-function forMethod() {
+function forAccessorProperty() {
   return (target: object, propName: string | symbol, propDescr: PropertyDescriptor) => {
-    console.log('run @forMethod');
+    console.log('run @forAccessorProperty');
   };
 }
 
 class Some {
-  @forMethod()
-  print() {
-    console.log();
+
+  @forAccessorProperty()
+  get age() {
+    return 21;
   }
+
 }
 ```
 
@@ -44,22 +46,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     return Reflect.metadata(k, v);
 };
 
-function forMethod() {
+function forAccessorProperty() {
   return (target, propName, propDescr) => {
-    console.log('run @forMethod');
+    console.log('run @forAccessorProperty');
   };
 }
 
 class Some {
-  print() {
-    console.log();
+  get age() {
+    return 21;
   }
 }
 
 __decorate([
-  forMethod(),
-  __metadata("design:type", Function),
-  __metadata("design:paramtypes", []),
-  __metadata("design:returntype", void 0)
-], Some.prototype, "print", null);
+  forAccessorProperty(),
+  __metadata("design:type", Object),
+  __metadata("design:paramtypes", [])
+], Some.prototype, "age", null);
 ```

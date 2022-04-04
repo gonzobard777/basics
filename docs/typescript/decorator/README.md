@@ -1,10 +1,10 @@
 # Декораторы
 
 - [Class](./class/README.md)
-- [Data property класса](./data-prop/README.md)
-- [Accessor property класса](https://www.typescriptlang.org/docs/handbook/decorators.html#accessor-decorators)
+- [Data property класса](./prop-data/README.md)
+- [Accessor property класса](./prop-accessor/README.md)
 - [Method класса](./method/README.md)
-- [Parameter метода класса](./parameter/README.md)
+- [Parameter метода класса](./method-parameter/README.md)
 
 Могут быть использованы функции из пакета "reflect-metadata":
 
