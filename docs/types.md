@@ -14,23 +14,23 @@
 | 7. | [symbol](https://tinyurl.com/3dz2st73)    | [Тип данных Symbol](https://learn.javascript.ru/symbol)                                                                                                                                                                                                                                                                                                                                                            |
 | 8. | [object](https://tinyurl.com/du3bf37k)    |                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-**Примитивный тип** – это все, что не `Object`.
-
 ### К какому типу относится это значение или значение в этой переменной?
 
-| `typeof` *value*                                   | Result                                   | Maybe it would be better this way                                     |
-|----------------------------------------------------|------------------------------------------|-----------------------------------------------------------------------|
-| undefined                                          | "undefined"                              | `value === undefined`, but remember about `var undefined = "abc"`     |
-| null                                               | ["object"](https://tinyurl.com/ymjz3v7h) | `value === null` or `typeof value === 'object' && value == undefined` |
-| boolean                                            | "boolean"                                |                                                                       |
-| number                                             | "number"                                 |                                                                       |
-| bigInt                                             | "bigint"                                 |                                                                       |
-| string                                             | "string"                                 |                                                                       |
-| symbol                                             | "symbol"                                 |                                                                       |
-| object doesn't implement [[Call]] or [[Construct]] | "object"                                 |                                                                       |
-| object implements [[Call]] or/and [[Construct]]    | "function"                               |                                                                       |
+|    | `typeof` *value*                                   | Result                                   | Maybe it would be better this way                                     |
+|----|----------------------------------------------------|------------------------------------------|-----------------------------------------------------------------------|
+| 1. | undefined                                          | "undefined"                              | `value === undefined`, but remember about `var undefined = "abc"`     |
+| 2. | null                                               | ["object"](https://tinyurl.com/ymjz3v7h) | `value === null` or `typeof value === 'object' && value == undefined` |
+| 3. | boolean                                            | "boolean"                                |                                                                       |
+| 4. | number                                             | "number"                                 |                                                                       |
+| 5. | bigInt                                             | "bigint"                                 |                                                                       |
+| 6. | string                                             | "string"                                 |                                                                       |
+| 7. | symbol                                             | "symbol"                                 |                                                                       |
+| 8. | object doesn't implement [[Call]] or [[Construct]] | "object"                                 |                                                                       |
+| 9. | object implements [[Call]] or/and [[Construct]]    | "function"                               |                                                                       |
 
 [How to check if a Javascript function is a constructor](https://stackoverflow.com/questions/40922531/how-to-check-if-a-javascript-function-is-a-constructor#40922715)
+
+**Примитивный тип** – это все, что не (8) и не (9). [Пример](https://gitlab.com/wizards-lab/common/-/blob/master/src/core/type/is-primitive.ts) проверки.
 
 # Конвертация
 
