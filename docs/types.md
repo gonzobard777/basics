@@ -42,7 +42,7 @@
 
 ### В какое значение сконвертируется?
 
-|           | [ToBoolean](https://tinyurl.com/r7v9y9n9)                   | [ToNumber](https://tinyurl.com/ur5yaxkh)       | [ToBigInt](https://tinyurl.com/3tk59vvr)       | [ToString](https://tinyurl.com/mxe9adyw) /<br>&nbsp;[SymbolDescriptiveString](https://tinyurl.com/2p84bpr5)        | [ToObject](https://tinyurl.com/35nbcfmm)             |
+|           | [ToBoolean](https://tinyurl.com/r7v9y9n9)                   | [ToNumber](https://tinyurl.com/ur5yaxkh) /<br>&nbsp;[ToNumeric](https://tinyurl.com/hp6snzfb)       | [ToBigInt](https://tinyurl.com/3tk59vvr)       | [ToString](https://tinyurl.com/mxe9adyw) /<br>&nbsp;[SymbolDescriptiveString](https://tinyurl.com/2p84bpr5)        | [ToObject](https://tinyurl.com/35nbcfmm)             |
 |-----------|-------------------------------------------------------------|------------------------------------------------|------------------------------------------------|--------------------------------------------------|------------------------------------------------------|
 | undefined | `false`                                                     | `NaN`                                          | TypeError                                      | `"undefined"`                                    | TypeError                                            |
 | null      | `false`                                                     | `0`                                            | TypeError                                      | `"null"`                                         | TypeError                                            |
