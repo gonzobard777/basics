@@ -18,17 +18,19 @@
 
 ### К какому типу относится это значение или значение в этой переменной?
 
-| `typeof` *value*                  | Result                                   | Maybe it would be better this way                                     |
-|---------------------------------- |------------------------------------------|-----------------------------------------------------------------------|
-| undefined                         | "undefined"                              | `value === undefined`, but remember about `var undefined = "abc"`     |
-| null                              | ["object"](https://tinyurl.com/ymjz3v7h) | `value === null` or `typeof value === 'object' && value == undefined` |
-| boolean                           | "boolean"                                |                                                                       |
-| number                            | "number"                                 |                                                                       |
-| bigInt                            | "bigint"                                 |                                                                       |
-| string                            | "string"                                 |                                                                       |
-| symbol                            | "symbol"                                 |                                                                       |
-| object doesn't implement [[Call]] | "object"                                 |                                                                       |
-| object implements [[Call]]        | "function"                               |                                                                       |
+| `typeof` *value*                                   | Result                                   | Maybe it would be better this way                                     |
+|----------------------------------------------------|------------------------------------------|-----------------------------------------------------------------------|
+| undefined                                          | "undefined"                              | `value === undefined`, but remember about `var undefined = "abc"`     |
+| null                                               | ["object"](https://tinyurl.com/ymjz3v7h) | `value === null` or `typeof value === 'object' && value == undefined` |
+| boolean                                            | "boolean"                                |                                                                       |
+| number                                             | "number"                                 |                                                                       |
+| bigInt                                             | "bigint"                                 |                                                                       |
+| string                                             | "string"                                 |                                                                       |
+| symbol                                             | "symbol"                                 |                                                                       |
+| object doesn't implement [[Call]] or [[Construct]] | "object"                                 |                                                                       |
+| object implements [[Call]] or/and [[Construct]]    | "function"                               |                                                                       |
+
+[How to check if a Javascript function is a constructor](https://stackoverflow.com/questions/40922531/how-to-check-if-a-javascript-function-is-a-constructor#40922715)
 
 # Конвертация
 
