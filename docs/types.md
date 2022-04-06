@@ -153,6 +153,10 @@ console.log(str.lang);
 `typeof [3, 5, 2] === "array"`  
 `typeof(typeof 0) === "number"`  
 `(function helloWorld(){})() === undefined`  
+```javascript
+class Hello {}
+typeof Hello;
+```
 `({})() === undefined`  
 `void "hello"`  
 `void false`
