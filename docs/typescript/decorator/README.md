@@ -16,8 +16,8 @@
 
 Настройки TypeScript'а:
 
-- [`experimentalDecorators`](https://www.typescriptlang.org/tsconfig#experimentalDecorators)
-- [`emitDecoratorMetadata`](https://www.typescriptlang.org/tsconfig#emitDecoratorMetadata)
+- [`experimentalDecorators`](https://www.typescriptlang.org/tsconfig#experimentalDecorators) надо включить
+- [`emitDecoratorMetadata`](https://www.typescriptlang.org/tsconfig#emitDecoratorMetadata) надо включить
   - `"design:type"`
   - `"design:paramtypes"`
   - `"design:returntype"`
