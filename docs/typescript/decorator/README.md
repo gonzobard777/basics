@@ -4,7 +4,7 @@
 - [Data property класса](./prop-data/README.md)
 - [Accessor property класса](./prop-accessor/README.md)
 - [Method класса](./method/README.md)
-- [Parameter метода класса](./method-parameter/README.md)
+- [Parameter класса и/или метода](./parameter/README.md)
 
 Могут быть использованы функции из пакета "reflect-metadata":
 
