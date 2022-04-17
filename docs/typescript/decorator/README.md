@@ -22,6 +22,8 @@
   - `"design:paramtypes"`
   - `"design:returntype"`
 
+Для хранения и работы с метаданными TypeScript использует [reflect-metadata](https://rbuckton.github.io/reflect-metadata/).
+
 ## Порядок вызова декораторов
 
 - [Decorator Evaluation](https://www.typescriptlang.org/docs/handbook/decorators.html#decorator-evaluation)
