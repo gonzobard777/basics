@@ -4,9 +4,18 @@
 - [Data property класса](./prop-data/README.md)
 - [Accessor property класса](./prop-accessor/README.md)
 - [Method класса](./method/README.md)
-- [Parameter метода класса](./method-parameter/README.md)
+- [Parameter класса и/или метода](./parameter/README.md)
 
-Могут быть использованы функции из пакета "reflect-metadata":
+Для хранения и работы с метаданными TypeScript использует [reflect-metadata](https://rbuckton.github.io/reflect-metadata/).  
+Настройки TypeScript'а:
+
+- [`experimentalDecorators`](https://www.typescriptlang.org/tsconfig#experimentalDecorators) надо включить
+- [`emitDecoratorMetadata`](https://www.typescriptlang.org/tsconfig#emitDecoratorMetadata) надо включить
+  - `"design:type"`
+  - `"design:paramtypes"`
+  - `"design:returntype"`
+
+Могут быть использованы функции из пакета reflect-metadata:
 
 - [`Reflect.decorate`](https://github.com/rbuckton/reflect-metadata/blob/3aeb98af4030be664a66f49bfd164936e0ba1825/Reflect.js#L112)
   - [`DecorateConstructor`](https://github.com/rbuckton/reflect-metadata/blob/3aeb98af4030be664a66f49bfd164936e0ba1825/Reflect.js#L538)
