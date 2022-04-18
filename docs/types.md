@@ -3,16 +3,16 @@
 В языке JavaScript у переменных нет типов – типы есть у _значений_.  
 Переменная может хранить любое значение в любой момент времени. Иначе говоря, движёк не требует, чтобы в _переменной_ всегда хранились значения _исходного типа_, с которым она начала свое существование.
 
-|    | Типы значений                             |                                                                                                                                                                                                                                                                                                                                                                                                                    |
-|----|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1. | [undefined](https://tinyurl.com/3mbrhdbk) | Значение `undefined` имеет непроинициализированная `var`, `let` переменная.<br>Значение `undefined` возвращает функция, для которой не определено return значение, [метод [[Call]]](https://tinyurl.com/5yjn9p8s).<br>Значение `undefined` возвращается при обращении к отсутствующему свойству объекта, [метод [[Get]]](https://tinyurl.com/bdbacsk8).<br>[Не примитив И не объект](https://tinyurl.com/4586tj84) |
-| 2. | [null](https://tinyurl.com/2t5u8wv6)      | Намеренное отсутствие значения (по смыслу м.б. ближе к объектам).                                                                                                                                                                                                                                                                                                                                                  |
-| 3. | [boolean](https://tinyurl.com/8c7zzanm)   |                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| 4. | [number](https://tinyurl.com/dsz6yry7)    | [Числа](https://learn.javascript.ru/number), [Double-precision floating-point format](https://en.wikipedia.org/wiki/Double-precision_floating-point_format), [Как работают числа с плавающей точкой](https://www.youtube.com/watch?v=U0U8Ddx4TgE)                                                                                                                                                                  |
-| 5. | [bigInt](https://tinyurl.com/yxyf6kex)    | [BigInt](https://learn.javascript.ru/bigint)                                                                                                                                                                                                                                                                                                                                                                       |
-| 6. | [string](https://tinyurl.com/s69stj49)    | [Строки](https://learn.javascript.ru/string)                                                                                                                                                                                                                                                                                                                                                                       |
-| 7. | [symbol](https://tinyurl.com/3dz2st73)    | [Тип данных Symbol](https://learn.javascript.ru/symbol)                                                                                                                                                                                                                                                                                                                                                            |
-| 8. | [object](https://tinyurl.com/du3bf37k)    |                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|    | Типы значений                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|----|-------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1. | [undefined](https://tinyurl.com/3mbrhdbk) | Значение `undefined` имеет непроинициализированная `var`, `let` переменная.<br>Значение `undefined` возвращает функция, для которой не определено return значение, [метод [[Call]]](https://tinyurl.com/5yjn9p8s).<br>Значение `undefined` возвращается при обращении к отсутствующему свойству объекта, [метод [[Get]]](https://tinyurl.com/bdbacsk8).<br>[Не примитив И не объект](https://tinyurl.com/4586tj84)<br>Значение `undefined` имеет незаданный параметр функции |
+| 2. | [null](https://tinyurl.com/2t5u8wv6)      | Намеренное отсутствие значения (по смыслу м.б. ближе к объектам).                                                                                                                                                                                                                                                                                                                                                                                                            |
+| 3. | [boolean](https://tinyurl.com/8c7zzanm)   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| 4. | [number](https://tinyurl.com/dsz6yry7)    | [Числа](https://learn.javascript.ru/number), [Double-precision floating-point format](https://en.wikipedia.org/wiki/Double-precision_floating-point_format), [Как работают числа с плавающей точкой](https://www.youtube.com/watch?v=U0U8Ddx4TgE)                                                                                                                                                                                                                            |
+| 5. | [bigInt](https://tinyurl.com/yxyf6kex)    | [BigInt](https://learn.javascript.ru/bigint)                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| 6. | [string](https://tinyurl.com/s69stj49)    | [Строки](https://learn.javascript.ru/string)                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| 7. | [symbol](https://tinyurl.com/3dz2st73)    | [Тип данных Symbol](https://learn.javascript.ru/symbol)                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| 8. | [object](https://tinyurl.com/du3bf37k)    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 ### К какому типу относится это значение или значение в этой переменной?
 
@@ -114,7 +114,15 @@
 `null == ""`  
 `undefined == null`
 
-```js
+```javascript
+function fn(data = 123) {
+  console.log(data);
+}
+fn(); // ?
+fn(null); // ?
+```
+
+```javascript
 var a;
 if (a != null) {
   console.log('hello');
@@ -123,7 +131,7 @@ if (a != null) {
 }
 ```  
 
-```js
+```javascript
 var a = new Boolean(false);
 if (!a) {
   console.log('hello123');
@@ -132,7 +140,7 @@ if (!a) {
 }
 ```  
 
-```js
+```javascript
 var str = "hello";
 str.lang = 'eng';
 console.log(str.lang);
@@ -161,19 +169,19 @@ typeof Hello;
 `void "hello"`  
 `void false`
 
-```js
+```javascript
 var a;
 console.log(a);
 console.log(z);
 ```  
 
-```js
+```javascript
 var a;
 console.log(typeof a);
 console.log(typeof z);
 ```  
 
-```js
+```javascript
 var a;
 var z = 42;
 z = a;
@@ -181,14 +189,14 @@ console.log(typeof a);
 console.log(typeof z);
 ```  
 
-```js
+```javascript
 var a = 2;
 var b = a;
 b++;
 console.log(a, b);
 ```  
 
-```js
+```javascript
 function foo(x) {
   x.push(4);
 
@@ -202,7 +210,7 @@ foo(a);
 console.log('a', a);
 ```  
 
-```js
+```javascript
 function foo(x) {
   x.push(4);
 
@@ -216,7 +224,7 @@ foo(a);
 console.log('a', a);
 ```  
 
-```js
+```javascript
 function foo(x) {
   x++;
 }
