@@ -36,9 +36,9 @@
 
 ### Когда и как движёк будет выполять конвертацию?
 
-| Как?   | [ToBoolean](https://tinyurl.com/r7v9y9n9)                                                               | [ToNumber](https://tinyurl.com/ur5yaxkh) /<br>[Number(value)](https://tinyurl.com/5ut8m98v)                                                                                                                                                                                                                                                                                                                               | [ToBigInt](https://tinyurl.com/3tk59vvr)                                              | [ToString](https://tinyurl.com/mxe9adyw) /<br>[String(value)](https://tinyurl.com/x92yace8)                                                      | [ToObject](https://tinyurl.com/35nbcfmm)                                                                         |
-|--------|---------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
-| Когда? | `Boolean(value)`,<br>Unary `!`,<br>`if`, циклы,<br>`? :`,<br>`&&`, `\|\|`<br>&nbsp;<br>&nbsp;<br>&nbsp; | Unary `+`, `-`, `~`,<br>[Binary](https://tinyurl.com/b7ny87t9) `+`, `-`, `**`, `*`, `/`, `%`, `<<`, `>>`, `>>>`, `&`, `^`, `\|`,<br>[Relational](https://tinyurl.com/yj6zydm6) `<`, `>`, `<=`, `>=`<br>[Update](https://tinyurl.com/vffpnsw2) `++`, `--`,<br>[Equality](https://tinyurl.com/vbhc8cw2) `==`, `!=`,<br>[isNaN](https://tinyurl.com/3sype8zz), [isFinite](https://tinyurl.com/54zxtza6) /<br>`Number(value)` | `BigInt(value)`<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; | `${value}`,<br>`object[variable]`, `for .. in`,<br>[Binary](https://tinyurl.com/b7ny87t9) `+` /<br>`String(value)`<br>&nbsp;<br>&nbsp;<br>&nbsp; | `.` or `[]` [notation](https://tinyurl.com/5f25v57x)<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
+| Как?   | [ToBoolean](https://tinyurl.com/r7v9y9n9)                                                               | [ToNumber](https://tinyurl.com/ur5yaxkh) /<br>[Number(value)](https://tinyurl.com/5ut8m98v)                                                                                                                                                                                                                                                                                                                                | [ToBigInt](https://tinyurl.com/3tk59vvr)                                              | [ToString](https://tinyurl.com/mxe9adyw) /<br>[String(value)](https://tinyurl.com/x92yace8)                                                         | [ToObject](https://tinyurl.com/35nbcfmm)                                                                         |
+|--------|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| Когда? | `Boolean(value)`,<br>Unary `!`,<br>`if`, циклы,<br>`? :`,<br>`&&`, `\|\|`<br>&nbsp;<br>&nbsp;<br>&nbsp; | Unary `+`, `-`, `~`,<br>[Binary](https://tinyurl.com/b7ny87t9) `+`, `-`, `**`, `*`, `/`, `%`, `<<`, `>>`, `>>>`, `&`, `^`, `\| `,<br>[Relational](https://tinyurl.com/yj6zydm6) `<`, `>`, `<=`, `>=`<br>[Update](https://tinyurl.com/vffpnsw2) `++`, `--`,<br>[Equality](https://tinyurl.com/vbhc8cw2) `==`, `!=`,<br>[isNaN](https://tinyurl.com/3sype8zz), [isFinite](https://tinyurl.com/54zxtza6) /<br>`Number(value)` | `BigInt(value)`<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; | `${value}`,<br>`object[variable]`,<br>`for .. in`,<br>[Binary](https://tinyurl.com/b7ny87t9) `+` /<br>`String(value)`<br>&nbsp;<br>&nbsp;<br>&nbsp; | `.` or `[]` [notation](https://tinyurl.com/5f25v57x)<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
 
 ### В какое значение сконвертируется?
 
@@ -119,6 +119,7 @@
 function fn(data = 123) {
   console.log(data);
 }
+
 fn(); // ?
 fn(null); // ?
 ```
@@ -161,11 +162,15 @@ console.log(str.lang);
 `typeof(()=>{}) === "object"`  
 `typeof [3, 5, 2] === "array"`  
 `typeof(typeof 0) === "number"`  
-`(function helloWorld(){})() === undefined`  
+`(function helloWorld(){})() === undefined`
+
 ```javascript
-class Hello {}
+class Hello {
+}
+
 typeof Hello;
 ```
+
 `({})() === undefined`  
 `void "hello"`  
 `void false`
