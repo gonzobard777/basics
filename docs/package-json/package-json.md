@@ -10,7 +10,6 @@ https://nodejs.org/api/packages.html#nodejs-packagejson-field-definitions
 - [`type`](https://tinyurl.com/vu76nf6n)
   - [Determining module system](https://nodejs.org/api/packages.html#determining-module-system)
 - [`exports`](https://tinyurl.com/2p8rmv9f)
-  - [Node.js package.json field definitions](https://nodejs.org/api/packages.html#nodejs-packagejson-field-definitions)
   - [Version selection with `typesVersions`](https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html#version-selection-with-typesversions)
   - [habr. Exports в package.json](https://habr.com/ru/company/space307/blog/546240/)
   - [2ality. TypeScript and native ESM on Node.js](https://2ality.com/2021/06/typescript-esm-nodejs.html)
