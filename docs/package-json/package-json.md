@@ -18,7 +18,7 @@
 
 ## Поля, которые использует npm
 
-https://docs.npmjs.com/cli/v8/configuring-npm/package-json
+[Specifics of npm's `package.json` handling](https://docs.npmjs.com/cli/v8/configuring-npm/package-json)
 
 О некоторых из них:
 - [`bin`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#bin)
