@@ -2,7 +2,7 @@
 
 ## Поля, которые использует Node.js (другие поля игнорирует)
 
-https://nodejs.org/api/packages.html#nodejs-packagejson-field-definitions
+[Node.js `package.json` field definitions](https://nodejs.org/api/packages.html#nodejs-packagejson-field-definitions)
 
 - [`name`](https://tinyurl.com/hs87ntxz)
 - [`main`](https://tinyurl.com/3uxynps4)
