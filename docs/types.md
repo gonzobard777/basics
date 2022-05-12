@@ -175,6 +175,15 @@ console.log(str.lang);
 `(function helloWorld(){})() === undefined`
 
 ```javascript
+class Some {
+}
+
+const instance = new Some();
+typeof Some; // ?
+typeof instance; // ?
+```
+
+```javascript
 class Hello {
 }
 
