@@ -64,7 +64,17 @@
 
 `===` [Строгое сравнение на равенство](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-isstrictlyequal)
 
-Возможно, вместо `===` стоит использовать [Object.is](https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.is)
+Возможно, вместо `===` стоит использовать [Object.is](https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object.is):
+
+```javascript
+-0 == 0; // true
+-0 === 0; // true
+Object.is(-0, 0); // false
+
+NaN == NaN; // false
+NaN === NaN; // false
+Object.is(NaN, NaN); // true
+```
 
 ### Checks
 
