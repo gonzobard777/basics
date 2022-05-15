@@ -23,5 +23,9 @@ ____
 
 ____
 
+- [Font](./docs/font/README.md)
+
+____
+
 - [todo](./docs/todo.md)
 - [вопросы](./docs/questions/README.md)
