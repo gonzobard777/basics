@@ -5,6 +5,7 @@
 - [Chrome DevTools - Memory](https://developer.chrome.com/docs/devtools/#memory)
 - [Description of Tools for developers trying to understand memory usage](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/memory/tools.md)
     - [MemoryInfra - where memory is being used in your system](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/memory-infra)
+- [Память в браузерах и в Node.js: ограничения, утечки и нестандартные оптимизации](https://habr.com/ru/company/yandex/blog/666870/)
 
 ## Терминология
 
