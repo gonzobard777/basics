@@ -1,7 +1,7 @@
 - [Типы значений](./docs/types.md)
 - [Циклы](./docs/loops.md)
 - [Object](./docs/Object/README.md)
-
+- [async](./docs/async.md)
 ____
 
 - [Области видимости и замыкания](./docs/scope-and-closures/README.md)
