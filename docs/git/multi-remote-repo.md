@@ -2,7 +2,7 @@
 
 Когда надо один проект заливать на несколько репозиториев по ssh.
 
-### 1. Сгенерить public/private пару ключей ([link](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)):
+### Сгенерить public/private пару ключей ([link](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)):
 
 ```shell
 ssh-keygen -t ed25519
@@ -10,9 +10,9 @@ ssh-keygen -t ed25519
 
 оба файла надо положить в папку `~/.ssh`
 
-### 2. Добавить содержимое public ключа в аккаунт git-хостинга
+### Добавить содержимое public ключа в аккаунт git-хостинга
 
-### 3. Настроить использование
+### Настроить использование
 
 В папке `~/.ssh` у меня есть два ключа:
 
@@ -30,6 +30,11 @@ Host github-gonzobard
 
 ![define-remote](./pic/define-remote.png)
 
+### Проверка
+
+```shell
+ssh -T git@github-gonzobard
+```
 
 # Links
 
