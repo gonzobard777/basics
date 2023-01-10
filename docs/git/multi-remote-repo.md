@@ -31,7 +31,7 @@ Host github-gonzobard
 ssh -T git@github-gonzobard
 ```
 
-## Наконец использовать в IDE
+## Наконец использую в IDE
 
 ![define-remote](./pic/define-remote.png)
 
