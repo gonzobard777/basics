@@ -13,7 +13,7 @@ C:\Users\FatPinkRabbit\.ssh>ssh-keygen -t ed25519
 
 ## Зарегать в конфиге
 
-В папке `~/.ssh` у меня есть два ключа:
+После генерации в папке `~/.ssh` появилось два ключа:
 
 ![ssh-list-of-dir](./pic/ssh-list-of-dir.png)
 
