@@ -1,25 +1,23 @@
 # Multi remote repo
 
-Когда надо один проект заливать на несколько репозиториев по ssh.
+Когда надо один проект заливать в несколько репозиториев по ssh.
 
-## Сгенерить public/private пару ключей ([link](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)):
+## Сгенерить private/public ключи ([link](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)):
 
 ```shell
 C:\Users\FatPinkRabbit>cd .ssh
 C:\Users\FatPinkRabbit\.ssh>ssh-keygen -t ed25519
 ```
 
-оба файла надо положить в папку `~/.ssh`
+## Добавить содержимое `public` ключа в аккаунт Git-хостинга
 
-## Добавить содержимое `public` ключа в аккаунт git-хостинга
-
-## Настроить использование
+## Зарегать в конфиге
 
 В папке `~/.ssh` у меня есть два ключа:
 
 ![ssh-list-of-dir](./pic/ssh-list-of-dir.png)
 
-Регистрирую приватный ключ в конфиге `~/.ssh/config`:
+Регистрирую `private` ключ в конфиге `~/.ssh/config`:
 
 ```
 Host github-gonzobard
@@ -27,15 +25,15 @@ Host github-gonzobard
   IdentityFile c:\Users\FatPinkRabbit\.ssh\id_gonzo
 ```
 
-Использую регистрацию в IDE:
-
-![define-remote](./pic/define-remote.png)
-
 ## Проверка
 
 ```shell
 ssh -T git@github-gonzobard
 ```
+
+## Наконец использовать в IDE
+
+![define-remote](./pic/define-remote.png)
 
 # Links
 
