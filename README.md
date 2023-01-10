@@ -2,6 +2,7 @@
 - [Циклы](./docs/loops.md)
 - [Object](./docs/Object/README.md)
 - [async](./docs/async.md)
+
 ____
 
 - [Области видимости и замыкания](./docs/scope-and-closures/README.md)
@@ -15,6 +16,7 @@ ____
 - [RxJs](./docs/rxjs/README.md)
 - [TypeScript](./docs/typescript/README.md)
 - [React](./docs/react.md)
+- [Git](./docs/git/README.md)
 
 ____
 
