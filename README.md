@@ -30,5 +30,9 @@ ____
 
 ____
 
+- [macOS Monterey on VMware on Windows](./docs/macos-monterey-on-vmware-on-windows-pc/README.md)
+
+____
+
 - [todo](./docs/todo.md)
 - [вопросы](./docs/questions/README.md)
