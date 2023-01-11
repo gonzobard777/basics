@@ -24,7 +24,7 @@ smc.version = "0"
 
 ### Установить Tools
 
-В теме исшника на rutracker есть ссылка на VMware Tools для macOS 10.11 and later: 11.2.0; 11.2.5; 11.3.0; 11.3.5.  
+В теме исошника на rutracker't есть ссылка на VMware Tools для macOS 10.11 and later: 11.2.0; 11.2.5; 11.3.0; 11.3.5.  
 Подключить как диск и поставить.
 
 # Links
