@@ -45,7 +45,7 @@ fn();
 
 ## Исключение – стрелочные функции
 
-Стрелочные функции берут `this` из [лексической области видимости](./scope-and-closures/kyle_simpson_vision.md#%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%B8-%D0%B2%D0%B8%D0%B4%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8). Например:
+Стрелочные функции берут `this` из [лексической области видимости](scope-and-closures/kyle_simpson_vision.md#%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%B8-%D0%B2%D0%B8%D0%B4%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8). Например:
 
 ```js
 function foo() {

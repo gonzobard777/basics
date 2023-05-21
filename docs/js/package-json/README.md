@@ -1,6 +1,6 @@
 # package.json
 
-- [Содержимое `package.json`](./package-json.md)
+- [Содержимое `package.json`](package-json.md)
 
 ## Specify update types your package can accept
 

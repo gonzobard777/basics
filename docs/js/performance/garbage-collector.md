@@ -34,13 +34,13 @@
 
 Если значение в колонке [Distance](https://developer.chrome.com/docs/devtools/memory-problems/memory-101/#retained_size) отлично от числового, то объект "повис" и GC не сможет его убрать:
 
-![Отсутствует Distance](./data/distance-.png)
+![Отсутствует Distance](data/distance-.png)
 
 ### Сравнение Snapshot'ов
 
 Профайлер памяти хрома позволяет сравнить между собой два или три снепшота:
 
-![Сравнение созданных](./data/allocated-between-3-snapshots.png)
+![Сравнение созданных](data/allocated-between-3-snapshots.png)
 
 На примере видно, что в результате трех последовательных замеров было создано 24_243 объекта PointerEvent, общий объем удерживаемой ими памяти 20MB и GC не может убрать эти объекты.
 
@@ -49,7 +49,7 @@
 Таймеры `setInterval`, `setTimeout` всегда повисают в root-контексте (`Window`, `DedicatedWorkerGlobalScope` и т.д.), поэтому для них не важен Distance.  
 Если в списке активных таймеров присутствует таймер, удерживающий большой кусок памяти, то скорее всего в нем произошла утечка – надо в коде найти этот таймер и в нужный момент вызвать для него `clearTimeout`:
 
-![Таймер удерживает большой ресурс](./data/dom-timer-big.png)
+![Таймер удерживает большой ресурс](data/dom-timer-big.png)
 
 Таймер может быть скрыт внутри используемой в проекте библиотеки.  
 Например, [time based operators](https://www.learnrxjs.io/learn-rxjs/concepts/time-based-operators-comparison) в rxjs используют таймеры. И, чтобы освободить повисший в time based operator'е ресурс, надо явно отписаться от подписки.

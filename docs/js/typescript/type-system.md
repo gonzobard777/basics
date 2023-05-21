@@ -130,7 +130,7 @@ let personLifespan: Intersection = obj;
 const {id, birth, death} = personLifespan; // OK, because type Intersection = Person & Lifespan; 
 ```
 
-![keyof (Person & Lifespan)](./data/types-intersection-keyof.png)
+![keyof (Person & Lifespan)](data/types-intersection-keyof.png)
 
 #### Объединение
 
@@ -148,7 +148,7 @@ const {id, birth, death} = personLifespan; // (2) Type error, т.к. TypeScript 
 // Property 'death' does not exist on type 'Union'.
 ```
 
-![keyof (Person | Lifespan)](./data/types-union-keyof.png)
+![keyof (Person | Lifespan)](data/types-union-keyof.png)
 
 Вот такой код уже не будет выдавать ошибок:
 

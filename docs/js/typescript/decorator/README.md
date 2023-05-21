@@ -1,10 +1,10 @@
 # Декораторы
 
-- [Class](./class/README.md)
-- [Data property класса](./prop-data/README.md)
-- [Accessor property класса](./prop-accessor/README.md)
-- [Method класса](./method/README.md)
-- [Parameter класса и/или метода](./parameter/README.md)
+- [Class](class/README.md)
+- [Data property класса](prop-data/README.md)
+- [Accessor property класса](prop-accessor/README.md)
+- [Method класса](method/README.md)
+- [Parameter класса и/или метода](parameter/README.md)
 
 Для хранения и работы с метаданными TypeScript использует [reflect-metadata](https://rbuckton.github.io/reflect-metadata/).  
 Настройки TypeScript'а:

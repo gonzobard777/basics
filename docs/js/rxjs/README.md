@@ -1,12 +1,12 @@
 # RxJs
 
-- [Hot, Cold](./hot-cold.md)
+- [Hot, Cold](hot-cold.md)
 
 # Примеры кастомных операторов
 
-- [`map`](./my-operators/map.md)
-- [`take`](./my-operators/take.md)
-- [Проверка кастомного оператора на утечку](./my-operators/check-custom-operator.md)
+- [`map`](my-operators/map.md)
+- [`take`](my-operators/take.md)
+- [Проверка кастомного оператора на утечку](my-operators/check-custom-operator.md)
 
 ## Links
 
