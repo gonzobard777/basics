@@ -1,3 +1,3 @@
 # C#
 
-- [Виды связей таблиц](./db_relationships/README.md)
+- [Отношения в бд](./db_entity-relationships/README.md)
