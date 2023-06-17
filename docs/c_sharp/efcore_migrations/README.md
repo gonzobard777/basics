@@ -54,6 +54,6 @@ dotnet ef database update
 1. Изменения применяются к БД `->` структура БД физически меняется
 2. В БД в специальную таблицу `__EFMigrationsHistory` записываются названия миграций, которые применены к БД:
 
-<img src="./pic/ef-migrations-history.png" alt="isolated" width="600"/>
+&nbsp;&nbsp;&nbsp;&nbsp;<img src="./pic/ef-migrations-history.png" alt="isolated" width="600"/>
 
 Если в `__EFMigrationsHistory` вручную удалить запись(си), то при следующем обновлении, ef попытается накатить миграции, запись о которых удалена.
