@@ -37,9 +37,17 @@ dotnet ef database update -- --environment Production
 
 ## Команды
 
-Добавляет миграцию, но не коммитит:
+Добавляет новую миграцию, но не коммитит:
 
 ```shell
 dotnet ef migrations add Initial
 ```
+
+Обновления базу данных до последней миграции или указанной миграции:
+
+```shell
+dotnet ef database update
+```
+
+![ef migrations history](./pic/ef-migrations-history.png)
 
