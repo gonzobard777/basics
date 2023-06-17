@@ -115,3 +115,11 @@ dotnet ef migrations remove
   Removing migration '20230617105325_AddedFieldFullNameToEntityAuthor'.
   Reverting the model snapshot.
 ```
+
+### Откат всех миграций, включая самую первую
+
+```shell
+dotnet ef database update 0
+```
+
+Но не забываем, что каждый файл миграции в проекте надо удалить командой `migrations remove` (много раз вызываем).
