@@ -1,27 +1,92 @@
 # Разделение одной колонки на две колонки (через SQL)
 
-Например, вот такой запрос
+#### 1. Миграция - Initial
 
-```sql
-SELECT
-    a."Id" as id,
-    split_part("FullName", ' ' , 1) as first_name,
-    split_part("FullName", ' ' , 2) as last_name
-FROM "Authors" as a
+Состояние до внесения изменений.
+
+- Создать миграцию.
+- Применить к БД.
+
+#### 2. Миграция - EntityAuthorAddedFieldsFirstNameAndLastNameThenRemoveFullName
+
+- **Добавить колонки** `FirstName` и `LastName`
+- **Заполнить их** значениями из колонки `FullName`
+- **Удалить колонку** `FullName`
+
+Внимание! Автомиграция может не удалять колонку `FullName`, а переименовать ее скажем в колонку `FirstName`.  
+Поэтому надо проверять.  
+Вот полный код на **Накат** и **Откат**:
+
+```shell
+protected override void Up(MigrationBuilder migrationBuilder)
+{
+    migrationBuilder.AddColumn<string>(
+        name: "FirstName",
+        table: "Authors",
+        type: "text",
+        nullable: false,
+        defaultValue: "");
+    
+    migrationBuilder.AddColumn<string>(
+        name: "LastName",
+        table: "Authors",
+        type: "text",
+        nullable: false,
+        defaultValue: "");
+    
+    migrationBuilder.Sql(
+        "MERGE INTO \"Authors\" AS t "+
+        "USING ("+
+        "  SELECT a.\"Id\"                         as id,"+
+        "        split_part(\"FullName\", ' ', 1) as first_name,"+
+        "        split_part(\"FullName\", ' ', 2) as last_name"+
+        "  FROM \"Authors\" as a"+
+        "  ) AS s ON s.id = t.\"Id\""+
+        "WHEN MATCHED THEN"+
+        "	UPDATE SET"+
+        "  \"FirstName\" = s.first_name,"+
+        "  \"LastName\" = s.last_name;"
+    );
+    
+    migrationBuilder.DropColumn(
+        name: "FullName",
+        table: "Authors");
+}
+
+protected override void Down(MigrationBuilder migrationBuilder)
+{
+    migrationBuilder.AddColumn<string>(
+        name: "FullName",
+        table: "Authors",
+        type: "text",
+        nullable: false,
+        defaultValue: "");
+
+    migrationBuilder.Sql(
+        "MERGE INTO \"Authors\" AS t "+
+        "USING ("+
+        "  SELECT a.\"Id\"                         as id,"+
+        "         concat(a.\"FirstName\", ' ', a.\"LastName\") as full_name"+
+        "  FROM \"Authors\" as a"+
+        ") AS s ON s.id = t.\"Id\""+
+        "WHEN MATCHED THEN"+
+        "	UPDATE SET"+
+        "  \"FullName\" = s.full_name"
+        );
+    
+    migrationBuilder.DropColumn(
+        name: "FirstName",
+        table: "Authors");
+
+    migrationBuilder.DropColumn(
+        name: "LastName",
+        table: "Authors");
+}
 ```
-
-Разделяет `FullName` на значения:
-
-| id  | first_name | last_name |
-|-----|------------|-----------|
-| 1   | Стивен     | Кинг      |
-| 2   | Ян         | Флеминг   |
-
-И **средствами SQL** эти значения надо будет засунуть в колонки `FirstName` и `LastName`
 
 ---
 
-Потому что:
+`.Sql(запрос)` не возвращает результат так задумано:
 
 [Migrating Data as Part of Database Migration](https://stackoverflow.com/questions/54181958/migrating-data-as-part-of-database-migration#comment-95193172)
 > The whole work should be done in the sql string passed to the Sql method. As I mentioned, it doesn't need to be a single select. You can use all SQL block constructs - cursors, (temporary) table variables etc.
