@@ -6,6 +6,8 @@
 2. [Команды](./02-commands.md)
 3. [Нетривиальные кейсы миграций](./hard-cases/README.md)
 
+[Проект для проверки идей миграции EF Core](https://github.com/gonzobard777/c_sharp_EFcore_Migrations_Check_Proj)
+
 ---
 
 ### Ссылки
