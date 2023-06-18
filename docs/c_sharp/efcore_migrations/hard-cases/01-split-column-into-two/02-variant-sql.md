@@ -1,5 +1,8 @@
 # Разделение одной колонки на две колонки (через SQL)
 
+[The MERGE Command Has Finally Arrived in Postgres 15!](https://www.enterprisedb.com/blog/merge-command-has-finally-arrived-postgres-15)
+
+
 #### 1. Миграция - Initial
 
 Состояние до внесения изменений.
