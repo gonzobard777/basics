@@ -1,10 +1,10 @@
 # C#
 
-База данных:
-
-- [Отношения в бд](./db_entity-relationships/README.md)
-- [The instance of entity cannot be tracked](https://github.com/gonzobard777/c_sharp_Instance_Cannot_Be_Tracked)
-- [Миграции EF Core](./efcore_migrations/README.md)
-- [Сортировка универсальная](https://github.com/gonzobard777/c_sharp_SortCheck)
+- Общее
+  - [Сортировка универсальная](https://github.com/gonzobard777/c_sharp_SortCheck)
+- EF Core
+  - [Отношения в бд](./ef-core/db_entity-relationships/README.md)
+  - [The instance of entity cannot be tracked](https://github.com/gonzobard777/c_sharp_Instance_Cannot_Be_Tracked)
+  - [Миграции EF Core](./ef-core/migrations/README.md)
 - ASP.NET Core
   - [Привязка модели](./asp-net-core/model-binding.md)

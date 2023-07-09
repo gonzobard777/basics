@@ -42,9 +42,6 @@ public class ListQueryParamsBinder : IModelBinder
          */
         SetValue("Search", obj, bindingContext);
         SetValueAfterParse<int>("CompanyId", obj, bindingContext);
-        SetValueAfterParse<int>("LicenseId", obj, bindingContext);
-        SetValueAfterParse<int>("WorkplaceId", obj, bindingContext);
-        SetValueAfterParse<int>("WorkScheduleId", obj, bindingContext);
 
         /*
         * Сортировка.
@@ -69,31 +66,24 @@ public class ListQueryParamsBinder : IModelBinder
         return Task.CompletedTask;
     }
 
-    public static void SetValue(string propName, ListQueryParams obj, ModelBindingContext bindingContext)
+    private static void SetValue(string propName, ListQueryParams obj, ModelBindingContext bindingContext)
     {
-        var propInfo = obj.GetType().GetProperty(propName);
-        if (propInfo is null)
-            throw new ArgumentException($"Unknown parameter '{propName}'");
-
+        var propInfo = GetPropInfo(propName, obj);
         var valueProvider = bindingContext.ValueProvider.GetValue(propName);
         if (valueProvider != ValueProviderResult.None)
             propInfo.SetValue(obj, valueProvider.FirstValue);
     }
 
-    public static bool SetValueAfterParse<T>(string propName, ListQueryParams obj, ModelBindingContext bindingContext)
+    private static bool SetValueAfterParse<TProp>(string propName, ListQueryParams obj, ModelBindingContext bindingContext)
     {
-        var propInfo = obj.GetType().GetProperty(propName);
-        if (propInfo is null)
-            throw new ArgumentException($"Unknown parameter '{propName}'");
-
+        var propInfo = GetPropInfo(propName, obj);
         var valueProvider = bindingContext.ValueProvider.GetValue(propName);
         if (valueProvider != ValueProviderResult.None)
         {
-            object parsed;
             try
             {
-                parsed = TypeDescriptor
-                    .GetConverter(typeof(T))
+                var parsed = TypeDescriptor
+                    .GetConverter(typeof(TProp))
                     .ConvertFromString(valueProvider.FirstValue);
 
                 propInfo.SetValue(obj, parsed);
@@ -106,6 +96,14 @@ public class ListQueryParamsBinder : IModelBinder
         }
 
         return false;
+    }
+
+    private static PropertyInfo GetPropInfo(string propName, object obj)
+    {
+        var propInfo = obj.GetType().GetProperty(propName);
+        if (propInfo is null)
+            throw new ArgumentException($"Parsing. Unknown parameter '{propName}'");
+        return propInfo;
     }
 }
 ```
