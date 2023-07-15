@@ -100,8 +100,8 @@ public class ListQueryParamsBinder : IModelBinder
 
     private delegate bool TryConverter<T>(string str, out T convertedValue);
 
-    private bool IntConverter(string str, out int convertedValue) => int.TryParse(str, out convertedValue);
-    private bool BoolConverter(string str, out bool convertedValue) => bool.TryParse(str, out convertedValue);
+    private static bool IntConverter(string str, out int convertedValue) => int.TryParse(str, out convertedValue);
+    private static bool BoolConverter(string str, out bool convertedValue) => bool.TryParse(str, out convertedValue);
 
     #endregion Конвертирование
 }
