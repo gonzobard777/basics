@@ -44,8 +44,6 @@ public class ListQueryParamsBinder : IModelBinder
         SetValue<string>(nameof(result.Search), null);
         SetValue<int>(nameof(result.CompanyId), IntConverter);
         SetValue<int>(nameof(result.LicenseId), IntConverter);
-        SetValue<int>(nameof(result.WorkplaceId), IntConverter);
-        SetValue<int>(nameof(result.WorkScheduleId), IntConverter);
 
         /*
         * Сортировка
