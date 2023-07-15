@@ -30,80 +30,78 @@ public class ListQueryParams {
 ```csharp
 public class ListQueryParamsBinder : IModelBinder
 {
-    public Task BindModelAsync(ModelBindingContext bindingContext)
+    private ListQueryParams result = new();
+    private ModelBindingContext context;
+
+    public Task BindModelAsync(ModelBindingContext context)
     {
-        if (bindingContext == null)
-            throw new ArgumentNullException(nameof(bindingContext));
-
-        var obj = new ListQueryParams();
+        this.context = context ?? throw new ArgumentNullException(nameof(context));
 
         /*
-         * Фильтры.
+         * Фильтры
          */
-        SetValue("Search", obj, bindingContext);
-        SetValueAfterParse<int>("CompanyId", obj, bindingContext);
+        SetValue<string>(nameof(result.Search), null);
+        SetValue<int>(nameof(result.CompanyId), IntConverter);
+        SetValue<int>(nameof(result.LicenseId), IntConverter);
+        SetValue<int>(nameof(result.WorkplaceId), IntConverter);
+        SetValue<int>(nameof(result.WorkScheduleId), IntConverter);
 
         /*
-        * Сортировка.
+        * Сортировка
         */
-        SetValue("SortBy", obj, bindingContext);
-        if (!SetValueAfterParse<bool>("Desc", obj, bindingContext))
-            obj.Desc = false;
+        SetValue<string>(nameof(result.SortBy), null);
+        if (!SetValue<bool>(nameof(result.Desc), BoolConverter))
+            result.Desc = false;
 
         /*
-         * Пагинация.
+         * Пагинация
          */
-        if (!SetValueAfterParse<int>("Skip", obj, bindingContext))
-            obj.Skip = 0;
-        if (!SetValueAfterParse<int>("Take", obj, bindingContext))
-            obj.Take = 20;
+        if (!SetValue<int>(nameof(result.Skip), IntConverter))
+            result.Skip = 0;
+        if (!SetValue<int>(nameof(result.Take), IntConverter))
+            result.Take = 20;
 
-
-        if (bindingContext.ModelState.ErrorCount > 0)
-            return Task.CompletedTask;
-
-        bindingContext.Result = ModelBindingResult.Success(obj);
+        context.Result = ModelBindingResult.Success(result);
         return Task.CompletedTask;
     }
 
-    private static void SetValue(string propName, ListQueryParams obj, ModelBindingContext bindingContext)
+    private bool SetValue<T>(string propName, TryConverter<T>? convert)
     {
-        var propInfo = GetPropInfo(propName, obj);
-        var valueProvider = bindingContext.ValueProvider.GetValue(propName);
-        if (valueProvider != ValueProviderResult.None)
-            propInfo.SetValue(obj, valueProvider.FirstValue);
-    }
+        var valueProvider = context.ValueProvider.GetValue(propName);
+        if (valueProvider == ValueProviderResult.None)
+            return false; // в запросе не найден параметр с таким именем (регистронезависимый поиск)
 
-    private static bool SetValueAfterParse<TProp>(string propName, ListQueryParams obj, ModelBindingContext bindingContext)
-    {
-        var propInfo = GetPropInfo(propName, obj);
-        var valueProvider = bindingContext.ValueProvider.GetValue(propName);
-        if (valueProvider != ValueProviderResult.None)
+        var rawValue = valueProvider.FirstValue;
+        if (rawValue is null)
+            return false; // нет смысла назначать null
+
+        var propInfo = result.GetType().GetProperty(propName);
+        if (convert is null)
         {
-            try
-            {
-                var parsed = TypeDescriptor
-                    .GetConverter(typeof(TProp))
-                    .ConvertFromString(valueProvider.FirstValue);
-
-                propInfo.SetValue(obj, parsed);
-                return true;
-            }
-            catch (Exception e)
-            {
-                bindingContext.ModelState.TryAddModelError(bindingContext.ModelName, $"Parsing '{propName}'. ${e.Message}");
-            }
+            propInfo.SetValue(result, rawValue);
+            return true;
         }
+
+        if (convert(rawValue, out var convertedValue)) // процесс конвертации завершился успехом
+        {
+            propInfo.SetValue(result, convertedValue);
+            return true;
+        }
+
+        var message = $"Conversion error. Parsing list query param \"{propName}\"=\"{rawValue}\"";
+        //TODO Логировать
 
         return false;
     }
 
-    private static PropertyInfo GetPropInfo(string propName, object obj)
-    {
-        var propInfo = obj.GetType().GetProperty(propName);
-        if (propInfo is null)
-            throw new ArgumentException($"Parsing. Unknown parameter '{propName}'");
-        return propInfo;
-    }
+
+    #region Конвертирование
+
+    private delegate bool TryConverter<T>(string str, out T convertedValue);
+
+    private bool IntConverter(string str, out int convertedValue) => int.TryParse(str, out convertedValue);
+    private bool BoolConverter(string str, out bool convertedValue) => bool.TryParse(str, out convertedValue);
+
+    #endregion Конвертирование
 }
 ```
