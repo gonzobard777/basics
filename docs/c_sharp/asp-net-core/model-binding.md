@@ -30,12 +30,13 @@ public class ListQueryParams {
 ```csharp
 public class ListQueryParamsBinder : IModelBinder
 {
-    private ListQueryParams result = new();
+    private ListQueryParams result;
     private ModelBindingContext context;
 
-    public Task BindModelAsync(ModelBindingContext context)
+    public Task BindModelAsync(ModelBindingContext bindingContext)
     {
-        this.context = context ?? throw new ArgumentNullException(nameof(context));
+        result = new ListQueryParams();
+        context = bindingContext ?? throw new ArgumentNullException(nameof(bindingContext));
 
         /*
          * Фильтры
