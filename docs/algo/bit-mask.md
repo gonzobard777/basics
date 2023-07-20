@@ -1,11 +1,7 @@
 # Битовая маска
 
 <style>
-    th {
-      display: none;
-    }
-    thead th:empty {
-      border: thin solid red !important;
+    table thead tr th {
       display: none;
     }
 </style>
