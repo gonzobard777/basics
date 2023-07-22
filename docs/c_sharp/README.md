@@ -1,6 +1,7 @@
 # C#
 
 - Общее
+  - [DateTime](./common/DateTime/README.md)
   - [Сортировка универсальная](https://github.com/gonzobard777/c_sharp_SortCheck)
 - EF Core
   - [Отношения в бд](./ef-core/db_entity-relationships/README.md)
