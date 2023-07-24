@@ -1,5 +1,7 @@
 # Инициализировать язык из запроса
 
+Иточник: [Writing a custom request culture provider in ASP.NET Core 2.1](https://ml-software.ch/posts/writing-a-custom-request-culture-provider-in-asp-net-core-2-1)
+
 ```csharp
 public class Startup
 {
@@ -36,7 +38,7 @@ public class CustomRequestCultureProvider : RequestCultureProvider
         var lang = Lang.Ru;
         if (fromReq == Lang.En)
             lang = Lang.En;
-        Tr.CurrentLang= lang;
+        Tr.CurrentLang = lang;
         return Task.FromResult(new ProviderCultureResult(lang));
     }
 }
