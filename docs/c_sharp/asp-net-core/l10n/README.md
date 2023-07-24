@@ -12,5 +12,8 @@ public class Lang
 {
     public static string Ru => "ru";
     public static string En => "en";
+
+    public static readonly string DefaultCulture = Ru;
+    public static readonly string[] SupportedCultures = { Ru, En };
 }
 ```

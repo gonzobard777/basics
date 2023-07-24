@@ -1,7 +1,7 @@
 # Инициализировать язык из запроса
 
 [learn.microsoft - Configure Localization middleware](https://learn.microsoft.com/ru/aspnet/core/fundamentals/localization/select-language-culture#configure-localization-middleware)  
-[Writing a custom request culture provider in ASP.NET Core 2.1](https://ml-software.ch/posts/writing-a-custom-request-culture-provider-in-asp-net-core-2-1)  
+[Writing a custom request culture provider in ASP.NET Core 2.1](https://ml-software.ch/posts/writing-a-custom-request-culture-provider-in-asp-net-core-2-1)
 
 ```csharp
 public class Startup
@@ -10,10 +10,9 @@ public class Startup
     {
         services.Configure<RequestLocalizationOptions>(options =>
         {
-            var supportedCultures = new[] { new CultureInfo("ru"), new CultureInfo("en") };
-            options.SupportedCultures = supportedCultures;
-            options.SupportedUICultures = supportedCultures;
-            options.DefaultRequestCulture = new RequestCulture(culture: "ru", uiCulture: "ru");
+            options.SetDefaultCulture(Lang.DefaultCulture)
+                .AddSupportedCultures(Lang.SupportedCultures)
+                .AddSupportedUICultures(Lang.SupportedCultures);
             options.RequestCultureProviders.Clear(); // Clears all the default culture providers from the list
             options.RequestCultureProviders.Add(new CustomRequestCultureProvider()); // Add your custom culture provider back to the list
         });
@@ -35,12 +34,12 @@ public class CustomRequestCultureProvider : RequestCultureProvider
 {
     public override Task<ProviderCultureResult?> DetermineProviderCultureResult(HttpContext httpContext)
     {
-        httpContext.Request.Headers.TryGetValue("lang", out var fromReq);
-        var lang = Lang.Ru;
-        if (fromReq == Lang.En)
-            lang = Lang.En;
-        Tr.CurrentLang = lang;
-        return Task.FromResult(new ProviderCultureResult(lang));
+        httpContext.Request.Headers.TryGetValue("lang", out var headerValue);
+        var culture = Lang.DefaultCulture;
+        if (headerValue == Lang.En)
+            culture = Lang.En;
+        Tr.CurrentLang = culture;
+        return Task.FromResult(new ProviderCultureResult(culture));
     }
 }
 ```
