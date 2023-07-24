@@ -25,7 +25,7 @@ public class Startup
 }
 ```
 
-Язык будет приходить в заголовке в поле "lang":
+В моем случае язык приходит в каждом запросе в заголовке "lang":
 
 ```csharp
 public class CustomRequestCultureProvider : RequestCultureProvider
