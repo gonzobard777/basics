@@ -2,16 +2,6 @@
 
 Идея взята отсюда: [Локализация приложения c#. Стандартный и нестандартный способы](https://www.youtube.com/watch?v=8_0KnhO6mcM).
 
-Перечисление языков:
-
-```csharp
-public class Lang
-{
-    public static string Ru => "ru";
-    public static string En => "en";
-}
-```
-
 По приходу нового запроса сохраняем текущий яык, заполняя свойство `Tr.CurrentLang`, см. `CustomRequestCultureProvider`.
 
 ## Создание локализаций
