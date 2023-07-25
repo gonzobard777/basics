@@ -14,7 +14,7 @@ public class Startup
                 .AddSupportedCultures(Lang.SupportedCultures)
                 .AddSupportedUICultures(Lang.SupportedCultures);
             options.RequestCultureProviders.Clear(); // встроенные провайдеры не используются
-            options.RequestCultureProviders.Add(new CustomRequestCultureProvider(async httpContext =>
+            options.AddInitialRequestCultureProvider(new CustomRequestCultureProvider(async httpContext =>
             {
                 httpContext.Request.Headers.TryGetValue("lang", out var headerValue);
                 var culture = headerValue == Lang.En ? Lang.En : Lang.DefaultCulture;
