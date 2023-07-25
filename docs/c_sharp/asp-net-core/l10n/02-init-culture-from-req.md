@@ -13,8 +13,13 @@ public class Startup
             options.SetDefaultCulture(Lang.DefaultCulture)
                 .AddSupportedCultures(Lang.SupportedCultures)
                 .AddSupportedUICultures(Lang.SupportedCultures);
-            options.RequestCultureProviders.Clear(); // Clears all the default culture providers from the list
-            options.RequestCultureProviders.Add(new CustomRequestCultureProvider()); // Add your custom culture provider back to the list
+            options.RequestCultureProviders.Clear(); // встроенные провайдеры не используются
+            options.RequestCultureProviders.Add(new CustomRequestCultureProvider(async httpContext =>
+            {
+                httpContext.Request.Headers.TryGetValue("lang", out var headerValue);
+                var culture = headerValue == Lang.En ? Lang.En : Lang.DefaultCulture;
+                return new ProviderCultureResult(culture);
+            }));
         });
 
         return serviceProvider;
