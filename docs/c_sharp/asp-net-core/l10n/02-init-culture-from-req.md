@@ -32,7 +32,7 @@ public class Startup
 }
 ```
 
-В моем случае язык приходит в каждом запросе в заголовке "lang":
+В примере выше провайдер `CustomRequestCultureProvider` используется из пакета `Microsoft.AspNetCore.Localization`, но его можно создать и своми силами:
 
 ```csharp
 public class CustomRequestCultureProvider : RequestCultureProvider
@@ -40,10 +40,7 @@ public class CustomRequestCultureProvider : RequestCultureProvider
     public override Task<ProviderCultureResult?> DetermineProviderCultureResult(HttpContext httpContext)
     {
         httpContext.Request.Headers.TryGetValue("lang", out var headerValue);
-        var culture = Lang.DefaultCulture;
-        if (headerValue == Lang.En)
-            culture = Lang.En;
-        Tr.CurrentLang = culture;
+        var culture = headerValue == Lang.En ? Lang.En : Lang.DefaultCulture;
         return Task.FromResult(new ProviderCultureResult(culture));
     }
 }
