@@ -7,9 +7,17 @@
 Вообще в шарпе идея инициализации культуры состоит в следующем:
 
 ```csharp
-var ruCulture = new CultureInfo("ru");
-Thread.CurrentThread.CurrentCulture = ruCulture;
-Thread.CurrentThread.CurrentUICulture = ruCulture;
+var ru = new CultureInfo("ru");
+Thread.CurrentThread.CurrentCulture = ru;
+Thread.CurrentThread.CurrentUICulture = ru;
+```
+
+Можно еще вот такую инициализацию встретить:
+
+```csharp
+var ru = new CultureInfo("ru");
+CultureInfo.CurrentCulture = ru;
+CultureInfo.CurrentUICulture = ru;
 ```
 
 Для ASP.NET Core можно использовать такой подход:
