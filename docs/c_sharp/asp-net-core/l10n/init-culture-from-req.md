@@ -4,6 +4,16 @@
 [Writing a custom request culture provider in ASP.NET Core 2.1](https://ml-software.ch/posts/writing-a-custom-request-culture-provider-in-asp-net-core-2-1)  
 [metanit - RequestLocalizationMiddleware](https://metanit.com/sharp/aspnet5/28.2.php)
 
+Вообще в шарпе идея инициализации культуры состоит в следующем:
+
+```csharp
+var ruCulture = new CultureInfo("ru");
+Thread.CurrentThread.CurrentCulture = ruCulture;
+Thread.CurrentThread.CurrentUICulture = ruCulture;
+```
+
+Для ASP.NET Core можно использовать такой подход:
+
 ```csharp
 public class Startup
 {
