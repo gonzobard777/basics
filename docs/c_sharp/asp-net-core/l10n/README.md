@@ -1,20 +1,22 @@
 # Локализация
 
+[Глобализация и локализация в ASP.NET Core](https://learn.microsoft.com/ru-ru/aspnet/core/fundamentals/localization)  
+[Глобализация и локализация приложений .NET](https://learn.microsoft.com/ru-ru/dotnet/core/extensions/globalization-and-localization)  
+
 Общие требования к локализации:
 
 1. На этапе компиляции:
-   - контроль отсутствующих ключей перевода, использованных в коде
-   - контроль лишних ключей в каком-то из файлов локализаций
-   - контроль расхождения в составе ключей между файлами локализаций
+   - контроль **отсутствующих** ключей перевода, использованных в коде
+   - контроль **лишних** ключей в каком-то из файлов локализаций
+   - контроль **расхождения в составе** ключей между файлами локализаций
 2. Возможность отдать на перевод в простом формате.
 3. Возможность загрузить переводы из простого формата.
 
 Действия:
 
 1. Установить пакет `Microsoft.AspNetCore.Localization`
-2. [Инициализировать culture из запроса](./02-init-culture-from-req.md)
-3. [Локализировать при помощи класса Tr](./03-localize-with-class-tr.md)
-4. [Локализовать средствами шарп](./04-localize-standard-way.md)
+2. [Инициализировать culture из запроса](./init-culture-from-req.md)
+3. [Выбрать вариант локализации](https://github.com/gonzobard777/c_sharp_LocalizationCheck)
 
 Перечисление языков:
 
@@ -24,8 +26,10 @@ public class Lang
     public static string Ru => "ru";
     public static string En => "en";
 
-    public static readonly string DefaultCulture = Ru;
-    public static readonly string[] SupportedCultures = { Ru, En };
+    public static readonly string Default = Ru;
+    public static readonly string[] Supported = { Ru, En };
+
+    public static string Current = Default;
 }
 ```
 
