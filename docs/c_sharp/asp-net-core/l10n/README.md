@@ -15,7 +15,7 @@
 Действия:
 
 1. Установить пакет `Microsoft.AspNetCore.Localization`
-2. [Инициализировать culture из запроса](./init-culture-from-req.md)
+2. [Инициализация culture](./init-culture-from-req.md)
 3. [Выбрать вариант локализации](https://github.com/gonzobard777/c_sharp_LocalizationCheck)
    - [особенности работы с res-файлами](./features-res-files/README.md)
 

@@ -1,4 +1,4 @@
-# Инициализировать culture из запроса
+# Инициализация culture
 
 [learn.microsoft - Configure Localization middleware](https://learn.microsoft.com/ru/aspnet/core/fundamentals/localization/select-language-culture#configure-localization-middleware)  
 [Writing a custom request culture provider in ASP.NET Core 2.1](https://ml-software.ch/posts/writing-a-custom-request-culture-provider-in-asp-net-core-2-1)  
