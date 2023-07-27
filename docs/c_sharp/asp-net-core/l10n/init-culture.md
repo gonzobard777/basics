@@ -29,15 +29,16 @@ public class Startup
     {
         services.Configure<RequestLocalizationOptions>(options =>
         {
-            options.SetDefaultCulture(Lang.DefaultCulture)
-                .AddSupportedCultures(Lang.SupportedCultures)
-                .AddSupportedUICultures(Lang.SupportedCultures);
-            options.RequestCultureProviders.Clear(); // встроенные провайдеры не используются
+            options.SetDefaultCulture(Lang.Default)
+                .AddSupportedCultures(Lang.Supported)
+                .AddSupportedUICultures(Lang.Supported);
+            options.RequestCultureProviders.Clear(); // не используются встроенные провайдеры для определения культуры 
             options.AddInitialRequestCultureProvider(new CustomRequestCultureProvider(async httpContext =>
             {
                 httpContext.Request.Headers.TryGetValue("lang", out var headerValue);
-                var culture = headerValue == Lang.En ? Lang.En : Lang.DefaultCulture;
-                return new ProviderCultureResult(culture);
+                var lang = headerValue == Lang.En ? Lang.En : Lang.Default;
+                Lang.Current = lang; 
+                return new ProviderCultureResult(lang);
             }));
         });
 

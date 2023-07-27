@@ -27,10 +27,10 @@ public class Lang
     public static string Ru => "ru";
     public static string En => "en";
 
-    public static readonly string Default = Ru;
+    public static readonly string Default = Ru; // Не менять! Иначе изменение придется учесть во всех resx-файлах
     public static readonly string[] Supported = { Ru, En };
 
-    public static string Current = Default;
+    public static string Current = Default; // текущий язык лучше хранить здесь и запрашивать отсюда, т.к. из CultureInfo.CurrentCulture.Name вместо ожидаемого "ru" можно получить "ru-RU"
 }
 ```
 
