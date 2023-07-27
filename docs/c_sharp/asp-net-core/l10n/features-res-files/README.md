@@ -1,5 +1,7 @@
 # Особенности работы с res-файлами
 
+[learn.microsoft - Ресурсы в приложениях .NET](https://learn.microsoft.com/ru-ru/dotnet/core/extensions/resources)
+
 ## Ресурсный файл по умолчанию
 
 Допустим надо локализовать две строки:
