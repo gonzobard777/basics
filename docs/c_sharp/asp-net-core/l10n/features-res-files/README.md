@@ -77,7 +77,7 @@
 
 ## Rider
 
-Для его вызова надо в верхнем меню вызвать: **Tools** ➔ **Localization Manager**:  
+Для его вызова надо в верхнем меню выбрать: **Tools** ➔ **Localization Manager**:  
 ![](./pic/res-localization-manager.png)
 
 здесь:
