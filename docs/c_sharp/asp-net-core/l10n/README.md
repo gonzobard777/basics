@@ -39,7 +39,7 @@ public class Lang
     public static string Current { get; private set; } = Default;
 
     public static void SetCurrent(string value) =>
-        Current = value switch // логика зависит от того, что сейчас Default
+        Current = value switch // логика зависит от того, какое значение задано в Default
         {
             En => En,
             _ => Default
