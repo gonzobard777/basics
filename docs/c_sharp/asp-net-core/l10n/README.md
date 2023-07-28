@@ -29,7 +29,7 @@ public class Lang
 
     public static readonly string[] Supported = { Ru, En };
 
-    public const string Default = Ru; // Внимание! Изменил Default -> поменяй реализацию SetCurrent
+    public const string Default = Ru; // Внимание! Изменил значение Default -> поменяй реализацию SetCurrent
 
     /*
      * Текущий язык лучше хранить здесь и запрашивать отсюда,
