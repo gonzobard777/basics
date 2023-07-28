@@ -24,13 +24,26 @@
 ```csharp
 public class Lang
 {
-    public static string Ru => "ru";
-    public static string En => "en";
+    public const string Ru = "ru";
+    public const string En = "en";
 
-    public static readonly string Default = Ru; // Не менять! Иначе изменение придется учесть во всех resx-файлах
     public static readonly string[] Supported = { Ru, En };
 
-    public static string Current = Default; // текущий язык лучше хранить здесь и запрашивать отсюда, т.к. из CultureInfo.CurrentCulture.Name вместо ожидаемого "ru" можно получить "ru-RU"
+    public const string Default = Ru; // Внимание! Изменил Default -> поменяй реализацию SetCurrent
+
+    /*
+     * Текущий язык лучше хранить здесь и запрашивать отсюда,
+     * т.к. если брать язык из CultureInfo.CurrentCulture.Name,
+     * то вместо ожидаемого "ru" можно получить "ru-RU"
+     */
+    public static string Current { get; private set; } = Default;
+
+    public static void SetCurrent(string value) =>
+        Current = value switch // логика зависит от того, что сейчас Default
+        {
+            En => En,
+            _ => Default
+        };
 }
 ```
 

@@ -4,7 +4,7 @@
 [Writing a custom request culture provider in ASP.NET Core 2.1](https://ml-software.ch/posts/writing-a-custom-request-culture-provider-in-asp-net-core-2-1)  
 [metanit - RequestLocalizationMiddleware](https://metanit.com/sharp/aspnet5/28.2.php)
 
-Вообще в шарпе идея инициализации культуры состоит в следующем:
+Вообще, идея инициализации культуры состоит в следующем:
 
 ```csharp
 var culture = new CultureInfo("ru");
@@ -36,9 +36,8 @@ public class Startup
             options.AddInitialRequestCultureProvider(new CustomRequestCultureProvider(async httpContext =>
             {
                 httpContext.Request.Headers.TryGetValue("lang", out var headerValue);
-                var lang = headerValue == Lang.En ? Lang.En : Lang.Default;
-                Lang.Current = lang; 
-                return new ProviderCultureResult(lang);
+                Lang.SetCurrent(headerValue);
+                return new ProviderCultureResult(Lang.Current);
             }));
         });
 
@@ -60,8 +59,8 @@ public class CustomRequestCultureProvider : RequestCultureProvider
     public override Task<ProviderCultureResult?> DetermineProviderCultureResult(HttpContext httpContext)
     {
         httpContext.Request.Headers.TryGetValue("lang", out var headerValue);
-        var culture = headerValue == Lang.En ? Lang.En : Lang.DefaultCulture;
-        return Task.FromResult(new ProviderCultureResult(culture));
+        Lang.SetCurrent(headerValue);
+        return new ProviderCultureResult(Lang.Current);
     }
 }
 ```
