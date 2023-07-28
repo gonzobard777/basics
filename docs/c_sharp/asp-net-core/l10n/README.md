@@ -1,7 +1,7 @@
 # Локализация
 
 [Глобализация и локализация в ASP.NET Core](https://learn.microsoft.com/ru-ru/aspnet/core/fundamentals/localization)  
-[Глобализация и локализация приложений .NET](https://learn.microsoft.com/ru-ru/dotnet/core/extensions/globalization-and-localization)  
+[Глобализация и локализация приложений .NET](https://learn.microsoft.com/ru-ru/dotnet/core/extensions/globalization-and-localization)
 
 Общие требования к локализации:
 
@@ -19,7 +19,7 @@
 3. [Выбрать вариант локализации](https://github.com/gonzobard777/c_sharp_LocalizationCheck)
    - [особенности работы с res-файлами](./features-res-files/README.md)
 
-Перечисление языков:
+Класс для инкапсулирования данных, связанных с языком/локализацией:
 
 ```csharp
 public class Lang
