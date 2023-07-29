@@ -17,7 +17,7 @@ b.Property(x => x.SomeDateTimeOffset).HasColumnType("datetimeoffset"); // мик
 b.Property(x => x.SomeDateTimeOffset).HasColumnType("datetimeoffset").HasPrecision(8); // микросекунды от 0 до 7 знаков
 ```
 
-[Date and time data types](https://learn.microsoft.com/en-us/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql)
+[Date and time data types](https://learn.microsoft.com/en-us/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql#DateandTimeDataTypes)
 
 | Тип C#         | Тип MSSQL      |
 |----------------|----------------|
