@@ -2,6 +2,11 @@
 
 ## MSSQL
 
+### Develop версия
+
+1. [Free specialized edition - Developer](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) установщик
+2. [SQL Server Management Studio (SSMS)](https://learn.microsoft.com/ru-ru/sql/ssms/download-sql-server-management-studio-ssms)
+
 ### docker-compose.yaml
 
 [Official images for Microsoft SQL Server](https://hub.docker.com/_/microsoft-mssql-server)
@@ -21,6 +26,8 @@ services:
 
 ### Строки подключения
 
+#### По логину/паролю:
+
 ```csharp
 @"Server=localhost,6445;
   Database=my_db;
@@ -30,11 +37,21 @@ services:
  "
 ```
 
+#### Windows credentials
+
 ```csharp
 @"Server=localhost\\SQLEXPRESS;
   Database=TestDb;
   Trusted_Connection=True;
   Encrypt=False;
+ "
+```
+
+```csharp
+@"Server=localhost;
+  Database=my_db;
+  Trusted_Connection=true;
+  Encrypt=false
  "
 ```
 
