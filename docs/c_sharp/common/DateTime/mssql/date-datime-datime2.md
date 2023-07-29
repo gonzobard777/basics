@@ -1,5 +1,15 @@
 # MSSQL. Date, DateTime, DateTime2
 
+[Date and time data types](https://learn.microsoft.com/en-us/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql#DateandTimeDataTypes)
+
+| Тип C#         | Тип MSSQL      | TZ offset |
+|----------------|----------------|-----------|
+| TimeSpan       | time           | -         |
+| DateTime       | date           | -         | 
+| DateTime       | datetime       | -         | 
+| DateTime       | datetime2      | -         | 
+| DateTimeOffset | datetimeoffset | ДА        | 
+
 [Ошибки при работе с датой и временем в SQL Server](https://habr.com/ru/companies/otus/articles/487774/)
 
 ```csharp
@@ -16,13 +26,3 @@ b.Property(x => x.SomeDateTime).HasColumnType("datetime2").HasPrecision(5); // �
 b.Property(x => x.SomeDateTimeOffset).HasColumnType("datetimeoffset"); // микросекунды 7 знаков
 b.Property(x => x.SomeDateTimeOffset).HasColumnType("datetimeoffset").HasPrecision(8); // микросекунды от 0 до 7 знаков
 ```
-
-[Date and time data types](https://learn.microsoft.com/en-us/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql#DateandTimeDataTypes)
-
-| Тип C#         | Тип MSSQL      | TZ offset |
-|----------------|----------------|-----------|
-| TimeSpan       | time           | -         |
-| DateTime       | date           | -         | 
-| DateTime       | datetime       | -         | 
-| DateTime       | datetime2      | -         | 
-| DateTimeOffset | datetimeoffset | ДА        | 
