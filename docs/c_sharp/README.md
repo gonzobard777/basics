@@ -3,6 +3,7 @@
 - Общее
   - [DateTime](./common/DateTime/README.md)
   - [Сортировка универсальная](https://github.com/gonzobard777/c_sharp_SortCheck)
+  - [Подключение к БД](./database-connection/README.md)
 - EF Core
   - [Отношения в бд](./ef-core/db_entity-relationships/README.md)
   - [Миграции EF Core](./ef-core/migrations/README.md)
@@ -10,3 +11,6 @@
 - ASP.NET Core
   - [Привязка модели](./asp-net-core/model-binding.md)
   - [Локализация](./asp-net-core/l10n/README.md)
+- Различия между MSSQL и PostgreSQL
+  - DateTime
+  - Пространственные данные (гео-точки и т.п.)
