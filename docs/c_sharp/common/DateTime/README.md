@@ -8,4 +8,4 @@
   - [Microsoft.Graph.Duration](https://learn.microsoft.com/en-us/dotnet/api/microsoft.graph.duration)
   - [Noda Time](https://stackoverflow.com/questions/74155954/how-can-i-parse-iso-8601s-pndtnhnmn-ns-format-in-c-net#answer-74156166)
 - MSSQL
-  - [Date, DateTime, DateTime2](./mssql/date-datime-datime2.md)
+  - [time, date, datetime, datetime2, datetimeoffset](./mssql/date-datime-datime2.md)
