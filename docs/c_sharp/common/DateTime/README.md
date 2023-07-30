@@ -2,6 +2,7 @@
 
 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
 
+- [Choose between DateTime, DateOnly, DateTimeOffset, TimeSpan, TimeOnly, and TimeZoneInfo](https://learn.microsoft.com/en-us/dotnet/standard/datetime/choosing-between-datetime)
 - [Потеря Kind при сохранении в БД](./kind-set-on-reading-from-db.md)
 - Конвертации .NET <-> Database:
   - [MSSQL. time, date, datetime, datetime2, datetimeoffset](mssql-time-date-datime-datime2-datetimeoffset.md)
