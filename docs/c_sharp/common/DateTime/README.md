@@ -13,6 +13,11 @@
 
 ## Time Zone
 
-Оба, и MSSQL и PostgreSQL, дают возможность сохранить **смещение относительно UTC**.  
-Но этого **недостаточно** для точной работы с временными зонами, которые обозначаются строковыми идентификаторами - [TZ identifier](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).  
-Пример работы с временными зонами: [When “UTC everywhere” isn’t enough - storing time zones in PostgreSQL and SQL Server](https://www.roji.org/storing-timezones-in-the-db) 
+Оба, и MSSQL и PostgreSQL, дают возможность сохранить **offset** – смещение относительно UTC.  
+Но этого **недостаточно** для точной работы с временными зонами.  
+Time Zone – это не смещение, а скорее часовой пояс с учетом перехода на летнее время. Для одной временной зоны смещение может меняться в зависимости от: времени года, от года. Обозначается строковым идентификатором [TZ identifier](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).  
+Пример работы с временными зонами: [When “UTC everywhere” isn’t enough - storing time zones in PostgreSQL and SQL Server](https://www.roji.org/storing-timezones-in-the-db)
+
+## Алгоритм "Только UTC и без Временных зон"
+
+
