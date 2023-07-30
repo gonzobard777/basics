@@ -2,13 +2,13 @@
 
 [Date and time data types](https://learn.microsoft.com/en-us/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql#DateandTimeDataTypes)
 
-| Тип C#         | Тип MSSQL      | TZ offset |
-|----------------|----------------|-----------|
-| TimeSpan       | time           | -         |
-| DateTime       | date           | -         | 
-| DateTime       | datetime       | -         | 
-| DateTime       | datetime2      | -         | 
-| DateTimeOffset | datetimeoffset | ДА        | 
+| Тип C#         | Тип MSSQL      | Offset |
+|----------------|----------------|--------|
+| TimeSpan       | time           | -      |
+| DateTime       | date           | -      | 
+| DateTime       | datetime       | -      | 
+| DateTime       | datetime2      | -      | 
+| DateTimeOffset | datetimeoffset | ДА     | 
 
 [Ошибки при работе с датой и временем в SQL Server](https://habr.com/ru/companies/otus/articles/487774/)
 
