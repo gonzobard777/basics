@@ -4,10 +4,14 @@
   - [DateTime](./common/DateTime/README.md)
   - [Сортировка универсальная](https://github.com/gonzobard777/c_sharp_SortCheck)
   - [Подключение к БД](./database-connection/README.md)
-- EF Core
-  - [Отношения в бд](./ef-core/db_entity-relationships/README.md)
-  - [Миграции EF Core](./ef-core/migrations/README.md)
-  - [The instance of entity cannot be tracked](https://github.com/gonzobard777/c_sharp_Instance_Cannot_Be_Tracked)
+- Database
+  - EF Core
+    - [Отношения в бд](./ef-core/db_entity-relationships/README.md)
+    - [Миграции EF Core](./ef-core/migrations/README.md)
+    - [The instance of entity cannot be tracked](https://github.com/gonzobard777/c_sharp_Instance_Cannot_Be_Tracked)
+  - Переход MSSQL <-> PostgreSQL
+    - [SQL Server data type mappings](https://learn.microsoft.com/en-us/sql/connect/ado-net/sql-server-data-type-mappings)
+    - [Npgsql. Supported Types and their Mappings](https://www.npgsql.org/doc/types/basic.html)
 - ASP.NET Core
   - [Привязка модели](./asp-net-core/model-binding.md)
   - [Локализация](./asp-net-core/l10n/README.md)
