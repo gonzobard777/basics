@@ -1,6 +1,7 @@
 # Конфигурация
 
-Лок. Глава 11. Конфигурирование приложения ASP.NET Core
+Лок. Глава 11. Конфигурирование приложения ASP.NET Core  
+Как работать с механизмом секретов: [Securing Sensitive Information with .NET User Secrets](https://blog.jetbrains.com/dotnet/2023/01/17/securing-sensitive-information-with-net-user-secrets/)
 
 # Последовательность загрузки настроек
 
@@ -11,8 +12,6 @@ appsettings.{EnvironmentName}.json // optional, reloadOnChange
 переменные окружения
 из командной строки, переданные при запуске
 ```
-
-Как работать с механизмом секретов: [Securing Sensitive Information with .NET User Secrets](https://blog.jetbrains.com/dotnet/2023/01/17/securing-sensitive-information-with-net-user-secrets/)
 
 # Получить значение
 
