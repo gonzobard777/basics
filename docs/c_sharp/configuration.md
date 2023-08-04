@@ -2,10 +2,10 @@
 
 Лок. Глава 11. Конфигурирование приложения ASP.NET Core
 
-# Последовательность загрузки провайдеров по умолчанию (сейчас)
+# Последовательность загрузки настроек
 
 ```
-appsettings.json // optional, reloadOnChange
+appsettings.json                   // optional, reloadOnChange
 appsettings.{EnvironmentName}.json // optional, reloadOnChange
 секреты
 переменные окружения
@@ -40,4 +40,5 @@ Configuration.Get<Dictionary<string, string>>();
 ```csharp
 Configuration["Logging:LogLevel:Default"];
 Configuration.GetSection("Logging")["LogLevel:Default"];
+Configuration.GetValue<object>("Logging:LogLevel:Default123", "Если нет значения");
 ```
