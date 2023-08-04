@@ -41,3 +41,20 @@ Configuration["Logging:LogLevel:Default"];
 Configuration.GetSection("Logging")["LogLevel:Default"];
 Configuration.GetValue<object>("Logging:LogLevel:Default123", "Если нет значения");
 ```
+
+## Создание конфигурации
+
+Поставить пакет:
+
+```
+Microsoft.Extensions.Configuration
+Microsoft.Extensions.Configuration.Abstractions // или этого одного достаточно...
+```
+
+```csharp
+var builder = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", true, false);
+    
+IConfiguration configuration = builder.Build();
+```
