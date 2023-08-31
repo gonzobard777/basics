@@ -4,6 +4,7 @@
   - [DateTime](./common/DateTime/README.md)
   - [Сортировка универсальная](https://github.com/gonzobard777/c_sharp_SortCheck)
   - [Подключение к БД](./database-connection/README.md)
+  - [Фоновые задачи и сервисы](./hosted-services.md)
   - [Полезности](./useful.md)
 - Database
   - EF Core
@@ -15,7 +16,7 @@
     - [SQL Server data type mappings](https://learn.microsoft.com/en-us/sql/connect/ado-net/sql-server-data-type-mappings)
     - [Npgsql. Supported Types and their Mappings](https://www.npgsql.org/doc/types/basic.html)
 - ASP.NET Core
-  - [Конфигурация](./configuration.md) 
+  - [Конфигурация](./configuration.md)
   - [Привязка модели](./asp-net-core/model-binding.md)
   - [Локализация](./asp-net-core/l10n/README.md)
 - Различия между MSSQL и PostgreSQL
