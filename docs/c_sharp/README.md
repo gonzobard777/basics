@@ -6,6 +6,8 @@
   - [Подключение к БД](./database-connection/README.md)
   - [Фоновые задачи и сервисы](./hosted-services.md)
   - [Полезности](./useful.md)
+- Файловая система
+  - [Чтение файла](https://github.com/gonzobard777/c_sharp_ReadFile)
 - Database
   - EF Core
     - [Отношения в бд](./ef-core/db_entity-relationships/README.md)

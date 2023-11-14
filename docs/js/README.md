@@ -11,7 +11,7 @@ ____
 - [`this`](./this.md)
 - [Модули](./modules.md)
 - [Пакеты](./package-json/README.md)
-
+- [Циклические зависимости](https://github.com/gonzobard777/circular_deps#readme)
 ____
 
 - [webpack](./webpack.md)
