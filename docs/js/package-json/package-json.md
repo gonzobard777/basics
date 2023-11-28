@@ -30,15 +30,18 @@
 ### Вариант 1
 
 Вроде нет проблем с импортом.  
-Это полная версия, если надо и es-модули и cjs:
+Это полная версия, если надо и ES-модули и cjs, но по умолчанию ES-модули:
 
 ```
-"types": "./dist/types/index.d.ts",
+"type": "module",
+"main": "./lib/index.cjs",
+"types": "./lib/index.d.ts",
+"module": "./lib/index.js",
 "exports": {
   ".": {
-    "require": "./dist/cjs/index.js",
-    "import": "./dist/cjs/index.js",
-    "types": "./dist/types/index.d.ts"
+    "require": "./lib/index.cjs",
+    "import": "./lib/index.js",
+    "types": "./lib/index.d.ts"
   }
 },
 ```
