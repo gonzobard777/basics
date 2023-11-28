@@ -21,5 +21,40 @@
 [Specifics of npm's `package.json` handling](https://docs.npmjs.com/cli/v8/configuring-npm/package-json)
 
 О некоторых из них:
+
 - [`bin`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#bin)
   - [A guide to creating a NodeJS command-line package](https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e)
+
+## Настройка пакета для экспорта js и types
+
+### Вариант 1
+
+Вроде нет проблем с импортом.  
+Это полная версия, если надо и es-модули и cjs:
+
+```
+"types": "./dist/types/index.d.ts",
+"exports": {
+  ".": {
+    "require": "./dist/cjs/index.js",
+    "import": "./dist/cjs/index.js",
+    "types": "./dist/types/index.d.ts"
+  }
+},
+```
+
+### Вариант 2
+
+Webstorm в большинстве случаев некорректно импортирует.  
+Но всегда падает при сборке(что плюс):
+
+```
+"exports": "./dist/cjs/index.js",
+"typesVersions": {
+  "*": {
+    "*": [
+      "dist/types/*"
+    ]
+  }
+},
+```
