@@ -46,6 +46,19 @@
 },
 ```
 
+версия по-короче:
+
+```
+"types": "./dist/types/index.d.ts",
+"exports": {
+  ".": {
+    "require": "./dist/cjs/index.js",
+    "import": "./dist/cjs/index.js",
+    "types": "./dist/types/index.d.ts"
+  }
+},
+```
+
 ### Вариант 2
 
 Webstorm в большинстве случаев некорректно импортирует.  
