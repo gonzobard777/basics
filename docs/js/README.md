@@ -12,6 +12,7 @@ ____
 - [Модули](./modules.md)
 - [Пакеты](./package-json/README.md)
 - [Циклические зависимости](https://github.com/gonzobard777/circular_deps#readme)
+- [Service worker](./service-worker.md)
 ____
 
 - [webpack](./webpack.md)

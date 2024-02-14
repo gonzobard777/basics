@@ -30,7 +30,7 @@
 
 [How to check if a Javascript function is a constructor](https://stackoverflow.com/questions/40922531/how-to-check-if-a-javascript-function-is-a-constructor#40922715).
 
-**Примитивный тип** – это все, что не (8) и не (9). [Пример](https://gitlab.com/wizards-lab/common/-/blob/master/src/core/type/is-primitive.ts) проверки.
+**Примитивный тип** – это все, что не (8) и не (9). [Пример](https://gitlab.com/wizards-lab/common/-/blob/master/src/type/isPrimitive.ts) проверки.
 
 # Конвертация
 
