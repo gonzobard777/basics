@@ -5,7 +5,7 @@
 [DevOps by Rebrain: Быстрый старт с Docker Swarm](https://www.youtube.com/watch?v=y1G4F7bzofk)
 
 Подключение по ssh:  
-`ssh USER@SERVER -i PATH_TO_PUB_KEY`
+`ssh USER@SERVER -i PATH_TO_PRIVATE_KEY`
 
 Войти в контейнер на swarm:
 
