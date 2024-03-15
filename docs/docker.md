@@ -10,6 +10,10 @@
 Войти в контейнер на swarm:
 
 ```shell
+#
+sudo docker exec -ti $(docker ps -q -f name=SERVICE_NAME) /bin/bash
+
+#
 docker exec -ti gis_api-fields.1.$(docker service ps -f 'name=gis_api-fields.1' gis_api-fields -q --no-trunc | head -n1) /bin/bash
 docker exec -ti gis_api-fields.1.g0l63rqgxb2ytez5sk6dwi5jq /bin/bash
 ```
