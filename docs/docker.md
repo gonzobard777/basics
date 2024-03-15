@@ -19,6 +19,7 @@ docker exec -ti gis_api-fields.1.g0l63rqgxb2ytez5sk6dwi5jq /bin/bash
 | Команда                                   | Описание                              |
 |-------------------------------------------|---------------------------------------|
 | &nbsp;                                    | &nbsp;                                |
+| `docker container ls`                     | список контейнеров                    |
 | `docker stack ls`                         | список стеков                         |
 | `docker service ls`                       | список сервисов (на всех стеках)      |
 | `docker stack services НАЗВАНИЕ_СТЕКА`    | список сервисов на конкретном стеке   |
