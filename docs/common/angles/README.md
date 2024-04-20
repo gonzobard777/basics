@@ -4,10 +4,10 @@
 
 ## atan2 – ось Y направлена вверх
 
-![axis-y-up](./pic/axis-y-up.png)
+<img src="./pic/axis-y-up.png" width="809"/>
 
 ## atan2 – ось Y направлена вниз
 
 Этот случай более интересен для веб-разработки, т.к. там ось Y направлена вниз.
 
-![axis-y-down](./pic/axis-y-down.png)
+<img src="./pic/axis-y-down.png" width="816"/>
