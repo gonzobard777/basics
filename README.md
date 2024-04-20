@@ -1,6 +1,7 @@
 - [JavaScript, TypeScript](./docs/js/README.md)
 - [C#](./docs/c_sharp/README.md)
 - Общее
+  - [Углы](./docs/common/angles/README.md)
   - [Битовые маски](./docs/common/bit-mask.md)
 
 ____
