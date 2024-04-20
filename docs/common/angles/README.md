@@ -1,9 +1,13 @@
 # Углы
 
+[atan2](https://en.wikipedia.org/wiki/Atan2)
+
 ## atan2 – ось Y направлена вверх
 
-![](./pic/axis-y-up.png)
+![axis-y-up](./pic/axis-y-up.png)
 
 ## atan2 – ось Y направлена вниз
 
-![](./pic/axis-y-down.png)
+Этот случай более интересен для веб-разработки, т.к. там ось Y направлена вниз.
+
+![axis-y-down](./pic/axis-y-down.png)
