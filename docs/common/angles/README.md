@@ -2,10 +2,6 @@
 
 [atan2](https://en.wikipedia.org/wiki/Atan2)
 
-## atan2 – ось Y направлена вверх
-
-<img src="./pic/axis-y-up.png" width="650"/>
-
 ## atan2 – ось Y направлена вниз
 
 Этот случай более интересен для веб-разработки, т.к. в веб-разработке ось Y направлена вниз.  
@@ -24,3 +20,8 @@
 | `North-CounterClockwise` | `( -x, -y )`      | <img src="./pic/north-counter-clockwise.png" width="253"/> |                                                             |
 | `East-Clockwise`         | `(  y,  x )`      | <img src="./pic/east-clockwise.png" width="253"/>          |                                                             |
 | `East-CounterClockwise`  | `( -y,  x )`      | <img src="./pic/east-counter-clockwise.png" width="253"/>  |                                                             |
+| `South-Clockwise`        | `( -x,  y )`      | <img src="./pic/south-clockwise.png" width="253"/>         |                                                             |
+| `South-CounterClockwise` | `(  x,  y )`      | <img src="./pic/south-counter-clockwise.png" width="253"/> |                                                             |
+| `West-Clockwise`         | `( -y, -x )`      | <img src="./pic/west-clockwise.png" width="253"/>          |                                                             |
+| `West-CounterClockwise`  | `(  y, -x )`      | <img src="./pic/west-counter-clockwise.png" width="253"/>  |                                                             |
+
