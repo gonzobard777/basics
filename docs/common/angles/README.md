@@ -25,3 +25,5 @@
 |--------------------------|-------------------|------------------------------------------------------------|-------------------------------------------------------------|
 | `North-Clockwise`        | `(  x, -y )`      | <img src="./pic/north-clockwise.png" width="253"/>         | <img src="./pic/north-clockwise-0-to-360.png" width="253"/> |
 | `North-CounterClockwise` | `( -x, -y )`      | <img src="./pic/north-counter-clockwise.png" width="253"/> |                                                             |
+| `East-Clockwise`         | `(  y,  x )`      | <img src="./pic/east-clockwise.png" width="253"/>          |                                                             |
+| `East-CounterClockwise`  | `( -y,  x )`      | <img src="./pic/east-counter-clockwise.png" width="253"/>  |                                                             |
