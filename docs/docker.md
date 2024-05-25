@@ -3,6 +3,7 @@
 [Docker RomNero](https://www.youtube.com/playlist?list=PLqVeG_R3qMSwjnkMUns_Yc4zF_PtUZmB-)  
 [Docker Swarm: деплой и управление окружением на практике (полный курс)](https://www.youtube.com/watch?v=GgkreJfdTL8)  
 [DevOps by Rebrain: Быстрый старт с Docker Swarm](https://www.youtube.com/watch?v=y1G4F7bzofk)
+[Изучаем Docker, часть 3: файлы Dockerfile](https://habr.com/ru/companies/ruvds/articles/439980/)
 
 Подключение по ssh:  
 `ssh USER@SERVER -i PATH_TO_PRIVATE_KEY`
