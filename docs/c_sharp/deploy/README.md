@@ -12,6 +12,8 @@
 
 ![](./pic/check-docker-app.png)
 
+Dockerfile:
+
 ```dockerfile
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS publish
 ARG BUILD_CONFIGURATION=Debug
