@@ -1,3 +1,5 @@
+# Деплой
+
 [Пакуем приложения ASP.NET Core с помощью Docker](https://habr.com/ru/companies/microsoft/articles/435914/)  
 [Secure your container build and publish with .NET 8](https://devblogs.microsoft.com/dotnet/secure-your-container-build-and-publish-with-dotnet-8/)
 
@@ -7,6 +9,8 @@
 
 [Understand build configurations](https://learn.microsoft.com/en-us/visualstudio/ide/understanding-build-configurations)  
 [Справочник по MSBuild для проектов пакета SDK для .NET](https://learn.microsoft.com/ru-ru/dotnet/core/project-sdk/msbuild-props#useapphost)
+
+![](./pic/check-docker-app.png)
 
 ```dockerfile
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS publish
@@ -24,6 +28,8 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "WebApplication1.dll"]
 ```
+
+Сборка docker-образа:
 
 ```shell
 docker build -f .\WebApplication1\Dockerfile --force-rm --target final --build-arg "BUILD_CONFIGURATION=Release" --tag build:dev .
