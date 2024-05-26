@@ -18,6 +18,7 @@
     - [SQL Server data type mappings](https://learn.microsoft.com/en-us/sql/connect/ado-net/sql-server-data-type-mappings)
     - [Npgsql. Supported Types and their Mappings](https://www.npgsql.org/doc/types/basic.html)
 - ASP.NET Core
+  - [Деплой](./deploy.md)
   - [Конфигурация](./configuration.md)
   - [Привязка модели](./asp-net-core/model-binding.md)
   - [Локализация](./asp-net-core/l10n/README.md)
