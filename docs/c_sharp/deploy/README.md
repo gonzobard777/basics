@@ -16,12 +16,13 @@ Dockerfile:
 
 ```dockerfile
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS publish
-ARG BUILD_CONFIGURATION=Debug
+ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["WebApplication1", "WebApplication1"]
 RUN dotnet restore "./WebApplication1/WebApplication1.csproj"
 WORKDIR "/src/WebApplication1"
-RUN dotnet publish "./WebApplication1.csproj" -c $BUILD_CONFIGURATION -o /app/publish -p:UseAppHost=false
+RUN dotnet publish "./WebApplication1.csproj" -c Release -r linux-x64 -o /app/publish /p:UseAppHost=false
+#RUN dotnet publish "./WebApplication1.csproj" -c Release -r linux-x64 -o /app/publish --self-contained false  
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 USER app
