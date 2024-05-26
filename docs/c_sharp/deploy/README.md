@@ -35,6 +35,6 @@ ENTRYPOINT ["dotnet", "WebApplication1.dll"]
 Сборка docker-образа:
 
 ```shell
-docker build -f .\WebApplication1\Dockerfile --force-rm --target final --build-arg "BUILD_CONFIGURATION=Release" --tag build:dev .
+docker build -f .\WebApplication1\Dockerfile --target final --build-arg "BUILD_CONFIGURATION=Release" --tag build:dev .
 ```
 
