@@ -1,5 +1,7 @@
 # Деплой
 
+## Индивидулаьный докер
+
 [Пакуем приложения ASP.NET Core с помощью Docker](https://habr.com/ru/companies/microsoft/articles/435914/)  
 [Secure your container build and publish with .NET 8](https://devblogs.microsoft.com/dotnet/secure-your-container-build-and-publish-with-dotnet-8/)
 
@@ -38,4 +40,24 @@ ENTRYPOINT ["dotnet", "WebApplication1.dll"]
 docker build -f .\WebApplication1\Dockerfile --target final --build-arg "BUILD_CONFIGURATION=Release" --tag build:dev .
 docker build -f .\WebApplication1\Dockerfile --output type=local,dest=./output --target final --build-arg "BUILD_CONFIGURATION=Release" --tag build:dev .
 ```
+
+## Проверять на linux с докером
+
+1. [установить докер в докере docker:dind](https://medium.com/@shivam77kushwah/docker-inside-docker-e0483c51cc2c)
+
+```shell
+docker pull docker:dind
+docker run --privileged --name my-dind-container -d docker:dind
+docker exec -it my-dind-container docker date
+```
+
+2. [Установить sdk на AlpineLinux](https://learn.microsoft.com/en-us/dotnet/core/install/linux-alpine#install-net-8), [не забыть! про депенденси для AlpineLinux](https://learn.microsoft.com/en-us/dotnet/core/install/linux-alpine#dependencies)
+
+3. [Создать солюшен](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-sln), [проект по шаблону](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new), [привязать проект к шаблону](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-sln#add)
+
+```shell
+dotnet sln check-docker
+dotnet new webapi ...
+```
+
 
