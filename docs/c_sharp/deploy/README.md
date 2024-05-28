@@ -60,4 +60,6 @@ dotnet sln check-docker
 dotnet new webapi ...
 ```
 
+## Примеры
 
+[online-backend мое первое](./example-01/README.md)
