@@ -1,6 +1,6 @@
 # online-backend мое первое
 
-.gitlab-ci.yml
+## .gitlab-ci.yml
 
 ```yaml
 stages:
@@ -76,7 +76,7 @@ publish and push:
   <<: *onlyTags
 
 
-deploy prod-ost:
+deploy to server:
   stage: deploy
   rules:
     - if: '$CI_COMMIT_TAG'
@@ -89,7 +89,7 @@ deploy prod-ost:
   <<: *docker_login
 ```
 
-dockerfile.publish_projects
+## dockerfile.publish_projects
 
 ```dockerfile
 FROM mcr.microsoft.com/dotnet/sdk:8.0
@@ -103,7 +103,7 @@ RUN for proj in $projects; do \
     done;
 ```
 
-dockerfile.webapi
+## dockerfile.webapi
 
 ```dockerfile
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
@@ -115,7 +115,7 @@ COPY ./output/app/publish/$proj .
 ENTRYPOINT dotnet "${projEnv}.dll"
 ```
 
-docker-compose.swarm.yml
+## docker-compose.swarm.yml
 
 ```yaml
 version: '3.7'
