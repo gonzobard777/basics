@@ -62,4 +62,5 @@ dotnet new webapi ...
 
 ## Примеры
 
-[online-backend мое первое](./example-01/README.md)
+[online-backend мое первое](./example-01/README.md)  
+[online-backend v2](./example-02/README.md)  
