@@ -5,6 +5,7 @@
   - [Сортировка универсальная](https://github.com/gonzobard777/c_sharp_SortCheck)
   - [Подключение к БД](./database-connection/README.md)
   - [Фоновые задачи и сервисы](./hosted-services.md)
+  - [Расписание](https://github.com/gonzobard777/c_sharp_Scheduler)
   - [Полезности](./useful.md)
 - Файловая система
   - [Чтение файла](https://github.com/gonzobard777/c_sharp_ReadFile)
@@ -13,7 +14,7 @@
     - [Отношения в бд](./ef-core/db_entity-relationships/README.md)
     - [Миграции EF Core](./ef-core/migrations/README.md)
     - [The instance of entity cannot be tracked](https://github.com/gonzobard777/c_sharp_Instance_Cannot_Be_Tracked)
-  - Партицирование таблиц
+  - [Партицирование таблиц](https://github.com/gonzobard777/c_sharp_PostgreSQL_Table_Partitioning)
   - Переход MSSQL <-> PostgreSQL
     - [SQL Server data type mappings](https://learn.microsoft.com/en-us/sql/connect/ado-net/sql-server-data-type-mappings)
     - [Npgsql. Supported Types and their Mappings](https://www.npgsql.org/doc/types/basic.html)
