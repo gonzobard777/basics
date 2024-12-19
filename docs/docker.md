@@ -21,23 +21,25 @@ docker exec -ti gis_api-fields.1.g0l63rqgxb2ytez5sk6dwi5jq /bin/bash
 
 ## Команды
 
-| Команда                                     | Описание                                                                 |
-|---------------------------------------------|--------------------------------------------------------------------------|
-| &nbsp;                                      | &nbsp;                                                                   |
-| `docker container ls --no-trunc`            | список контейнеров                                                       |
-| `docker stack ls`                           | список стеков                                                            |
-| `docker service ls`                         | список сервисов (на всех стеках)                                         |
-| `docker stack services НАЗВАНИЕ_СТЕКА`      | список сервисов на конкретном стеке                                      |
-| &nbsp;                                      | &nbsp;                                                                   |
-| `docker inspect НАЗВАНИЕ_СТЕКА`             | данные, с которыми был создан стек                                       |
-| `docker service inspect НАЗВАНИЕ_СЕРВИСА`   | данные, с которыми был создан сервис                                     |
-| &nbsp;                                      | &nbsp;                                                                   |
-| `docker service ps НАЗВАНИЕ_СЕРВИСА`        | на какой ноде кластера запущен сервис                                    |
-| &nbsp;                                      | &nbsp;                                                                   |
-| `docker stack ps --no-trunc НАЗВАНИЕ_СТЕКА` | лог ошибок произошедших на стеке, например, если не реплицируется сервис |
-| `docker service logs НАЗВАНИЕ_СЕРВИСА`      | to get a more detailed message why your service failed                   |
-| &nbsp;                                      | &nbsp;                                                                   |
-| `docker service scale ID_FROM_LS=0`         | масштабировать контейнер                                                 |
+| Команда                                                                   | Описание                                                                 |
+|---------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| &nbsp;                                                                    | &nbsp;                                                                   |
+| `docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}"` | Таблица: ID  Image  Status  Names                                        |
+| &nbsp;                                                                    | &nbsp;                                                                   |
+| `docker container ls --no-trunc`                                          | список контейнеров                                                       |
+| `docker stack ls`                                                         | список стеков                                                            |
+| `docker service ls`                                                       | список сервисов (на всех стеках)                                         |
+| `docker stack services НАЗВАНИЕ_СТЕКА`                                    | список сервисов на конкретном стеке                                      |
+| &nbsp;                                                                    | &nbsp;                                                                   |
+| `docker inspect НАЗВАНИЕ_СТЕКА`                                           | данные, с которыми был создан стек                                       |
+| `docker service inspect НАЗВАНИЕ_СЕРВИСА`                                 | данные, с которыми был создан сервис                                     |
+| &nbsp;                                                                    | &nbsp;                                                                   |
+| `docker service ps НАЗВАНИЕ_СЕРВИСА`                                      | на какой ноде кластера запущен сервис                                    |
+| &nbsp;                                                                    | &nbsp;                                                                   |
+| `docker stack ps --no-trunc НАЗВАНИЕ_СТЕКА`                               | лог ошибок произошедших на стеке, например, если не реплицируется сервис |
+| `docker service logs НАЗВАНИЕ_СЕРВИСА`                                    | to get a more detailed message why your service failed                   |
+| &nbsp;                                                                    | &nbsp;                                                                   |
+| `docker service scale ID_FROM_LS=0`                                       | масштабировать контейнер                                                 |
 
 ## Программы
 
