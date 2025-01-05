@@ -19,4 +19,8 @@ ____
 
 ____
 
+- [Географические проекции](./docs/geo/geo-projections.md)
+
+____
+
 - [вопросы](./docs/questions/README.md)
