@@ -38,4 +38,7 @@
 
 Другое
 
+- [Wolfram - Mercator Projection](https://mathworld.wolfram.com/MercatorProjection.html)
+- [Wiki - Mercator projection transformations](https://en.wikipedia.org/wiki/Mercator_projection#Mercator_projection_transformations)
+- [Google - search](https://www.google.com/search?q=formula+of+mercator+projection)
 - [Знание.Вики Проекция Меркатора](https://znanierussia.ru/articles/%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%86%D0%B8%D1%8F_%D0%9C%D0%B5%D1%80%D0%BA%D0%B0%D1%82%D0%BE%D1%80%D0%B0)
