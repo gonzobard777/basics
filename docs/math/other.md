@@ -1,8 +1,15 @@
 # Разные материалы
 
 - https://mathter.pro/
-- [Основы мат. анализа, том 1, Фихтенгольц](https://drive.google.com/file/d/1N4WTOMIs2ZxcP3x9Y4zQOSnzYYhzLIXJ/view?usp=drive_link)
-- [Основы мат. анализа, том 2, Фихтенгольц](https://drive.google.com/file/d/1ZQkJj8A9NoiFR0CN6WkzsDiIsiJJ4bX-/view?usp=drive_link)
+- Фихтенгольц
+  - [Основы мат. анализа, том 1, Фихтенгольц](https://drive.google.com/file/d/1N4WTOMIs2ZxcP3x9Y4zQOSnzYYhzLIXJ/view?usp=drive_link)
+  - [Основы мат. анализа, том 2, Фихтенгольц](https://drive.google.com/file/d/1ZQkJj8A9NoiFR0CN6WkzsDiIsiJJ4bX-/view?usp=drive_link)
+- [Смирнов - Курс высшей математики (в 5 томах)](https://drive.google.com/drive/folders/1WZcFHjHBPfA1KQJuee1ARzETOGXRZsbE?usp=drive_link)
+- Зорич
+  - [Матанализ, часть 1, Зорич](https://drive.google.com/file/d/1OekPngCRautwsRyRrprqxnWy32-iqB9-/view?usp=drive_link)
+  - [Матанализ, часть 2, Зорич](https://drive.google.com/file/d/1Rh3EDknlqSyaTkY9lj_GNbiL_RnJGCRs/view?usp=drive_link)
+- [Рудин - Основы матанализа](https://drive.google.com/file/d/12sTGfYrl-xilUovI2iCohnrspbgYvFlz/view?usp=drive_link)
+- [Пискунов - Дифференциальное и интегральное исчисления](https://drive.google.com/drive/folders/1BRhAS-AWj6Wq9U99eg6LX-IA257lGCzr?usp=drive_link)
 - [Аналитическая геометрия и линейная алгебра, Кадомцев](https://drive.google.com/file/d/10b7_DaDc8MHQX3rHzVYDXMOINeVKBu6n/view?usp=drive_link)
 - [От орнаметов до дифуров](https://drive.google.com/file/d/1NdQM00AqQ4-Cv5j9IPS9WVD-IXZ9SUL4/view?usp=drive_link)
 
