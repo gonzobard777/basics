@@ -40,6 +40,8 @@ docker exec -ti gis_api-fields.1.g0l63rqgxb2ytez5sk6dwi5jq /bin/bash
 | `docker service logs НАЗВАНИЕ_СЕРВИСА`                                    | to get a more detailed message why your service failed                   |
 | &nbsp;                                                                    | &nbsp;                                                                   |
 | `docker service scale ID_FROM_LS=0`                                       | масштабировать контейнер                                                 |
+| &nbsp;                                                                    | &nbsp;                                                                   |
+| `docker cp ИД_КОНТЕЙНЕРА:/container's/path/from /local/path/to`           | скопировать файл из контейнера в локальную файловую систему              |
 
 ## Программы
 
