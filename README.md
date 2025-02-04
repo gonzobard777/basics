@@ -19,4 +19,10 @@ ____
 
 ____
 
+Математика
+- [Разные материалы](./docs/math/other.md)
+- [Географические проекции](docs/math/geo/geo-projections.md)
+
+____
+
 - [вопросы](./docs/questions/README.md)
