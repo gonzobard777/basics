@@ -4,3 +4,5 @@
 
 [&#60;**Project** Sdk=".NET project SDKs"&#62;](https://learn.microsoft.com/ru-ru/dotnet/core/project-sdk/overview)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#60;**TargetFramework**&#62;Target frameworks in SDK-style projects&#60;/**TargetFramework**&#62;](https://learn.microsoft.com/ru-ru/dotnet/standard/frameworks)
+
+[Выбор версии .NET Standard](https://learn.microsoft.com/dotnet/standard/net-standard#select-net-standard-version)
