@@ -1,5 +1,8 @@
 # Разные материалы
 
+- [Every Number Explained in 6 minutes](https://www.youtube.com/watch?v=sxPGDJ-uXV0)
+
+
 - https://mathter.pro/
 - Фихтенгольц
   - [Основы мат. анализа, том 1, Фихтенгольц](https://drive.google.com/file/d/1N4WTOMIs2ZxcP3x9Y4zQOSnzYYhzLIXJ/view?usp=drive_link)
