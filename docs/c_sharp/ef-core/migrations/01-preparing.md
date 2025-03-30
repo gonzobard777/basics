@@ -5,6 +5,20 @@
 1. Для Visual Studio - [The Package Manager Console (PMC) tools for Entity Framework Core](https://learn.microsoft.com/ru-ru/ef/core/cli/powershell)
 2. Кроссплатформенно - [.NET Core CLI или The command-line interface (CLI) tools for Entity Framework Core](https://learn.microsoft.com/ru-ru/ef/core/cli/dotnet), +требуется пакет `Microsoft.EntityFrameworkCore.Design`
 
+Может портебоваться удалить тулзы:
+
+```shell
+dotnet tool uninstall --global dotnet-ef
+```
+
+и установить конкретную версию тулзов:
+
+```shell
+dotnet tool install --global dotnet-ef --version 8.0.14
+```
+
+---
+
 Перед запуском команд **переходят в папку проекта, где лежит DbContext**.  
 Но в папку проекта с DbContext можно не переходить, а задать ее вручную:
 
