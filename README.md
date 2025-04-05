@@ -1,5 +1,6 @@
 - [JavaScript, TypeScript](./docs/js/README.md)
 - [C#](./docs/c_sharp/README.md)
+- [Python](./docs/python/README.md)
 - Общее
   - [Углы](./docs/common/angles/README.md)
   - [Битовые маски](./docs/common/bit-mask.md)
@@ -20,6 +21,7 @@ ____
 ____
 
 Математика
+
 - [Разные материалы](./docs/math/other.md)
 - [Географические проекции](docs/math/geo/geo-projections.md)
 
