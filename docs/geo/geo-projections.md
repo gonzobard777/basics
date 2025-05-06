@@ -1,7 +1,6 @@
 # Географические проекции
 
 - [Movable Type Scripts. Calculate distance, bearing and more between Latitude/Longitude points](https://www.movable-type.co.uk/scripts/latlong.html)
-- [ГИС Dmitriy Sarychev](https://www.youtube.com/@dmitriysarychev64/videos)
 
 - Общее
   - [Картоведение, Берлянт, 2003](https://drive.google.com/file/d/1H_Iyj4pm7dW5zqj7oEELd3GXGtwitVKc/view?usp=sharing)

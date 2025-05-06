@@ -23,7 +23,12 @@ ____
 Математика
 
 - [Разные материалы](./docs/math/other.md)
-- [Географические проекции](docs/math/geo/geo-projections.md)
+
+____
+
+Гео
+- [QGIS](./docs/geo/qgis.md)
+- [Географические проекции](./docs/geo/geo-projections.md)
 
 ____
 
