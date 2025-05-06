@@ -29,7 +29,7 @@ ____
 Гео
 - [QGIS](./docs/geo/qgis.md)
 - [Географические проекции](./docs/geo/geo-projections.md)
-
+- [Полезные ссылки](./docs/geo/links.md)
 ____
 
 - [вопросы](./docs/questions/README.md)
