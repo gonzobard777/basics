@@ -8,6 +8,12 @@
 dotnet ef migrations add Initial
 ```
 
+Если реквизиты доступа к БД лежат в другом проекте, тогда перейти в проект, где лежат миграции и выполнить:
+
+```shell
+dotnet ef migrations add Init --startup-project ../Online.MeteoData/Online.MeteoData.csproj
+```
+
 ### Применить миграцию(ции) к базе данных
 
 Применить все миграции, которые еще не применены (они находятся в статусе `Pending`):
@@ -15,6 +21,25 @@ dotnet ef migrations add Initial
 ```shell
 dotnet ef database update
 ```
+
+Либо можно запускать обновления структуры БД всякий раз при старте приложения:
+```csharp
+public class Startup
+{
+    ...
+    
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment _)
+    {
+        // Накатить отложенные миграции перед каждым стартом приложения.
+        using var scope = app.ApplicationServices.CreateScope();
+        using var dbContext = scope.ServiceProvider.GetRequiredService<MeteoDataDbContext>();
+        dbContext.MigrateAndAction();
+        ...
+    }
+
+```
+
+
 
 После каждого обновления:
 
