@@ -27,7 +27,18 @@ New-Item -Path $PROFILE -ItemType File -Force
 Содержимое:
 
 ```shell
-function prompt { "$PWD> " }
+#function prompt { "$PWD> " }
+#
+#function prompt {
+#  "$(Split-Path -Leaf $PWD)> "
+#}
+
+function prompt {
+  $path = Get-Location
+  Write-Host ""
+  Write-Host "$path" -ForegroundColor DarkGray
+  return "> "
+}
 
 # Prefer newer PSReadLine from CurrentUser over built-in
 Remove-Module PSReadLine -Force -ErrorAction SilentlyContinue
