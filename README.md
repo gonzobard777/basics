@@ -27,9 +27,17 @@ ____
 ____
 
 Гео
+
 - [QGIS](./docs/geo/qgis.md)
 - [Географические проекции](./docs/geo/geo-projections.md)
 - [Полезные ссылки](./docs/geo/links.md)
+
+____
+
+Windows
+
+- [Windows terminal](./docs/windows/windows-terminal/README.md)
+
 ____
 
 - [вопросы](./docs/questions/README.md)
