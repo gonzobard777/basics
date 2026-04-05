@@ -40,4 +40,11 @@ Windows
 
 ____
 
+AI (artificial intelligence)
+
+- [Правила](./docs/ai/rules.md)
+- [Установка Codex]()
+
+____
+
 - [вопросы](./docs/questions/README.md)
