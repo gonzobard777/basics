@@ -34,17 +34,10 @@ ____
 
 ____
 
-Windows
-
-- [Windows terminal](./docs/windows/windows-terminal/README.md)
-
+[Windows](./docs/windows/README.md)
 ____
 
-AI (artificial intelligence)
-
-- [Правила](./docs/ai/rules.md)
-- [Установка Codex]()
-
+[AI (artificial intelligence)](./docs/ai/README.md)
 ____
 
 - [вопросы](./docs/questions/README.md)
