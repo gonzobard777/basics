@@ -87,7 +87,7 @@ printf "%s" "$result"
 | `week` | `rate_limits.seven_day.used_percentage` | Лимит за 7 дней                   |
 | `ctx`  | `context_window.used_percentage`        | Заполненность контекста разговора |
 
-Пример вывода: `5h:30% week:10% ctx:26%`
+Пример вывода: `ctx 11%(23k) · 5h 74% · week 25%`
 
 #### Отладка
 
