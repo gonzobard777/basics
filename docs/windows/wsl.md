@@ -12,5 +12,12 @@
 | `wsl --install -d Ubuntu`  | Установить дистрибутив Ubuntu в WSL                                  |
 | `wsl --shutdown`           | Остановить все запущенные дистрибутивы                               |
 
+### Fish
 
+```shell
+sudo apt update
+sudo apt install -y fish
 
+## Чтобы сделать fish shell по умолчанию в Ubuntu:
+chsh -s /usr/bin/fish
+```
