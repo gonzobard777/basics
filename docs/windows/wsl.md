@@ -12,12 +12,8 @@
 | `wsl --install -d Ubuntu`  | Установить дистрибутив Ubuntu в WSL                                  |
 | `wsl --shutdown`           | Остановить все запущенные дистрибутивы                               |
 
-### Fish
+### atuin - Magical shell history
 
 ```shell
-sudo apt update
-sudo apt install -y fish
-
-## Чтобы сделать fish shell по умолчанию в Ubuntu:
-chsh -s /usr/bin/fish
+curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 ```
