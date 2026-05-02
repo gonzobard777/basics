@@ -22,6 +22,7 @@ ____
 
 Математика
 
+- [Grid hash](./docs/math/grid-hash.md)
 - [Разные материалы](./docs/math/other.md)
 
 ____
