@@ -53,6 +53,8 @@ sudo npm install -g @openai/codex
 nano ~/.bashrc
 
 # Добавить переменные
+export http_proxy=http://xx.xx.xx.xx:3128
+export https_proxy=http://xx.xx.xx.xx:3128
 export HTTP_PROXY=http://xx.xx.xx.xx:3128
 export HTTPS_PROXY=http://xx.xx.xx.xx:3128
 
