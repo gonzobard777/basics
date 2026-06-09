@@ -1,29 +1,29 @@
 #!/usr/bin/env bash
-# auto-in.sh — установщик "auto-in": поиск/просмотр истории команд через
+# install.sh — установщик "auto-in": поиск/просмотр истории команд через
 # curses-меню на стрелке вверх (движок на Python + клей на bash для readline).
 #
 # Файлы:
-#   auto-in.sh    — этот установщик (клей вшит внутри);
-#   hist-menu.py  — движок-меню, лежит РЯДОМ с установщиком (копируется при установке).
+#   install.sh — этот установщик (клей вшит внутри);
+#   auto-in.py         — движок-меню, лежит РЯДОМ с установщиком (копируется при установке).
 #
 # Что делает:
 #   1) проверяет python3 и модуль curses (при нужде доставляет через apt);
-#   2) копирует движок hist-menu.py -> ~/.local/bin/hist-menu.py
-#   3) создаёт клей                  -> ~/.hist_search.bash
+#   2) копирует движок auto-in.py -> ~/.local/bin/auto-in.py
+#   3) создаёт клей               -> ~/.hist_search.bash
 #   4) подключает клей в ~/.bashrc (без дублей) и добавляет ~/.local/bin в PATH.
 #
 # Идемпотентно: запускать можно сколько угодно раз — файлы перезапишутся
 # свежими версиями, строки в ~/.bashrc не продублируются.
 #
 # Использование (например, после переустановки Ubuntu):
-#   bash auto-in.sh
+#   bash install.sh
 #   exec bash            # подхватить изменения в текущем терминале
 
 set -euo pipefail
 
 say() { printf '==> %s\n' "$*"; }
 
-# Каталог, где лежит этот установщик (рядом ожидается hist-menu.py)
+# Каталог, где лежит этот установщик (рядом ожидается auto-in.py)
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # --- 1. Зависимости -----------------------------------------------------------
@@ -44,22 +44,22 @@ if ! python3 -c 'import curses' >/dev/null 2>&1; then
 fi
 say "python3: $(python3 --version 2>&1); модуль curses доступен"
 
-# --- 2. Движок: копируем hist-menu.py из папки установщика --------------------
-ENGINE_SRC="$SCRIPT_DIR/hist-menu.py"
+# --- 2. Движок: копируем auto-in.py из папки установщика ----------------------
+ENGINE_SRC="$SCRIPT_DIR/auto-in.py"
 if [[ ! -f "$ENGINE_SRC" ]]; then
-    echo "ОШИБКА: рядом с установщиком нет hist-menu.py: $ENGINE_SRC" >&2
+    echo "ОШИБКА: рядом с установщиком нет auto-in.py: $ENGINE_SRC" >&2
     exit 1
 fi
 mkdir -p "$HOME/.local/bin"
-say "Копирую движок: $ENGINE_SRC -> ~/.local/bin/hist-menu.py"
-cp "$ENGINE_SRC" "$HOME/.local/bin/hist-menu.py"
-chmod +x "$HOME/.local/bin/hist-menu.py"
+say "Копирую движок: $ENGINE_SRC -> ~/.local/bin/auto-in.py"
+cp "$ENGINE_SRC" "$HOME/.local/bin/auto-in.py"
+chmod +x "$HOME/.local/bin/auto-in.py"
 
 # --- 3. Клей: ~/.hist_search.bash --------------------------------------------
 say "Пишу клей -> ~/.hist_search.bash"
 cat > "$HOME/.hist_search.bash" <<'BASHEOF'
 # ~/.hist_search.bash — поиск/просмотр истории через curses-меню на стрелке вверх
-# Движок-меню: ~/.local/bin/hist-menu.py (Python + curses)
+# Движок-меню: ~/.local/bin/auto-in.py (Python + curses)
 # Подключается из ~/.bashrc строкой:  . "$HOME/.hist_search.bash"
 #
 # Как работает авто-запуск по Enter:
@@ -70,7 +70,7 @@ cat > "$HOME/.hist_search.bash" <<'BASHEOF'
 #       3 — нажат Tab    -> \C-xE = no-op (команда просто подставлена в строку)
 #       1 — Esc/отмена   -> \C-xE = no-op, строка не меняется
 
-__HIST_ENGINE="$HOME/.local/bin/hist-menu.py"
+__HIST_ENGINE="$HOME/.local/bin/auto-in.py"
 
 # Список истории: свежие сверху, без номеров, без дублей
 __hist_list() {

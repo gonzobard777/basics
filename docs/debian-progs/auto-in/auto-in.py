@@ -6,7 +6,7 @@
 stdout (его перехватывает $() в bash). Рисует меню на /dev/tty.
 
 Режим самотеста (без curses, для проверки фильтрации):
-    python3 hist-menu.py --test "запрос" < файл-с-историей
+    python3 auto-in.py --test "запрос" < файл-с-историей
 """
 import sys
 import os
