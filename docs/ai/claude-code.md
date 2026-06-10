@@ -1,8 +1,35 @@
 # Claude Code
 
-```shell
-curl -fsSL https://claude.ai/install.sh | bash
+1. [Настроить терминал](../windows/windows-terminal/README.md)
+2. [Удалить и установить Ubuntu](../windows/wsl.md)
+3. Назначить прокси:
 
+```shell
+nano ~/.bashrc
+
+# Добавить переменные
+export http_proxy=http://xx.xx.xx.xx:3128
+export https_proxy=http://xx.xx.xx.xx:3128
+export HTTP_PROXY=http://xx.xx.xx.xx:3128
+export HTTPS_PROXY=http://xx.xx.xx.xx:3128
+
+# Применить переменные без перезапуска
+source ~/.bashrc
+```
+
+4. Поставить проги и клод:
+
+```shell
+sudo apt update
+
+# Node.js + npm
+sudo apt install nodejs npm -y
+
+# Всякие питоновские пакеты
+sudo apt install python3-rapidfuzz python3-geopy python3-unidecode python3-numpy python3-pandas python3-scipy python3-shapely python3-pyproj python3-requests python3-openpyxl python3-sklearn python3-matplotlib python3-tqdm
+
+# claude
+curl -fsSL https://claude.ai/install.sh | bash
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
 ```
 
