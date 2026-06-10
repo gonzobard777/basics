@@ -2,7 +2,8 @@
 
 1. [Настроить терминал](../windows/windows-terminal/README.md)
 2. [Удалить и установить Ubuntu](../windows/wsl.md)
-3. Назначить прокси:
+3. [Поставить auto-in](../debian-progs/auto-in/README.md)
+4. Назначить прокси:
 
 ```shell
 nano ~/.bashrc
@@ -24,7 +25,7 @@ curl 2ip.ru
 xx.xx.xx.xx:3128
 ```
 
-4. Поставить проги и клод:
+5. Поставить проги и клод:
 
 ```shell
 sudo apt update
@@ -40,7 +41,7 @@ curl -fsSL https://claude.ai/install.sh | bash
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
 ```
 
-5. Настройки клода:
+6. Настройки клода:
 
 ```shell
 nano ~/.claude/settings.json
