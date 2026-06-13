@@ -7,26 +7,39 @@ stdout (его перехватывает $() в bash). Рисует меню н
 
 Режим самотеста (без curses, для проверки фильтрации):
     python3 auto-in.py --test "запрос" < файл-с-историей
+
+Аргумент `--` завершает разбор опций: всё после него — позиционный запрос.
+Клей вызывает движок именно так (`... -- "$READLINE_LINE"`), поэтому текст
+вроде `--test` в командной строке НЕ включает режим самотеста, а ищется как
+обычная подстрока.
 """
 import sys
 import os
 import locale
 
-# Минимальная задержка распознавания Esc/стрелок: по умолчанию ncurses ждёт
-# ~1 с после Esc (стрелки тоже начинаются с Esc). Ставим ДО импорта/инициализации
-# curses и форсируем (не setdefault), чтобы перебить возможное большое значение.
-os.environ["ESCDELAY"] = "10"
+# Задержка распознавания Esc/стрелок: по умолчанию ncurses ждёт ~1 с после Esc
+# (стрелки тоже начинаются с Esc). Ставим ДО импорта/инициализации curses и
+# форсируем (не setdefault). 50 мс — компромисс: Esc срабатывает мгновенно на глаз,
+# но хвост escape-последовательности стрелки успевает прийти даже по медленному
+# каналу (ssh/нагрузка), иначе стрелку приняли бы за голый Esc и закрыли меню.
+os.environ["ESCDELAY"] = "50"
 
 import curses
 
 
 def get_history():
-    """Прочитать историю из stdin, убрать пустые строки и дубли (порядок сохранить)."""
+    """Прочитать историю из stdin, убрать пустые строки и дубли (порядок сохранить).
+
+    Записи разделены NUL — так многострочные команды (lithist / встроенный \\n)
+    приходят ЦЕЛЫМИ, а не рвутся на отдельные пункты меню. Если NUL во входе нет
+    (например режим --test читает историю построчно из файла) — делим по строкам.
+    """
     data = sys.stdin.buffer.read().decode("utf-8", "replace")
+    records = data.split("\0") if "\0" in data else data.splitlines()
     seen = set()
     out = []
-    for line in data.splitlines():
-        s = line.rstrip("\n")
+    for rec in records:
+        s = rec.strip("\n")  # снять обрамляющие \n, внутренние (многострочность) сохранить
         if s.strip() and s not in seen:
             seen.add(s)
             out.append(s)
@@ -41,6 +54,11 @@ def filter_items(items, query):
     return [x for x in items if q in x.lower()]
 
 
+def _flatten(s):
+    """Однострочное представление команды для показа/фильтра (реальный текст не меняем)."""
+    return s.replace("\n", " ⏎ ") if "\n" in s else s
+
+
 def run_ui(history, query):
     sel = {"v": None, "mode": None}
 
@@ -48,13 +66,17 @@ def run_ui(history, query):
         curses.curs_set(0)
         stdscr.keypad(True)
         try:
-            curses.set_escdelay(10)  # дублируем форс ESCDELAY уже после init
+            curses.set_escdelay(50)  # дублируем форс ESCDELAY уже после init
         except (AttributeError, curses.error):
             pass
-        hist_lower = [h.lower() for h in history]
+        # flat_all — однострочный показ (многострочные склеены через ⏎), фильтр по нему;
+        # history — реальные команды (с \n), их и возвращаем при выборе.
+        flat_all = [_flatten(h) for h in history]
+        lower_all = [f.lower() for f in flat_all]
         q = list(query)
         last_q = None
         items = history
+        items_flat = flat_all
         idx = 0
         top = 0
         while True:
@@ -62,9 +84,15 @@ def run_ui(history, query):
             if cur_q != last_q:  # фильтр пересчитываем только при смене запроса
                 if cur_q:
                     needle = cur_q.lower()
-                    items = [h for h, hl in zip(history, hist_lower) if needle in hl]
+                    items = []
+                    items_flat = []
+                    for h, f, l in zip(history, flat_all, lower_all):
+                        if needle in l:
+                            items.append(h)
+                            items_flat.append(f)
                 else:
                     items = history
+                    items_flat = flat_all
                 last_q = cur_q
                 idx = 0
                 top = 0
@@ -86,7 +114,7 @@ def run_ui(history, query):
                 if li >= len(items):
                     break
                 marker = "> " if li == idx else "  "
-                text = (marker + items[li])[: w - 1]
+                text = (marker + items_flat[li])[: w - 1]
                 attr = curses.A_REVERSE if li == idx else curses.A_NORMAL
                 try:
                     stdscr.addstr(row, 0, text, attr)
@@ -140,6 +168,8 @@ def main():
     if args and args[0] == "--test":
         test = True
         args = args[1:]
+    if args and args[0] == "--":  # дальше — позиционный запрос, не опции
+        args = args[1:]
     query = args[0] if args else ""
     history = get_history()
 
@@ -149,13 +179,21 @@ def main():
         return
 
     # сохранить исходный stdout (pipe из $()), а curses увести на /dev/tty
-    result_fd = os.dup(1)
-    tty_out = os.open("/dev/tty", os.O_WRONLY)
-    os.dup2(tty_out, 1)
-    tty_in = os.open("/dev/tty", os.O_RDONLY)
-    os.dup2(tty_in, 0)
+    try:
+        result_fd = os.dup(1)
+        tty_out = os.open("/dev/tty", os.O_WRONLY)
+        os.dup2(tty_out, 1)
+        tty_in = os.open("/dev/tty", os.O_RDONLY)
+        os.dup2(tty_in, 0)
+    except OSError:
+        # нет управляющего терминала (запуск без tty) — тихо отменяем, как Esc
+        sys.exit(1)
 
-    selection, mode = run_ui(history, query)
+    try:
+        selection, mode = run_ui(history, query)
+    except curses.error:
+        # TERM не задан/неизвестен, curses не смог инициализироваться — тихая отмена
+        sys.exit(1)
 
     if selection:
         os.write(result_fd, (selection + "\n").encode("utf-8"))

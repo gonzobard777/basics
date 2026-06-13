@@ -32,11 +32,22 @@ else
 fi
 
 # --- 3. Подключение из ~/.bashrc (с бэкапом) ---------------------------------
-if [[ -f "$HOME/.bashrc" ]] && grep -q '\.hist_search\.bash' "$HOME/.bashrc"; then
+# Удаляем ТОЛЬКО две точные строки, добавленные установщиком (целиком: grep -x -F),
+# а не по подстроке — иначе сносились бы пользовательские строки, где '# auto-in:'
+# или '.hist_search.bash' встречаются как часть текста.
+__ai_comment='# auto-in: поиск/просмотр истории на стрелке вверх (Python+curses)'
+__ai_source='[ -f "$HOME/.hist_search.bash" ] && . "$HOME/.hist_search.bash"'
+if [[ -f "$HOME/.bashrc" ]] && grep -qxF "$__ai_source" "$HOME/.bashrc"; then
     cp "$HOME/.bashrc" "$HOME/.bashrc.auto-in.bak"
-    # удаляем строку-комментарий "# auto-in:" и строку подключения клея
-    sed -i '\|# auto-in:|d; /\.hist_search\.bash/d' "$HOME/.bashrc"
-    say "Убрано подключение из ~/.bashrc (бэкап: ~/.bashrc.auto-in.bak)"
+    __tmp="$HOME/.bashrc.auto-in.tmp"
+    grep -vxF -e "$__ai_comment" -e "$__ai_source" "$HOME/.bashrc" > "$__tmp" && __grc=0 || __grc=$?
+    if [[ $__grc -le 1 ]]; then            # 0 = остались строки, 1 = удалили все — оба валидны
+        mv "$__tmp" "$HOME/.bashrc"
+        say "Убрано подключение из ~/.bashrc (бэкап: ~/.bashrc.auto-in.bak)"
+    else
+        rm -f "$__tmp"
+        echo "ОШИБКА grep при правке ~/.bashrc — файл не тронут (бэкап цел)." >&2
+    fi
 else
     say "Подключения в ~/.bashrc нет — пропускаю"
 fi
