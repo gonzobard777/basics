@@ -8,6 +8,12 @@
 sudo apt-get update && sudo apt-get install -y dotnet-sdk-10.0
 ```
 
+Добавь глобальные tools в PATH:
+
+```shell
+echo 'export PATH="$HOME/.dotnet/tools:$PATH"' >> ~/.bashrc && source ~/.bashrc
+```
+
 Если в твоём дистрибутиве apt его не находит — официальный скрипт без apt:
 
 ```shell
@@ -20,9 +26,6 @@ echo 'export PATH="$HOME/.dotnet:$HOME/.dotnet/tools:$PATH"' >> ~/.bashrc && sou
 ```shell
 dotnet tool install -g ilspycmd
 ```
-
-Если ставил SDK через apt — добавь глобальные tools в PATH:
-echo 'export PATH="$HOME/.dotnet/tools:$PATH"' >> ~/.bashrc && source ~/.bashrc
 
 **3. Проверка, что взлетело**
 
