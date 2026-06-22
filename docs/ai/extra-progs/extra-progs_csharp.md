@@ -5,7 +5,7 @@
 **1. .NET SDK 8 (даёт команду dotnet)**
 
 ```shell
-sudo apt-get update && sudo apt-get install -y dotnet-sdk-8.0
+sudo apt-get update && sudo apt-get install -y dotnet-sdk-10.0
 ```
 
 Если в твоём дистрибутиве apt его не находит — официальный скрипт без apt:
