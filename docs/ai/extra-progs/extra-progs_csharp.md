@@ -57,8 +57,6 @@ source ~/.profile
 dotnet --version && ilspycmd --version
 ```
 
----
-
 ### Использование
 
 DLL обычно лежат в NuGet-кеше или в `bin` проекта:
