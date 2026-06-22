@@ -17,7 +17,7 @@ echo 'export PATH="$HOME/.dotnet/tools:$PATH"' >> ~/.bashrc && source ~/.bashrc
 Если в твоём дистрибутиве apt его не находит — официальный скрипт без apt:
 
 ```shell
-curl -sSL https://dot.net/v1/dotnet-install.sh | bash -s -- --channel 8.0
+curl -sSL https://dot.net/v1/dotnet-install.sh | bash -s -- --channel 10.0
 echo 'export PATH="$HOME/.dotnet:$HOME/.dotnet/tools:$PATH"' >> ~/.bashrc && source ~/.bashrc
 ```
 
