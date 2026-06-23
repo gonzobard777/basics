@@ -61,7 +61,8 @@ nano ~/.claude/settings.json
     "additionalDirectories": [
       "/mnt/d/gm-online/frontend",
       "/mnt/d/backend",
-      "/mnt/d/gm"
+      "/mnt/d/gm",
+      "/mnt/d/del/!claude"
     ]
   },
   "worktree": {
