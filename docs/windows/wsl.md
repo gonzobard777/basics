@@ -179,3 +179,39 @@ wsl -d Ubuntu-24.04
 Зашёл внутрь (`user@…:~$`) — готово: реестр согласован с реальным расположением, диск на новом разделе.
 
 > ⚠️ Пока реестр указывает на пустое место, копия на новом диске — **единственная**. Не удаляй её «как недокопию», пока не убедился, что дистрибутив грузится. Откат: вернуть прежнее значение `BasePath` через тот же `Set-ItemProperty`.
+
+#### Уборка папок-сирот после переноса
+
+После переноса на старом месте остаётся пустая папка (`…\wsl\{GUID}` без `ext4.vhdx`). «Гарантированная сирота» = папка в `%LOCALAPPDATA%\wsl`, которая **(1)** не упомянута в `BasePath` ни одного зарегистрированного дистрибутива **и (2)** не содержит `ext4.vhdx`. Двойная проверка не даёт снести «битый, но ещё прописанный» дистрибутив (реестр указывает сюда, а файл потерялся — такой надо чинить, а не удалять).
+
+**Показать список сирот:**
+
+```powershell
+$used = Get-ChildItem HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss |
+  ForEach-Object { ($_.GetValue("BasePath") -replace '^\\\\\?\\','').TrimEnd('\').ToLower() }
+
+Get-ChildItem "$env:LOCALAPPDATA\wsl" -Directory -ErrorAction SilentlyContinue |
+  Where-Object {
+    ($_.FullName.TrimEnd('\').ToLower() -notin $used) -and
+    -not (Test-Path (Join-Path $_.FullName 'ext4.vhdx'))
+  } |
+  Select-Object FullName
+```
+
+**Удалить гарантированные сироты** (те же условия, сразу сносит; `-Verbose` покажет, что удалил):
+
+```powershell
+$used = Get-ChildItem HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss |
+  ForEach-Object { ($_.GetValue("BasePath") -replace '^\\\\\?\\','').TrimEnd('\').ToLower() }
+
+Get-ChildItem "$env:LOCALAPPDATA\wsl" -Directory -ErrorAction SilentlyContinue |
+  Where-Object {
+    ($_.FullName.TrimEnd('\').ToLower() -notin $used) -and
+    -not (Test-Path (Join-Path $_.FullName 'ext4.vhdx'))
+  } |
+  Remove-Item -Recurse -Force -Verbose
+```
+
+Логика обеих одинаковая, отличается только хвост: `Select-Object FullName` (показать) vs `Remove-Item` (удалить). Сначала прогони первую, глянь список — потом вторую.
+
+> `$used` собирает пути из реестра, срезая префикс `\\?\` и хвостовой `\` и приводя к нижнему регистру — поэтому форматы `C:\…` и `\\?\D:\…` не собьют сравнение.
