@@ -55,7 +55,7 @@ nano ~/.claude/settings.json
     "allow": [
       "Read(//mnt/c/**)",
       "Read(//mnt/d/**)",
-      "Bash",
+      "Bash(*)",
       "WebFetch",
       "WebSearch"
     ],
