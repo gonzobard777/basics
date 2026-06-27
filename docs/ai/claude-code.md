@@ -80,7 +80,7 @@ nano ~/.claude/settings.json
   "autoUpdatesChannel": "latest",
   "skipWorkflowUsageWarning": true,
   "theme": "dark",
-  "tui": true,
+  "tui": "fullscreen",
   "verbose": true,
   "preferredNotifChannel": "terminal_bell",
   "terminalProgressBarEnabled": true,

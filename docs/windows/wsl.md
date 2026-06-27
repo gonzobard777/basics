@@ -17,7 +17,16 @@
 ```shell
 wsl --list --online          # что доступно для установки
 
-wsl --install -d Ubuntu 26.04
+wsl --install -d Ubuntu-26.04
+
+# Настройка
+
+# Выгрузить в tar
+wsl --shutdown
+wsl --export Ubuntu-26.04 d:\_WSL\_backup\Ubuntu_26_04_node_proxy.tar
+
+# Импорт
+wsl --import 07_03_flippy  d:\_WSL\07_03_flippy  d:\_WSL\_backup\Ubuntu_26_04_node_proxy.tar
 ```
 
 ## Несколько независимых Ubuntu на Windows
