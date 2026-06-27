@@ -143,6 +143,49 @@ done
 printf "%s" "$result"
 ```
 
+7. Вставка картинок (Если не работает)
+
+**Симптом:** `Ctrl+V` не вставляет картинку из буфера Windows в терминал WSL; запуск `.exe` из WSL падает с `cannot execute binary file: Exec format error`.
+
+**Причина:** при включённом `systemd` (в `wsl.conf` `systemd=true`) служба `systemd-binfmt` при старте затирает регистрацию `WSLInterop` в `binfmt_misc`. Без неё Windows‑бинарники (включая `powershell.exe`, через который пробрасывается буфер) перестают запускаться.
+
+**Проверка состояния:**
+
+```shell
+# PID 1 = systemd? и жива ли регистрация WSLInterop
+ps -p 1 -o comm=
+cat /proc/sys/fs/binfmt_misc/WSLInterop   # "No such file" → регистрация слетела
+```
+
+**Починить сейчас (до перезапуска WSL):**
+
+```shell
+sudo sh -c 'echo ":WSLInterop:M::MZ::/init:PF" > /proc/sys/fs/binfmt_misc/register'
+```
+
+**Закрепить навсегда** (systemd‑binfmt будет восстанавливать при каждом старте — иначе после `wsl --shutdown` баг вернётся):
+
+```shell
+sudo sh -c 'echo ":WSLInterop:M::MZ::/init:PF" > /etc/binfmt.d/WSLInterop.conf'
+```
+
+**Проверить, что заработало:**
+
+```shell
+cat /proc/sys/fs/binfmt_misc/WSLInterop
+# ожидаем: enabled / interpreter /init / flags: PF / magic 4d5a
+powershell.exe -NoProfile -Command '"ok"'   # теперь .exe запускается из WSL
+```
+
+Строка регистрации: `MZ` — сигнатура любого Windows‑`.exe`; `/init` — запускатель WSL; флаги `P` (сохранять argv[0]) + `F` (зафиксировать интерпретатор сразу, иначе не работает из mount‑namespace, как у Claude Code).
+
+**Если `Ctrl+V` всё равно капризничает** — вытащить картинку из буфера в файл через PowerShell и дать Claude путь:
+
+```shell
+powershell.exe -NoProfile -STA -Command "Add-Type -AssemblyName System.Windows.Forms,System.Drawing; \$i=[Windows.Forms.Clipboard]::GetImage(); if(\$i){\$i.Save('D:\path\clip.png',[System.Drawing.Imaging.ImageFormat]::Png); 'saved'}else{'no-image'}"
+# затем указать Claude путь /mnt/d/path/clip.png
+```
+
 ## Параметры агента
 
 | Параметр (англ.)                        | Параметр (рус.)                                 | Описание                                                                                                  |
