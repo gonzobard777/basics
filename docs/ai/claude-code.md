@@ -8,6 +8,8 @@
 ```shell
 nano ~/.bashrc
 
+cd ~
+
 # Добавить переменные
 export http_proxy=http://xx.xx.xx.xx:3128
 export https_proxy=http://xx.xx.xx.xx:3128
