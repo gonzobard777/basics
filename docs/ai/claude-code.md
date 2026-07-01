@@ -36,7 +36,7 @@ sudo apt update
 sudo apt install nodejs npm -y
 
 # Всякие питоновские пакеты
-sudo apt install python3-rapidfuzz python3-geopy python3-unidecode python3-numpy python3-pandas python3-scipy python3-shapely python3-pyproj python3-requests python3-openpyxl python3-sklearn python3-matplotlib python3-tqdm
+sudo apt install python3-rapidfuzz python3-geopy python3-unidecode python3-numpy python3-pandas python3-scipy python3-shapely python3-pyproj python3-requests python3-openpyxl python3-sklearn python3-matplotlib python3-tqdm pandoc unzip fontconfig
 
 # claude
 curl -fsSL https://claude.ai/install.sh | bash
