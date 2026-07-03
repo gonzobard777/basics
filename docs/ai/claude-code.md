@@ -76,6 +76,7 @@ nano ~/.claude/settings.json
   },
   "language": "русский",
   "effortLevel": "xhigh",
+  "fallbackModel": ["opus"],
   "awaySummaryEnabled": false,
   "autoUpdatesChannel": "latest",
   "skipWorkflowUsageWarning": true,
