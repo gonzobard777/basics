@@ -13,6 +13,7 @@
 | `winget uninstall Ubuntu`  | Удаляет пакет Ubuntu                                                 |
 | `wsl --install -d Ubuntu`  | Установить дистрибутив Ubuntu в WSL                                  |
 | `wsl --shutdown`           | Остановить все запущенные дистрибутивы                               |
+| `wsl --terminate Ubuntu`   | Остановить конкретный дистрибутив                                    |
 
 ```shell
 wsl --list --online          # что доступно для установки
@@ -25,8 +26,27 @@ wsl --install -d Ubuntu-26.04
 wsl --shutdown
 wsl --export Ubuntu-26.04 d:\_WSL\_backup\Ubuntu_26_04_node_proxy.tar
 
-# Импорт
-wsl --import 07_03_flippy  d:\_WSL\07_03_flippy  d:\_WSL\_backup\Ubuntu_26_04_node_proxy.tar
+# 0. импорт -- ПОД АДМИНОМ!!!!!!
+wsl --import 08_03_murad  d:\_WSL\08_03_murad  d:\_WSL\_backup\Ubuntu_26_04_node_proxy.tar
+
+# 1. выбери UID, уникальный среди всех твоих клонов: 1001, следующий 1002, и т.д.
+$NEWUID = 1002
+
+# 2. останови (чтобы zoomall был не залогинен) и смени UID из root-сессии
+#    - usermod -u меняет UID в /etc/passwd и сам перечищает владельца в /home/zoomall.
+#    - find / -xdev -uid 1000 … chown добивает файлы старого UID вне домашней папки. -xdev держит поиск на корневом ФС дистрибутива — Windows-диски /mnt/* не трогаются.
+#    - default=zoomall в wsl.conf задан по имени, не по UID, поэтому смена UID вход не ломает; sudo/группы тоже по имени — не затрагиваются.
+wsl --terminate 08_03_murad
+wsl -d 08_03_murad -u root -- bash -lc "usermod -u $NEWUID zoomall && find / -xdev -uid 1000 -exec chown $NEWUID {} + 2>/dev/null; id zoomall"
+
+# 3. перезапусти и заходи как обычно
+wsl --terminate 08_03_murad
+wsl -d 08_03_murad
+
+# Опционально: гигиена клонов (рекомендую при большом числе)
+# Не влияет на текущий баг, но одинаковые machine-id/hostname у многих клонов в одной VM позже дают мелкие странности (журнал, D-Bus, mDNS). Добавь в root-шаг:
+printf '[boot]\nsystemd=true\n\n[user]\ndefault=zoomall\n\n[network]\nhostname=murad\n' | sudo tee /etc/wsl.conf >/dev/null
+sudo bash -c 'rm -f /etc/machine-id /var/lib/dbus/machine-id && systemd-machine-id-setup'
 ```
 
 ## Несколько независимых Ubuntu на Windows
