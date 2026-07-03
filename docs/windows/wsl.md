@@ -45,7 +45,8 @@ wsl -d 08_03_murad
 
 # Опционально: гигиена клонов (рекомендую при большом числе)
 # Не влияет на текущий баг, но одинаковые machine-id/hostname у многих клонов в одной VM позже дают мелкие странности (журнал, D-Bus, mDNS). Добавь в root-шаг:
-printf '[boot]\nsystemd=true\n\n[user]\ndefault=zoomall\n\n[network]\nhostname=murad\n' | sudo tee /etc/wsl.conf >/dev/null
+NEWHOST="wsl-$(tr -dc 'a-z0-9' </dev/urandom | head -c 8)"
+printf '[boot]\nsystemd=true\n\n[user]\ndefault=zoomall\n\n[network]\nhostname=%s\n' "$NEWHOST" | sudo tee /etc/wsl.conf >/dev/null
 sudo bash -c 'rm -f /etc/machine-id /var/lib/dbus/machine-id && systemd-machine-id-setup'
 ```
 
