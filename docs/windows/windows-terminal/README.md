@@ -46,4 +46,14 @@ Import-Module PSReadLine -MinimumVersion 2.2.0 -Force
 
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
+
+# Цвета под белый фон (по умолчанию рассчитаны на тёмный, поэтому
+# подсказка-подсветка бледная и почти не читается на белом)
+Set-PSReadLineOption -Colors @{
+    InlinePrediction = '#7CA0AA'
+    Command          = '#B58900'
+    Parameter        = '#268BD2'
+    Operator         = '#859900'
+    Comment          = '#93A1A1'
+}
 ```
