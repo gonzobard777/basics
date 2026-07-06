@@ -27,6 +27,12 @@ curl 2ip.ru
 xx.xx.xx.xx:3128
 ```
 
+Простая проверка «жив ли API и есть ли до него сеть»:
+
+```shell
+for i in $(seq 1 20); do curl -sS -o /dev/null -w "%{http_code} %{time_total}s\n" https://api.anthropic.com/v1/messages; done
+```
+
 5. Поставить проги и клод:
 
 ```shell
@@ -76,7 +82,9 @@ nano ~/.claude/settings.json
   },
   "language": "русский",
   "effortLevel": "xhigh",
-  "fallbackModel": ["opus"],
+  "fallbackModel": [
+    "opus"
+  ],
   "awaySummaryEnabled": false,
   "autoUpdatesChannel": "stable",
   "skipWorkflowUsageWarning": true,
