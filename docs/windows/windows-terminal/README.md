@@ -30,7 +30,6 @@ New-Item -Path $PROFILE -ItemType File -Force
 notepad $PROFILE
 ```
 
-
 Содержимое:
 
 ```shell
@@ -63,4 +62,11 @@ Set-PSReadLineOption -Colors @{
     Operator         = '#859900'
     Comment          = '#93A1A1'
 }
+```
+
+Тему в Windows 10 можно переключить через реестр. Для белой (светлой) темы нужно установить два ключа в 1:
+
+```shell
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name AppsUseLightTheme -Value 1
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name SystemUsesLightTheme -Value 1
 ```
