@@ -12,10 +12,10 @@ Settings -> Open JSON file
 
 ## Профиль
 
-Открыть профиль:
+Проверь, существует ли файл:
 
 ```shell
-notepad $PROFILE
+Test-Path $PROFILE
 ```
 
 если нет, то создать:
@@ -23,6 +23,13 @@ notepad $PROFILE
 ```shell
 New-Item -Path $PROFILE -ItemType File -Force
 ```
+
+Открыть профиль, выполнив команду в PowerShell:
+
+```shell
+notepad $PROFILE
+```
+
 
 Содержимое:
 
