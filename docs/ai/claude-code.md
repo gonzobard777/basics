@@ -91,7 +91,6 @@ nano ~/.claude/settings.json
     "opus"
   ],
   "awaySummaryEnabled": false,
-  "autoUpdatesChannel": "stable",
   "skipWorkflowUsageWarning": true,
   "theme": "light-daltonized",
   "tui": "fullscreen",
@@ -99,7 +98,11 @@ nano ~/.claude/settings.json
   "preferredNotifChannel": "terminal_bell",
   "terminalProgressBarEnabled": true,
   "remoteControlAtStartup": false,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "autoUpdatesChannel": "stable",
+  "env": {
+    "DISABLE_AUTOUPDATER": "1"
+  }
 }
 ```
 
