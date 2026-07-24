@@ -74,5 +74,5 @@ chmod +x "$out"
 запустить:
 
 ```shell
-bash install-claude.sh
+bash ~/install-claude.sh
 ```
