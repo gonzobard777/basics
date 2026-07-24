@@ -19,6 +19,24 @@ nano ~/install-claude.sh
 
 ```shell
 #!/bin/bash
+# Установка Claude Code (native, stable) для медленного интернета.
+#
+# Официальный инсталлер (curl https://claude.ai/install.sh | bash) качает
+# бинарник дважды и со встроенным таймаутом — на медленном канале падает
+# с "Download timed out: exceeded the total deadline".
+#
+# Этот скрипт вместо этого:
+#   1. Качает stable-бинарник один раз через wget -c (докачка после обрыва,
+#      без таймаута) и сверяет sha256 с manifest.
+#   2. Кладёт его в ~/.local/share/claude/versions/<версия> и делает
+#      ссылку ~/.local/bin/claude — это уже рабочая установка.
+#   3. Запускает штатный `claude install stable` — версия на месте,
+#      загрузка пропускается, доделывается только настройка.
+#   4. Проверяет PATH (при необходимости дописывает в ~/.bashrc) и что
+#      `claude --version` работает.
+#
+# При обрыве связи просто запустить скрипт снова — докачает с места обрыва.
+# Повторный запуск также обновляет Claude Code до текущей stable-версии.
 set -e
 
 BASE="https://downloads.claude.ai/claude-code-releases"
@@ -72,20 +90,35 @@ chmod +x "$VERSIONS_DIR/$ver"
 ln -sf "$VERSIONS_DIR/$ver" "$HOME/.local/bin/claude"
 echo "Бинарник установлен в $VERSIONS_DIR/$ver"
 
-# запускаем инсталлер — версия уже на месте, он должен пропустить
-# загрузку и просто доделать настройку (launcher, shell integration).
-# Если что-то пойдёт не так — не страшно, ручная установка выше уже рабочая.
+# штатный инсталлер доделывает настройку (загрузку пропустит — версия уже на месте)
 if ! "$out" install stable; then
-    echo ""
     echo "Инсталлер завершился с ошибкой, но ручная установка уже сделана." >&2
 fi
 
-# проверка
+# PATH: если ~/.local/bin не в PATH текущего шелла — дописываем в ~/.bashrc (без дублей)
+case ":$PATH:" in
+    *":$HOME/.local/bin:"*)
+        echo "PATH уже содержит ~/.local/bin" ;;
+    *)
+        if grep -q '\.local/bin' "$HOME/.bashrc" 2>/dev/null; then
+            echo "PATH настроен в ~/.bashrc (подхватится в новом окне терминала)"
+        else
+            echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bashrc"
+            echo "Добавил ~/.local/bin в PATH через ~/.bashrc"
+        fi ;;
+esac
+
+# итоговая проверка
 export PATH="$HOME/.local/bin:$PATH"
-echo ""
-echo "Проверка: $(claude --version)"
-echo "Если версия видна выше — всё готово. Убедитесь, что ~/.local/bin в PATH (добавьте в ~/.bashrc):"
-echo '  export PATH="$HOME/.local/bin:$PATH"'
+v=$(claude --version 2>/dev/null || true)
+if [ -n "$v" ]; then
+    echo ""
+    echo "✅ Установка успешна: $v"
+    echo "Откройте новое окно терминала и запустите: claude"
+else
+    echo "❌ claude не запускается — проверьте вывод выше" >&2
+    exit 1
+fi
 ```
 
 запустить:
