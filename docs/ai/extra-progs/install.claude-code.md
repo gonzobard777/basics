@@ -19,6 +19,10 @@ echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
 Одно скачивание вместо двух, и оно идёт через `wget -c` без дедлайна и с докачкой.
 
 ```shell
+nano ~/install-claude.sh
+```
+
+```shell
 #!/bin/bash
 set -e
 
@@ -67,7 +71,7 @@ chmod +x "$out"
 "$out" install stable
 ```
 
-сохранить как `install-claude.sh` и запустить:
+запустить:
 
 ```shell
 bash install-claude.sh
