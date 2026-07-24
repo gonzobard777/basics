@@ -13,11 +13,6 @@ echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
 
 ### Если интернет медленный
 
-В этом скрипте сразу качается бинарник stable-версии.   
-Когда он выполняет `install stable`, запрошенная версия совпадает с его собственной — качать нечего,     
-он просто копирует сам себя в `~/.local/share/claude` и прописывает launcher.    
-Одно скачивание вместо двух, и оно идёт через `wget -c` без дедлайна и с докачкой.
-
 ```shell
 nano ~/install-claude.sh
 ```
@@ -67,9 +62,30 @@ if [ "$actual" != "$checksum" ]; then
     exit 1
 fi
 echo "Checksum OK"
-
 chmod +x "$out"
-"$out" install stable
+
+# ручная установка: кладём бинарник туда, где его ищет Claude Code
+VERSIONS_DIR="$HOME/.local/share/claude/versions"
+mkdir -p "$HOME/.local/bin" "$VERSIONS_DIR"
+cp "$out" "$VERSIONS_DIR/$ver"
+chmod +x "$VERSIONS_DIR/$ver"
+ln -sf "$VERSIONS_DIR/$ver" "$HOME/.local/bin/claude"
+echo "Бинарник установлен в $VERSIONS_DIR/$ver"
+
+# запускаем инсталлер — версия уже на месте, он должен пропустить
+# загрузку и просто доделать настройку (launcher, shell integration).
+# Если что-то пойдёт не так — не страшно, ручная установка выше уже рабочая.
+if ! "$out" install stable; then
+    echo ""
+    echo "Инсталлер завершился с ошибкой, но ручная установка уже сделана." >&2
+fi
+
+# проверка
+export PATH="$HOME/.local/bin:$PATH"
+echo ""
+echo "Проверка: $(claude --version)"
+echo "Если версия видна выше — всё готово. Убедитесь, что ~/.local/bin в PATH (добавьте в ~/.bashrc):"
+echo '  export PATH="$HOME/.local/bin:$PATH"'
 ```
 
 запустить:
