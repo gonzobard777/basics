@@ -12,23 +12,18 @@ Settings -> Open JSON file
 
 ## Профиль
 
-Проверь, существует ли файл:
-
 ```shell
-Test-Path $PROFILE
+if (-not (Test-Path $PROFILE)) {
+  New-Item -Path $PROFILE -ItemType File -Force | Out-Null
+  Write-Host "Профиль создан: $PROFILE"
+} else {
+  Write-Host "Профиль уже существует: $PROFILE"
+}
 ```
 
-если нет, то создать:
-
-```shell
-New-Item -Path $PROFILE -ItemType File -Force
-```
-
-Открыть профиль, выполнив команду в PowerShell:
-
-```shell
-notepad $PROFILE
-```
+Проверить.   
+Для PS 7 путь должен быть `...\Documents\PowerShell\Microsoft.PowerShell_profile.ps1`   
+(не WindowsPowerShell — это профиль старого PS 5)
 
 Содержимое:
 
