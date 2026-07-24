@@ -12,6 +12,8 @@ Settings -> Open JSON file
 
 ## Профиль
 
+Сначала обнови повершел, а затем сделай так в нем:
+
 ```shell
 if (-not (Test-Path $PROFILE)) {
   New-Item -Path $PROFILE -ItemType File -Force | Out-Null
