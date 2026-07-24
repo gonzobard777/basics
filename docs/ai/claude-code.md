@@ -50,11 +50,9 @@ source ~/pw-venv/bin/activate
 pip install playwright
 playwright install chromium
 playwright install-deps chromium # системные библиотеки
-
-# claude
-curl -fsSL https://claude.ai/install.sh | bash -s stable
-echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
 ```
+
+[установка клода](./extra-progs/install.claude-code.md)
 
 6. Настройки клода:
 
