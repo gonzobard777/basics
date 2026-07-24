@@ -46,14 +46,15 @@ else
 fi
 echo "Платформа: $platform"
 
-# берём checksum из manifest (заодно проверяем, что платформа там есть)
+# берём checksum из manifest
 manifest=$(curl -fsSL "$BASE/$ver/manifest.json")
-checksum=$(echo "$manifest" | tr -d ' \n' | grep -o "\"$platform\":{\"checksum\":\"[a-f0-9]\{64\}\"" | grep -o '[a-f0-9]\{64\}')
+checksum=$(echo "$manifest" | tr -d ' \n\t\r' | grep -o "\"$platform\":{[^}]*}" | grep -o '"checksum":"[a-f0-9]\{64\}"' | grep -o '[a-f0-9]\{64\}' || true)
 if [ -z "$checksum" ]; then
     echo "Платформа $platform не найдена в manifest. Доступные:" >&2
-    echo "$manifest" | grep -o '"[a-z0-9-]*":{"checksum' | cut -d'"' -f2 >&2
+    echo "$manifest" | grep -o '"[a-z0-9-]*":{' | cut -d'"' -f2 >&2
     exit 1
 fi
+echo "Checksum из manifest: $checksum"
 
 # качаем с докачкой — при обрыве просто запустить скрипт снова
 out="$HOME/claude-$ver-$platform"
